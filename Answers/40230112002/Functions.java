@@ -13,24 +13,30 @@ public class Functions {
         String[] lastname = lastName.split("");
         lastname[0] = lastname[0].toUpperCase();
         String Lastname = String.join("" , lastname);
-        String FullName = Firstname+" "+Lastname;
 
-        return FullName;
+        return Firstname+" "+Lastname;
     }
 
     public static String Phone(String phone) {
 
         String[] phoneNumbers = phone.split("");
-        Scanner sc = new Scanner(System.in);
-        while(true){
             if(phoneNumbers[0].equals("9") && phoneNumbers.length == 10){
                 phone = "0" + phone;
                 return phone;
             }
             else{
-                System.out.println("Error : Unvalid Phone number !! \n Try Again ... \n Enter a valid Phone number : ");
+                System.out.println("Error : Invalid Phone number !! \n Try Again ... \n Enter a valid Phone number : ");
                 return "Error";
             }
+    }
+
+    public static String userId(String id){
+        if(id.length()<13 && id.length()>4){
+            return id;
+        }
+        else{
+            System.out.println("Error : Invalid ID (ID should be between 4 and 13 digits \n Try Again ... \n Enter a valid ID : ");
+            return "Error";
         }
     }
 
@@ -38,22 +44,33 @@ public class Functions {
 
     public static void main(String[] args) {
 
+        //getting name from user
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your firstname : ");
-        String firstname = sc.nextLine();
+        String firstname = sc.next();
         System.out.println("Enter your lastname : ");
-        String lastname = sc.nextLine();
-        String Fullname = fullName(firstname , lastname);
+        String lastname = sc.next();
+        String Fullname = fullName(firstname, lastname);
 
+        //getting phone number from user
         System.out.println("Enter a valid Phone number : ");
-        while (true){
+        String phone;
 
-            String phone = sc.nextLine();
-            if(!Phone(phone).equals("Error")){
+        while (true) {
+            phone = sc.next();
+            if (!Phone(phone).equals("Error")) {
                 phone = Phone(phone);
                 break;
             }
         }
 
+        //validating user id
+        System.out.println("Enter a valid ID : ");
+        String id;
+        do {
+            id = sc.next();
+        } while (userId(id).equals("Error"));
+
+        //getting user interests
     }
 }
