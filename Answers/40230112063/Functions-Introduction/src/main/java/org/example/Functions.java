@@ -46,5 +46,31 @@ public class Functions
         return (firstName+" "+lastName);
     }
 
+    public int phoneNumber(Integer phone)
+    {
+        //If the input phone number is valid, it returns the phone number
+        //otherwise returns 0.
 
+        String number_str = phone.toString();
+
+        if(number_str.length()==11 && number_str.startsWith("0") && number_str.substring(1).startsWith("9"))
+            return phone;
+
+        else if(number_str.length()==10 && number_str.startsWith("9"))
+        {
+            number_str = "0".concat(number_str);
+
+            phone = 0;
+            for(int i=0 ; i<number_str.length() ;i++)
+            {
+                phone = phone*10 + (number_str.charAt(i)-48);
+            }
+
+            return phone;
+        }
+        else
+            return 0;
+
+
+    }
 }
