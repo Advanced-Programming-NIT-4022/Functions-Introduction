@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Functions
 {
@@ -82,5 +83,46 @@ public class Functions
             return id;
         else
             return 0;
+    }
+
+    public int getInterests(String[] interests)
+    {
+        String operation ;
+
+        int counter=0;
+
+        boolean flag = false;
+
+        Scanner input = new Scanner(System.in);
+
+        while(true)
+        {
+            System.out.println("Select your desired operation : ");
+            System.out.println("NI - New Interest");
+            System.out.println("E - Exit");
+
+            operation = input.nextLine();
+
+            switch (operation)
+            {
+                case "NI" :
+                    System.out.println("Enter your interest : ");
+                    interests[counter]=input.nextLine();
+                    counter++;
+                    break;
+
+                case "E" :
+                    flag = true;
+                    break;
+
+                default :
+                    System.out.println("Wrong entry . Try again . ");
+            }
+
+            if(flag)
+                break;
+        }
+
+        return counter-1;
     }
 }
