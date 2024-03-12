@@ -1,4 +1,8 @@
 package org.example;
+
+import java.util.Objects;
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -51,6 +55,33 @@ public class Main {
             return "Wrong entry. Try again.";
     }
 
-    
+    public static String[] getInterests(String[] interests){ // interests is empty array, passed by ref
+        Scanner scn = new Scanner(System.in);
+        interests = new String[10];
+        String feed;
+        String inp;
+        for(int i = 0;i < 10;i++)
+        {
+            inp = scn.nextLine();
+            interests[i] = inp;
+            System.out.println("Continue :y/n ?");
+            feed = scn.nextLine();
+            if(Objects.equals(feed, "n") || Objects.equals(feed, "N") || Objects.equals(feed, "no") || Objects.equals(feed, "No") || Objects.equals(feed, "NO") || Objects.equals(feed, "nO")){
+                System.out.println(feed);
+                break;
+            }
 
+
+        }
+        return interests;
+    }
+
+    public static void main(String[] args) {
+        String[] intd = {};
+        intd = getInterests(intd);
+        for(int i = 0;i < intd.length;i++){
+            System.out.println(intd[i]);
+        }
+
+    }
 }
