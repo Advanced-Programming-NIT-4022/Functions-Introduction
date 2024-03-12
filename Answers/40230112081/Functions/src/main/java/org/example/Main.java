@@ -28,4 +28,20 @@ public class Main {
         lastName = normalizeName(lastName);
         return firstName + " " + lastName;
     }
+
+    public boolean isAllNummber(String phone)
+    {
+        for(int i = 0;i < phone.length();i++){
+            if((int)phone.charAt(i) < 48 || (int)phone.charAt(i) > 57)
+                return false;
+        }
+        return true;
+    }
+    public String phoneNumber(String phone){
+        if(phone.charAt(0) == '9' && phone.length() == 10 && isAllNummber(phone))
+            return "0"+phone;
+        return "Wrong entry. Try again.";
+    }
+
+
 }
