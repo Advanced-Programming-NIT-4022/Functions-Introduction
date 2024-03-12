@@ -33,7 +33,7 @@ public class Main {
         return firstName + " " + lastName;
     }
 
-    public boolean isAllNummber(String phone)
+    public boolean isAllNumber(String phone)
     {
         for(int i = 0;i < phone.length();i++){
             if((int)phone.charAt(i) < 48 || (int)phone.charAt(i) > 57)
@@ -42,7 +42,7 @@ public class Main {
         return true;
     }
     public String phoneNumber(String phone){
-        if(phone.charAt(0) == '9' && phone.length() == 10 && isAllNummber(phone))
+        if(phone.charAt(0) == '9' && phone.length() == 10 && isAllNumber(phone))
             return "0"+phone;
         return "Wrong entry. Try again.";
     }
@@ -55,33 +55,12 @@ public class Main {
             return "Wrong entry. Try again.";
     }
 
-    public static String[] getInterests(String[] interests){ // interests is empty array, passed by ref
+    public String[] getInterests(Vector interests) { // interests is empty array, passed by ref
         Scanner scn = new Scanner(System.in);
-        interests = new String[10];
-        String feed;
-        String inp;
-        for(int i = 0;i < 10;i++)
-        {
-            inp = scn.nextLine();
-            interests[i] = inp;
-            System.out.println("Continue :y/n ?");
-            feed = scn.nextLine();
-            if(Objects.equals(feed, "n") || Objects.equals(feed, "N") || Objects.equals(feed, "no") || Objects.equals(feed, "No") || Objects.equals(feed, "NO") || Objects.equals(feed, "nO")){
-                System.out.println(feed);
-                break;
-            }
-
-
-        }
-        return interests;
+        
+        return interests.get_arr();
     }
-
     public static void main(String[] args) {
-        String[] intd = {};
-        intd = getInterests(intd);
-        for(int i = 0;i < intd.length;i++){
-            System.out.println(intd[i]);
-        }
 
     }
 }
