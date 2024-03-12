@@ -111,7 +111,6 @@ public class Main {
             fi = place + shift;
             if(fi < 0)
                 fi = 26 + fi;
-            System.out.println(fi);
 
             out = String.valueOf((char)(((fi) % 26 + 96)));
         }
