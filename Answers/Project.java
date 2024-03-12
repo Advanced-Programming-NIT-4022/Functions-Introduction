@@ -77,6 +77,8 @@ public class Project {
                         }
 
                 String modifiedPhoneNumber = addZeroToPhoneNumber(phoneNumber);
+                System.out.println("Saving...");
+                System.out.println();
                 System.out.println("Phone Number: " + modifiedPhoneNumber);
 
                 System.out.println();
@@ -88,6 +90,8 @@ public class Project {
                 if(in2 == 3){
                     Userid stdid = new Userid();
                     String studentid = stdid.Idnum();
+                    System.out.println("Saving...");
+                    System.out.println();
                     System.out.println("Your Student Id : " + studentid);
                 }
             }
