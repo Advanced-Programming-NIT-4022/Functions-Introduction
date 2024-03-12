@@ -57,10 +57,19 @@ public class Main {
 
     public String[] getInterests(Vector interests) { // interests is empty array, passed by ref
         Scanner scn = new Scanner(System.in);
-
+        String inp;
+        String flag;
+        while(interests.capacity() <= 10)
+        {
+            inp = scn.nextLine();
+            interests.push(inp);
+            System.out.println("Continue : [Y/N]");
+            flag = scn.nextLine();
+            if(Objects.equals(flag, "N") || Objects.equals(flag, "n"))
+                break;
+        }
         return interests.get_arr();
     }
-    public static void main(String[] args) {
 
-    }
+
 }
