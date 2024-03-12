@@ -85,7 +85,7 @@ public class Functions
             return 0;
     }
 
-    public int getInterests(String[] interests)
+    public void getInterests(String[] interests)
     {
         String operation ;
 
@@ -122,7 +122,5 @@ public class Functions
             if(flag)
                 break;
         }
-
-        return counter-1;
     }
 }
