@@ -2,6 +2,7 @@ package org.example;
 
 import javax.swing.*;
 import java.util.Objects;
+import java.util.OptionalInt;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -94,18 +95,28 @@ public class Main {
     public  boolean isAlpha(char chr){
         return (((int)chr >= 65)&&((int)chr <= 90)) || (((int)chr >= 97)&&((int)chr <= 122));
     }
-    public  String cipher(char chr, int shift){
+    public String cipher(char chr, int shift){
         int place;
+        int fi;
+        int s;
         String out;
         if(isCapital(chr))
         {
             place = (int)chr - 64;
-            out = String.valueOf((char)(((place + shift) % 26 + 64)));
+            fi = place + shift;
+            if(fi < 0)
+                fi = 26 + fi;
+            out = String.valueOf((char)(((fi) % 26 + 64)));
         }
         else
         {
             place = (int)chr - 96;
-            out = String.valueOf((char)(((place + shift) % 26 + 96)));
+            fi = place + shift;
+            if(fi < 0)
+                fi = 26 + fi;
+            System.out.println(fi);
+
+            out = String.valueOf((char)(((fi) % 26 + 96)));
         }
         return out;
     }
@@ -125,7 +136,23 @@ public class Main {
         }
         return out;
     }
+    public  String informationDecoder(String information, int shift)
+    {
+        String out = "";
+        for(int i = 0;i < information.length();i++)
+        {
+            if(isAlpha(information.charAt(i)))
+            {
+                out += cipher(information.charAt(i), -1*shift);
+            }
+            else
+            {
+                out += String.valueOf(information.charAt(i));
+            }
+        }
+        return out;
+    }
     public static void main(String[] args) {
-
+        
     }
 }
