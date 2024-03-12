@@ -1,5 +1,6 @@
 package org.example;
 
+import javax.swing.*;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -86,6 +87,44 @@ public class Main {
         System.out.println(end);
     }
 
+    public  boolean isCapital(char chr)
+    {
+        return ((int)chr >= 65)&&((int)chr <= 90);
+    }
+    public  boolean isAlpha(char chr){
+        return (((int)chr >= 65)&&((int)chr <= 90)) || (((int)chr >= 97)&&((int)chr <= 122));
+    }
+    public  String cipher(char chr, int shift){
+        int place;
+        String out;
+        if(isCapital(chr))
+        {
+            place = (int)chr - 64;
+            out = String.valueOf((char)(((place + shift) % 26 + 64)));
+        }
+        else
+        {
+            place = (int)chr - 96;
+            out = String.valueOf((char)(((place + shift) % 26 + 96)));
+        }
+        return out;
+    }
+    public String informationEncoder(String information,int shift)
+    {
+        String out = "";
+        for(int i = 0;i < information.length();i++)
+        {
+            if(isAlpha(information.charAt(i)))
+            {
+                out += cipher(information.charAt(i), shift);
+            }
+            else
+            {
+                out += String.valueOf(information.charAt(i));
+            }
+        }
+        return out;
+    }
     public static void main(String[] args) {
 
     }
