@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -59,12 +60,22 @@ public class Functions {
 
 
     //userFullInformation Function
-    public static void userFullInformation(String fullName, String phoneNumber, String userID, ArrayList<String> interests){
-        System.out.println("Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests:");
+    public static String userFullInformation(String fullName, String phoneNumber, String userID, ArrayList<String> interests){
+//        ByteArrayOutputStream Information = new ByteArrayOutputStream();
+//        PrintStream ps = new PrintStream(Information);
+//        PrintStream old = System.out;
+//        System.setOut(ps);
+        StringBuilder Information;
+        Information = new StringBuilder("Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests:");
         for(int i = 0 ; i < interests.size() ; i++){
-            System.out.println((i+1) +". "+interests.get(i));
+            Information.append("\n").append(i + 1).append(". ").append(interests.get(i));
         }
-        System.out.println("\n\nYou can reach me via my phone number " +phoneNumber+".");
+        Information.append("\nYou can reach me via my phone number ").append(phoneNumber).append(".");
+
+//        System.out.flush();
+//        System.setOut(old);
+//        return Information.toString();
+        return Information.toString();
     }
 
     public static void main(String[] args) {
@@ -104,18 +115,26 @@ public class Functions {
         interest = sc.nextLine();
         ArrayList<String> ListOfInterest = getInterests(interest);
 
-        //showing user info
-        userFullInformation(Fullname , phone , id , ListOfInterest);
+        //showing user info and getting the standard output for encoding the information
+        String Information = userFullInformation(Fullname , phone , id , ListOfInterest);
 
         //Encoding
-        String Information = "Hello"; //just for testing the cipher
-        System.out.println("Do you want to Encode this information? Y/N");
+        System.out.println("1.Show Encoded Information\n2.Show Decoded Information\nInput: ");
         String Input = sc.nextLine();
-        if(Input.equals("Y") || Input.equals("y")){
-            System.out.println("Enter the Shift : ");
-            int shift = sc.nextInt();
-            String EncodedInfo = Cipher.Encoding(Information , shift);
+        System.out.println("Enter the Shift to Encode Info : ");
+        int shift = sc.nextInt();
+        String EncodedInfo = Cipher.Encoder(Information, shift);
+
+        //Info has been encoded up tp this point
+        if(Input.equals("1")) {
             System.out.println("Encoded Info: \n" + EncodedInfo);
         }
+        //Decoding
+        //the Decoder only shifts back
+        else{
+            String DecodedInfo = Cipher.Decoder(EncodedInfo , shift);
+            System.out.println("Decoded Info: \n"+ DecodedInfo);
+            }
         }
-    }
+
+}
