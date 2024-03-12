@@ -43,5 +43,14 @@ public class Main {
         return "Wrong entry. Try again.";
     }
 
+    public String userID(String Id)
+    {
+        if(Id.length() >= 4 && Id.length() <= 13)
+            return Id;
+        else
+            return "Wrong entry. Try again.";
+    }
+
+    
 
 }
