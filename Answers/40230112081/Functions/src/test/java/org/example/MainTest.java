@@ -6,31 +6,35 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
+    Main obj = new Main();
     @Test
-    void fullName() {
+    public void fullName_test() {
+        assertEquals("Amir Salehi", obj.fullName("aMIr", "SalEhI"));
+        assertEquals("Hossein Javid", obj.fullName("Hossein", "JaViD"));
     }
 
     @Test
-    void phoneNumber() {
+    public void phoneNumber_test() {
+        assertEquals("09114567890", obj.phoneNumber("9114567890"));
+        assertEquals("Wrong entry. Try again.", obj.phoneNumber("091234"));
+        assertEquals("Wrong entry. Try again.",obj.phoneNumber("0912***3344"));
     }
 
     @Test
-    void userID() {
+    public void userID() {
+        assertEquals("Wrong entry. Try again.",obj.userID("123"));
+        assertEquals("4990123567",obj.userID("4990123567"));
     }
 
     @Test
-    void getInterests() {
+    public void informationEncoder() {
+        assertEquals("Khoor, pb qdph lv Dubdqrru. L dp ohduqlqj Mdyd.",obj.informationEncoder("Hello, my name is Aryanoor. I am learning Java.",3));
+        assertEquals("Eqmv", obj.informationEncoder("Amir", 4));
     }
 
     @Test
-    void userFullInformation() {
-    }
-
-    @Test
-    void informationEncoder() {
-    }
-
-    @Test
-    void informationDecoder() {
+    public void informationDecoder() {
+        assertEquals("You found me correctly.", obj.informationDecoder("Fvb mvbuk tl jvyyljasf.", 7));
+        assertEquals("Amir", obj.informationDecoder("Eqmv", 4));
     }
 }
