@@ -60,22 +60,31 @@ public class Functions {
 
 
     //userFullInformation Function
+    /*
+    this function could have print out the info and also get the standard output of console
+    by using the ByteArrayOutputStream class and PrintStream class and return this info
+    to the encoder function
+    Also the Loop for concatenation could have used StringBuilder class to append the items of the Array
+    But I Continued using the normal method to avoid complications
+     */
+
     public static String userFullInformation(String fullName, String phoneNumber, String userID, ArrayList<String> interests){
 //        ByteArrayOutputStream Information = new ByteArrayOutputStream();
 //        PrintStream ps = new PrintStream(Information);
 //        PrintStream old = System.out;
 //        System.setOut(ps);
-        StringBuilder Information;
-        Information = new StringBuilder("Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests:");
+
+        String Information;
+        Information = "Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests:";
         for(int i = 0 ; i < interests.size() ; i++){
-            Information.append("\n").append(i + 1).append(". ").append(interests.get(i));
+            Information= Information+"\n"+ (i+1) +". "+interests.get(i);
         }
-        Information.append("\nYou can reach me via my phone number ").append(phoneNumber).append(".");
+        Information= Information + "\nYou can reach me via my phone number " +phoneNumber+".";
 
 //        System.out.flush();
 //        System.setOut(old);
 //        return Information.toString();
-        return Information.toString();
+        return Information;
     }
 
     public static void main(String[] args) {
