@@ -71,5 +71,22 @@ public class Main {
         return interests.get_arr();
     }
 
+    public void userFullInformation(String fullName, String phoneNumber, String userId, String[] interests)
+    {
+        String out = "Hello! My name is "+fullName+". My ID is "+userId+". Here are some of my interests:";
+        System.out.println(out);
+        for(int i = 0;i < interests.length;i++)
+        {
+            System.out.print(i+1);
+            System.out.print(". ");
+            System.out.println(interests[i]);
+        }
+        System.out.print("\n");
+        String end = "You can reach me via my phone number "+phoneNumber+".";
+        System.out.println(end);
+    }
 
+    public static void main(String[] args) {
+
+    }
 }
