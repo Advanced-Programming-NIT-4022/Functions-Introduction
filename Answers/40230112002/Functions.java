@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Functions {
@@ -16,7 +17,7 @@ public class Functions {
 
         return Firstname+" "+Lastname;
     }
-
+    //Phone Function
     public static String Phone(String phone) {
 
         String[] phoneNumbers = phone.split("");
@@ -29,7 +30,7 @@ public class Functions {
                 return "Error";
             }
     }
-
+    //userId function
     public static String userId(String id){
         if(id.length()<13 && id.length()>4){
             return id;
@@ -39,8 +40,32 @@ public class Functions {
             return "Error";
         }
     }
+    //getInterests Function
+    public static ArrayList<String> getInterests(String interest){
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> ListOfInterest = new ArrayList<>();
+        ListOfInterest.add(interest);
+        for(int i = 0 ; i < 9 ; i++){
+           System.out.println("Input : ");
+           interest = sc.nextLine();
+           if(interest.equals("0")){
+               return ListOfInterest;
+           }
+           ListOfInterest.add(interest);
+        }
+        return ListOfInterest;
+
+    }
 
 
+    //userFullInformation Function
+    public static void userFullInformation(String fullName, String phoneNumber, String userID, ArrayList<String> interests){
+        System.out.println("Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests:");
+        for(int i = 0 ; i < interests.size() ; i++){
+            System.out.println((i+1) +". "+interests.get(i));
+        }
+        System.out.println("\n\nYou can reach me via my phone number " +phoneNumber+".");
+    }
 
     public static void main(String[] args) {
 
@@ -72,5 +97,25 @@ public class Functions {
         } while (userId(id).equals("Error"));
 
         //getting user interests
+        String interest;
+        System.out.println("Enter your interests : \n (Enter \"0\" to stop)");
+        System.out.println("Input : ");
+        sc.nextLine(); // just for passing the \n in scanner
+        interest = sc.nextLine();
+        ArrayList<String> ListOfInterest = getInterests(interest);
+
+        //showing user info
+        userFullInformation(Fullname , phone , id , ListOfInterest);
+
+        //Encoding
+        String Information = "Hello"; //just for testing the cipher
+        System.out.println("Do you want to Encode this information? Y/N");
+        String Input = sc.nextLine();
+        if(Input.equals("Y") || Input.equals("y")){
+            System.out.println("Enter the Shift : ");
+            int shift = sc.nextInt();
+            String EncodedInfo = Cipher.Encoding(Information , shift);
+            System.out.println("Encoded Info: \n" + EncodedInfo);
+        }
+        }
     }
-}
