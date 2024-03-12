@@ -50,4 +50,9 @@ public class Vector { // vector of String
         return arr;
     }
 
+    public String elementAt(int index){
+        if(size <= index)
+            return "Index out of range";
+        return arr[index];
+    }
 }

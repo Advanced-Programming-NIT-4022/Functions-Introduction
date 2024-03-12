@@ -57,7 +57,7 @@ public class Main {
 
     public String[] getInterests(Vector interests) { // interests is empty array, passed by ref
         Scanner scn = new Scanner(System.in);
-        
+
         return interests.get_arr();
     }
     public static void main(String[] args) {
