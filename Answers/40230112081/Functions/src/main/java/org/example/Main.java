@@ -1,8 +1,5 @@
 package org.example;
-
-import javax.swing.*;
 import java.util.Objects;
-import java.util.OptionalInt;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
