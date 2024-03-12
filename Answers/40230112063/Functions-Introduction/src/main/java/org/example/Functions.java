@@ -70,7 +70,17 @@ public class Functions
         }
         else
             return 0;
+    }
 
+    public int userId(Integer id)
+    {
+        //if input id is in correct form , it returns id
+        //otherwise returns 0
+        String id_str = id.toString();
 
+        if(4<=id_str.length() && id_str.length()<=13)
+            return id;
+        else
+            return 0;
     }
 }
