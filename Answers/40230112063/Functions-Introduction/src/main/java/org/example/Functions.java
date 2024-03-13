@@ -123,4 +123,21 @@ public class Functions
                 break;
         }
     }
+
+
+    public void userFullInformation(String full_name , int phone_number , int user_id , String[] interests)
+    {
+        System.out.println("Full Name : "+full_name);
+        System.out.println("Phone Number : "+phone_number);
+        System.out.println("User ID : "+user_id);
+        System.out.println("Some of my interests : ");
+        for(int i=0 ; i<interests.length ; i++)
+        {
+            System.out.println(i+1 + "." + interests[i]);
+        }
+        System.out.println("You can be in touch with me by my phone number \n"+phone_number);
+    }
+
+
+
 }
