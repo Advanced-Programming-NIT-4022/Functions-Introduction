@@ -106,7 +106,8 @@ public class Project {
                         for (int i = 0; i < 10; i++) {
                             interests[i] = scrintr.nextLine();
                         }
-
+                        System.out.println("Saving...");
+                        System.out.println();
                         System.out.println("Your Interests:");
                         for (String interest : interests)
                             if (interest != null && !interest.isEmpty())
