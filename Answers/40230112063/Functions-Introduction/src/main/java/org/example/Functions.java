@@ -138,6 +138,31 @@ public class Functions
         System.out.println("You can be in touch with me by my phone number \n"+phone_number);
     }
 
+    public String informationEncoder(String information, int shift)
+    {
+        String[] information_array = information.split("");
+        char tmp;
 
+        for(String i : information_array)
+        {
+            tmp = i.charAt(0); // casting String i to char i
+
+            if('a'<=tmp && tmp<='z')
+            {
+                tmp = (tmp+shift>(int)'z') ? (char)(tmp+shift-(int)'z') : (char)(tmp+shift);
+            }
+            else if('A'<=tmp && tmp<='Z')
+            {
+                tmp = (tmp+shift>(int)'Z') ? (char)(tmp+shift-(int)'Z') : (char)(tmp+shift);
+            }
+        }
+
+        information="";
+
+        for(String i : information_array)
+            information = information.concat(i);
+
+        return information;
+    }
 
 }
