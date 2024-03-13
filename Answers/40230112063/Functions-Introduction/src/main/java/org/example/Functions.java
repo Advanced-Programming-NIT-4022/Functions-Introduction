@@ -149,11 +149,11 @@ public class Functions
 
             if('a'<=tmp && tmp<='z')
             {
-                tmp = (tmp+shift>(int)'z') ? (char)(tmp+shift-(int)'z') : (char)(tmp+shift);
+                tmp = (tmp+shift>(int)'z') ? (char)(tmp+shift-26) : (char)(tmp+shift);
             }
             else if('A'<=tmp && tmp<='Z')
             {
-                tmp = (tmp+shift>(int)'Z') ? (char)(tmp+shift-(int)'Z') : (char)(tmp+shift);
+                tmp = (tmp+shift>(int)'Z') ? (char)(tmp+shift-26) : (char)(tmp+shift);
             }
         }
 
