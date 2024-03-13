@@ -93,9 +93,32 @@ public class Project {
                     System.out.println("Saving...");
                     System.out.println();
                     System.out.println("Your Student Id : " + studentid);
+                    System.out.println();
+                    System.out.println("4.Setting Interests");
+                    Scanner input3 = new Scanner(System.in);
+                    int in3 = input3.nextInt();
+
+                    if (in3 == 4) {
+                        Scanner scrintr = new Scanner(System.in);
+                        System.out.println("Enter Your Interests In Your Free Time: ");
+                        String[] interests = new String[10];
+
+                        for (int i = 0; i < 10; i++) {
+                            interests[i] = scrintr.nextLine();
+                        }
+
+                        System.out.println("Your Interests:");
+                        for (String interest : interests)
+                            if (interest != null && !interest.isEmpty())
+                                System.out.println(interest);
+
+
+                        }
+                    }
                 }
             }
         }
-
-    }
 }
+
+
+
