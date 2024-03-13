@@ -112,8 +112,18 @@ public class Project {
                         for (String interest : interests)
                             if (interest != null && !interest.isEmpty())
                                 System.out.println(interest);
+                        System.out.println();
+                        System.out.println();
+                        System.out.println("Saving....");
+                        System.out.println();
+                        System.out.println();
+                        System.out.println("Hello! My name is " + FullName + ". My ID is " +
+                                modifiedPhoneNumber +". Here are some of my interests: ");
+                        for (String interest : interests){
+                            if (interest != null && !interest.isEmpty())
+                                System.out.println("." + interest);
 
-
+                            }
                         }
                     }
                 }
