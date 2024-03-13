@@ -165,4 +165,30 @@ public class Functions
         return information;
     }
 
+    public String informationDecoder(String information, int shift)
+    {
+        String[] information_array = information.split("");
+        char tmp;
+
+        for(String i : information_array)
+        {
+            tmp = i.charAt(0); // casting String i to char i
+
+            if('a'<=tmp && tmp<='z')
+            {
+                tmp = (tmp-shift<(int)'a') ? (char)(tmp-shift+26) : (char)(tmp-shift);
+            }
+            else if('A'<=tmp && tmp<='Z')
+            {
+                tmp = (tmp-shift<(int)'A') ? (char)(tmp-shift+26) : (char)(tmp-shift);
+            }
+        }
+
+        information="";
+
+        for(String i : information_array)
+            information = information.concat(i);
+
+        return information;
+    }
 }
