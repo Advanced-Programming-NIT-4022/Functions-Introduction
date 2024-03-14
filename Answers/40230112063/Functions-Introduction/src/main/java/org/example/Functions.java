@@ -125,17 +125,23 @@ public class Functions
     }
 
 
-    public void userFullInformation(String full_name , int phone_number , int user_id , String[] interests)
+    public String userFullInformation(String full_name , Integer phone_number , Integer user_id , String[] interests)
     {
-        System.out.println("Full Name : "+full_name);
-        System.out.println("Phone Number : "+phone_number);
-        System.out.println("User ID : "+user_id);
-        System.out.println("Some of my interests : ");
-        for(int i=0 ; i<interests.length ; i++)
+        String full_information ;
+        String interests_="";
+
+        for(int i=0 ; i<interests.length-1 ; i++)
         {
-            System.out.println(i+1 + "." + interests[i]);
+            interests_ = interests_.concat(interests[i]).concat("-");
         }
-        System.out.println("You can be in touch with me by my phone number \n"+phone_number);
+        interests_ = interests_.concat(interests[interests.length-1]);
+
+        full_information = "Hello Dear , My name is ".concat(full_name).concat(".").concat("\n")
+                .concat(" My ID is ").concat(user_id.toString()).concat("\n")
+                .concat(".").concat(" Here are some of my interests : ")
+                .concat("\n").concat(interests_);
+
+        return full_information;
     }
 
     public String informationEncoder(String information, int shift)
