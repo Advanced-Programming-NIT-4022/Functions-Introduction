@@ -21,5 +21,13 @@ public class resume {
         }
         return "0"+phone;
     }
+    public static String userId(String id){
+        Scanner input=new Scanner(System.in);
+        while(4>=id.length() || 13<=id.length()){
+            System.out.println("Wrong entry. Try again.");
+            id=input.next();
+        }
+        return id;
+    }
 
 }
