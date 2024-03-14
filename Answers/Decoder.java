@@ -23,7 +23,7 @@ public class Decoder {
             char currentChar = encodedText.charAt(i);
 
             if (Character.isLetter(currentChar)) {
-                char decryptedChar = (char) ((currentChar - 'A' - key + 26) % 26 + 'A');
+                char decryptedChar = (char) ((currentChar - 'a' - key + 26) % 26 + 'a');
                 result.append(decryptedChar);
             } else {
                 result.append(currentChar);

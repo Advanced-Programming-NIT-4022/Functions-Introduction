@@ -22,7 +22,7 @@ public class Encoder {
             char newchar = text.charAt(i);
 
             if (Character.isLetter(newchar)) {
-                char endchar = (char) ((newchar - 'A' + key) % 26 + 'A');
+                char endchar = (char) ((newchar - 'a' + key) % 26 + 'a');
                 result.append(endchar);
             } else {
                 result.append(newchar);

@@ -1,5 +1,0 @@
-1.put your project in Answers folder.
-2.change the name of your folder to your student ID
-3.commit each function that implemented.
-4.push your commits
-5.after you've finished your project, pull request to original repository
