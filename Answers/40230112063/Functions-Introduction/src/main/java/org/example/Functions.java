@@ -139,7 +139,8 @@ public class Functions
         full_information = "Hello Dear , My name is ".concat(full_name).concat(".").concat("\n")
                 .concat(" My ID is ").concat(user_id.toString()).concat("\n")
                 .concat(".").concat(" Here are some of my interests : ")
-                .concat("\n").concat(interests_);
+                .concat("\n").concat(interests_)
+                .concat("\n").concat("You can be in touch with me by ").concat(phone_number.toString());
 
         return full_information;
     }
