@@ -13,4 +13,13 @@ public class resume {
         String akharii=new String(neww2);
         return akhari+" "+akharii;
     }
+    public static String phoneNumber(String phone){
+        Scanner input=new Scanner(System.in);
+        while(phone.length()!=10 || phone.charAt(0)!='9'){
+            System.out.println("Wrong entry. Try again.");
+            phone=input.next();
+        }
+        return "0"+phone;
+    }
+
 }
