@@ -47,7 +47,7 @@ public class Functions
         return (firstName+" "+lastName);
     }
 
-    public int phoneNumber(Integer phone)
+    public Integer phoneNumber(Integer phone)
     {
         //If the input phone number is valid, it returns the phone number
         //otherwise returns 0.
@@ -73,7 +73,7 @@ public class Functions
             return 0;
     }
 
-    public int userId(Integer id)
+    public Integer userId(Integer id)
     {
         //if input id is in correct form , it returns id
         //otherwise returns 0
