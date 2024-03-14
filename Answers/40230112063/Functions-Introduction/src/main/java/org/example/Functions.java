@@ -162,6 +162,10 @@ public class Functions
             {
                 tmp = (tmp+shift>(int)'Z') ? (char)(tmp+shift-26) : (char)(tmp+shift);
             }
+            else if('0'<=tmp && tmp<='9')
+            {
+                tmp = (tmp+shift>(int)'9') ? (char)(tmp+shift-10) : (char)(tmp+shift);
+            }
         }
 
         information="";
@@ -188,6 +192,10 @@ public class Functions
             else if('A'<=tmp && tmp<='Z')
             {
                 tmp = (tmp-shift<(int)'A') ? (char)(tmp-shift+26) : (char)(tmp-shift);
+            }
+            else if('0'<=tmp && tmp<='9')
+            {
+                tmp = (tmp-shift<(int)'0') ? (char)(tmp-shift+10) : (char)(tmp-shift);
             }
         }
 
