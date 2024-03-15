@@ -47,42 +47,32 @@ public class Functions
         return (firstName+" "+lastName);
     }
 
-    public Integer phoneNumber(Integer phone)
+    public String phoneNumber(String phone)
     {
         //If the input phone number is valid, it returns the phone number
         //otherwise returns 0.
 
-        String number_str = phone.toString();
-
-        if(number_str.length()==11 && number_str.startsWith("0") && number_str.substring(1).startsWith("9"))
+        if(phone.length()==11 && phone.startsWith("0") && phone.substring(1).startsWith("9"))
             return phone;
 
-        else if(number_str.length()==10 && number_str.startsWith("9"))
+        else if(phone.length()==10 && phone.startsWith("9"))
         {
-            number_str = "0".concat(number_str);
-
-            phone = 0;
-            for(int i=0 ; i<number_str.length() ;i++)
-            {
-                phone = phone*10 + (number_str.charAt(i)-48);
-            }
-
+            phone = "0".concat(phone);
             return phone;
         }
         else
-            return 0;
+            return "0";
     }
 
-    public Integer userId(Integer id)
+    public String userId(String id)
     {
         //if input id is in correct form , it returns id
         //otherwise returns 0
-        String id_str = id.toString();
 
-        if(4<=id_str.length() && id_str.length()<=13)
+        if(4<=id.length() && id.length()<=13)
             return id;
         else
-            return 0;
+            return "0";
     }
 
     public void getInterests(String[] interests)
@@ -125,7 +115,7 @@ public class Functions
     }
 
 
-    public String userFullInformation(String full_name , Integer phone_number , Integer user_id , String[] interests)
+    public String userFullInformation(String full_name , String phone_number , String user_id , String[] interests)
     {
         String full_information ;
         String interests_="";
@@ -137,10 +127,10 @@ public class Functions
         interests_ = interests_.concat(interests[interests.length-1]);
 
         full_information = "Hello Dear , My name is ".concat(full_name).concat(".").concat("\n")
-                .concat(" My ID is ").concat(user_id.toString()).concat("\n")
+                .concat(" My ID is ").concat(user_id).concat("\n")
                 .concat(".").concat(" Here are some of my interests : ")
                 .concat("\n").concat(interests_)
-                .concat("\n").concat("You can be in touch with me by ").concat(phone_number.toString());
+                .concat("\n").concat("You can be in touch with me by ").concat(phone_number);
 
         return full_information;
     }
