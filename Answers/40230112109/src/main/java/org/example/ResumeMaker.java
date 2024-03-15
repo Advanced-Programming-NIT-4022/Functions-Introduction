@@ -1,8 +1,18 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class ResumeMaker {
+
     private String firstName;
     private String lastName;
+    private String phone;
+    public String getPhone(){
+        return phone;
+    }
+    public void setPhone(String phone){
+        this.phone = phone;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -31,5 +41,12 @@ public class ResumeMaker {
             fullName.append(Character.toLowerCase(lastName.charAt(i)));
         }
         return fullName.toString().trim();
+    }
+
+    public String phoneNumber(String phone){
+        while (phone.length() != 10 || phone.charAt(0) != '9'){
+            return "Error!";
+        }
+        return "0" + phone;
     }
 }
