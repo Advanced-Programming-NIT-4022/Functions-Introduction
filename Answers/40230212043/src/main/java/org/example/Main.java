@@ -11,11 +11,18 @@ public class Main {
             String eshn="0"+shn;
             return eshn;
         } else {
-            System.out.print("Wrong entry. Try again:");
+            System.out.print("Wrong entry. Try again: ");
             return null;
         }
     }
-
+    static String userId(String id) {
+        if (id.length()>=4 && id.length()<=13) {
+            return id;
+        } else {
+            System.out.print("Wrong id! Try another: ");
+            return null;
+        }
+    }
     public static void main(String[] args) {
 
     }
