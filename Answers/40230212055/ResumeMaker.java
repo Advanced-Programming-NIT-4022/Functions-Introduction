@@ -2,7 +2,7 @@ package tamrin1_AP;
 
 import java.util.Scanner;
 
-public class Main {
+public class ResumeMaker {
 
 
     public static String fullname() {
