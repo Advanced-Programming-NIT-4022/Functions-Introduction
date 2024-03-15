@@ -12,12 +12,18 @@ public class Main {
         user.setLastName(input.nextLine());
         System.out.print("Enter your phone number please: ");
         user.setPhone(input.nextLine());
-
+        System.out.print("Enter your user ID please: ");
+        user.setId(input.nextLine());
+        while(user.userId(user.getId()) == 1){
+            System.out.println("Wrong entry. Try again: ");
+            user.setId(input.nextLine());
+        }
         while (user.phoneNumber(user.getPhone()).equals("Error!")){
             System.out.print("Wrong entry. Try again: ");
             user.setPhone(input.nextLine());
         }
         System.out.println( "Full name: " + user.fullName(user.getFirstName(), user.getLastName()));
         System.out.println("Phone number: " + user.phoneNumber(user.getPhone()));
+        System.out.println("User ID: " + user.userId(user.getId()));
     }
 }

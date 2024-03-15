@@ -7,6 +7,13 @@ public class ResumeMaker {
     private String firstName;
     private String lastName;
     private String phone;
+    private String  id;
+    public String getId(){
+        return id;
+    }
+    public void setId(String id){
+        this.id = id;
+    }
     public String getPhone(){
         return phone;
     }
@@ -48,5 +55,11 @@ public class ResumeMaker {
             return "Error!";
         }
         return "0" + phone;
+    }
+    public int userId(String id){
+        while(id.length() < 4 || id.length() > 13){
+            return 1;
+        }
+        return Integer.parseInt(id);
     }
 }
