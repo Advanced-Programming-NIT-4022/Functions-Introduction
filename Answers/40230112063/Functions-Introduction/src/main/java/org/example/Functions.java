@@ -142,6 +142,7 @@ public class Functions
     public String informationEncoder(String information, int shift)
     {
         String[] information_array = information.split("");
+        String encoded_info;
         char tmp;
 
         for(String i : information_array)
@@ -162,17 +163,18 @@ public class Functions
             }
         }
 
-        information="";
+        encoded_info="";
 
         for(String i : information_array)
-            information = information.concat(i);
+            encoded_info = encoded_info.concat(i);
 
-        return information;
+        return encoded_info;
     }
 
     public String informationDecoder(String information, int shift)
     {
         String[] information_array = information.split("");
+        String decoded_info;
         char tmp;
 
         for(String i : information_array)
@@ -193,11 +195,11 @@ public class Functions
             }
         }
 
-        information="";
+        decoded_info="";
 
         for(String i : information_array)
-            information = information.concat(i);
+            decoded_info = decoded_info.concat(i);
 
-        return information;
+        return decoded_info;
     }
 }
