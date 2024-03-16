@@ -7,19 +7,46 @@ public class Homework {
         System.out.print("Please enter your name and surname: ");
         String firstName = scanner.next();
         String LastName = scanner.next();
-        System.out.println(fullName(firstName, LastName));
-        // The first function ended
+        fullName(firstName, LastName);
+        // The first function finished and the second function(Phone number) started
+        boolean again = true;
+        while (again == true) {
+            System.out.print("Please enter your phone number : ");
+            String phonenum = scanner.next();
+            phonenum = phoneNumber(phonenum);
+            if (phonenum == "F")
+                continue;
+            else {
+                System.out.println(phonenum);
+                again = false;
+                break;
+            }
+        }
+        // The second function also done
         scanner.close();
     }
 
-    public static String fullName(String firstName, String lastName) {
+    /// fullname function :
+    
+    public static void fullName(String firstName, String lastName) {
         if (firstName != null && firstName.isEmpty() == false) {
             firstName = Character.toUpperCase(firstName.charAt(0)) + firstName.substring(1).toLowerCase();
         }
         if (lastName != null && lastName.isEmpty() == false) {
             lastName = Character.toUpperCase(lastName.charAt(0)) + lastName.substring(1).toLowerCase();
         }
-        return (firstName) + " " + (lastName);
+        System.out.println((firstName) + " " + (lastName));
+    }
+
+    /// phone number function:
+
+    public static String phoneNumber(String phone) {
+        if (phone.startsWith("9") && phone.length() == 10) {
+            return "0" + phone;
+        } else {
+            System.out.println("Invalid phone number. Please try again.");
+            return "F";
+        }
     }
 
 }
