@@ -27,6 +27,13 @@ public class Main {
         interests[r]=alg;
         return interests;
     }
+    static void fullinformation(String n,String t,String stid,String[] algh,int ra) {
+        System.out.println("hello! my name is "+n+". My ID is "+stid+". Here are some of my interests:");
+        for (int i=0;i<ra;i++) {
+            System.out.println(i+1+". "+algh[i]);
+        }
+        System.out.print("You can reach me via my phone number "+t);
+    }
     public static void main(String[] args) {
 
     }
