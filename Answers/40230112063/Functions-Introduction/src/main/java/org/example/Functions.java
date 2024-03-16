@@ -112,19 +112,29 @@ public class Functions
     public String userFullInformation(String full_name , String phone_number , String user_id , String[] interests)
     {
         String full_information ;
-        String interests_="";
+        String str_interests="";
 
-        for(int i=0 ; i<interests.length-1 ; i++)
+        int interests_size=0 ;
+
+        for(String i : interests)
+            if(Objects.equals(i, null))
+                break;
+            else
+                interests_size++;
+
+
+        for(int i=0 ; i<interests_size-1 ; i++)
         {
-            interests_ = interests_.concat(interests[i]).concat("-");
+            str_interests = str_interests.concat(interests[i]).concat("-");
         }
-        interests_ = interests_.concat(interests[interests.length-1]);
 
-        full_information = "Hello Dear , My name is ".concat(full_name).concat(".").concat("\n")
-                .concat(" My ID is ").concat(user_id).concat("\n")
-                .concat(".").concat(" Here are some of my interests : ")
-                .concat("\n").concat(interests_)
-                .concat("\n").concat("You can be in touch with me by ").concat(phone_number);
+        str_interests = str_interests.concat(interests[interests_size-1]);
+
+        full_information = "Hello Dear , My name is ".concat(full_name).concat(".\n")
+                .concat("My ID is ").concat(user_id).concat(".\n")
+                .concat("Here are some of my interests : \n")
+                .concat(str_interests)
+                .concat("\nYou can be in touch with me by ").concat(phone_number);
 
         return full_information;
     }
