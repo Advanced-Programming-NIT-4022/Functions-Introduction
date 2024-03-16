@@ -81,8 +81,6 @@ public class Functions
 
         int counter=0;
 
-        boolean flag = false;
-
         Scanner input = new Scanner(System.in);
 
         while(true)
@@ -102,15 +100,11 @@ public class Functions
                     break;
 
                 case "E" :
-                    flag = true;
-                    break;
+                    return;
 
                 default :
                     System.out.println("Wrong entry . Try again . ");
             }
-
-            if(flag)
-                break;
         }
     }
 
