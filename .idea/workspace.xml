@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="246c8d61-616d-4939-88a8-9521a3857d4f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Functions-Introduction.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Functions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Amirhoseinhmd83"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="275170cb-c92a-4ae4-af7b-c8a0ef3349b9" />
+        <option name="url" value="https://github.com/Amirhoseinhmd83/Functions-Introduction.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2de6wjMQVLfIHSFkUs0cn8LZJsT" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Functions.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.NameFormatter.executor": "Run",
+    "JUnit.Unnamed.executor": "Coverage",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/ASUS/Desktop/Functions-Introduction/Answers/40230212031/src",
+    "last_opened_file_path": "C:/Users/ASUS/Desktop/Functions-Introduction",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Functions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Functions" />
+      <module name="Functions-Introduction" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="Functions-Introduction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Functions" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="246c8d61-616d-4939-88a8-9521a3857d4f" name="Changes" comment="" />
+      <created>1710356437818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710356437818</updated>
+      <workItem from="1710356440543" duration="411000" />
+      <workItem from="1710356891773" duration="1357000" />
+      <workItem from="1710358285404" duration="202000" />
+      <workItem from="1710366392248" duration="23000" />
+      <workItem from="1710366498543" duration="488000" />
+      <workItem from="1710515258451" duration="2448000" />
+      <workItem from="1710539683179" duration="635000" />
+      <workItem from="1710545092326" duration="598000" />
+      <workItem from="1710545746100" duration="182000" />
+      <workItem from="1710545968574" duration="63000" />
+      <workItem from="1710546100071" duration="1287000" />
+      <workItem from="1710585018436" duration="1538000" />
+      <workItem from="1710587221822" duration="21000" />
+      <workItem from="1710587310505" duration="531000" />
+      <workItem from="1710587942536" duration="282000" />
+      <workItem from="1710588266425" duration="16000" />
+      <workItem from="1710588403272" duration="207000" />
+      <workItem from="1710588756801" duration="15000" />
+      <workItem from="1710588939231" duration="332000" />
+      <workItem from="1710589302948" duration="4000" />
+      <workItem from="1710589526098" duration="407000" />
+      <workItem from="1710590595668" duration="1091000" />
+      <workItem from="1710592027477" duration="270000" />
+      <workItem from="1710592341099" duration="208000" />
+      <workItem from="1710592815681" duration="73000" />
+      <workItem from="1710592911660" duration="280000" />
+      <workItem from="1710593341911" duration="48000" />
+      <workItem from="1710593430810" duration="1800000" />
+      <workItem from="1710619788398" duration="1001000" />
+      <workItem from="1710621296187" duration="11000" />
+      <workItem from="1710621341607" duration="17000" />
+      <workItem from="1710621392028" duration="373000" />
+      <workItem from="1710621840398" duration="1157000" />
+      <workItem from="1710623209365" duration="748000" />
+      <workItem from="1710623968277" duration="87000" />
+      <workItem from="1710624071103" duration="329000" />
+      <workItem from="1710624421966" duration="597000" />
+      <workItem from="1710625032543" duration="166000" />
+      <workItem from="1710625224514" duration="216000" />
+      <workItem from="1710625489513" duration="43000" />
+      <workItem from="1710625563044" duration="129000" />
+      <workItem from="1710625728569" duration="94000" />
+      <workItem from="1710625917971" duration="394000" />
+      <workItem from="1710626388002" duration="35000" />
+      <workItem from="1710626434915" duration="178000" />
+      <workItem from="1710626869159" duration="645000" />
+      <workItem from="1710627550991" duration="375000" />
+      <workItem from="1710627954027" duration="114000" />
+      <workItem from="1710628111530" duration="450000" />
+      <workItem from="1710628584892" duration="3178000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java</url>
+          <line>1</line>
+          <properties class="Scratch" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
