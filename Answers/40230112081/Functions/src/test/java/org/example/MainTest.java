@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
-    Main obj = new Main();
+    Functions obj = new Functions();
     @Test
     public void fullName_test() {
         assertEquals("Amir Salehi", obj.fullName("aMIr", "SalEhI"));
