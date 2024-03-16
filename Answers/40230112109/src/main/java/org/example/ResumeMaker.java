@@ -67,11 +67,11 @@ public class ResumeMaker {
         String[] interests = new String[10];
         byte index = 0;
         while (index < 10){
-            String get = input.nextLine();
-            if (get.equals("End")){
+            String getInput = input.nextLine();
+            if (getInput.equals("End")){
                 break;
             }
-            interests[index] = get;
+            interests[index] = getInput;
             index++;
         }
         return interests;

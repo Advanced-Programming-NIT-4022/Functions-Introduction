@@ -23,8 +23,7 @@ public class Main {
             System.out.println("Wrong entry. Try again: ");
             user.setId(input.nextLine());
         }
-
-        System.out.println("Write your interests & enter \"End\" at the end.");
+        System.out.println("Write your interests & enter \"End\" at the end: ");
         String[] saveInterestsArray = user.getInterests();
         System.out.println( "Full name: " + user.fullName(user.getFirstName(), user.getLastName()));
         System.out.println("Phone number: " + user.phoneNumber(user.getPhone()));
