@@ -97,6 +97,7 @@ public class Functions
                     System.out.println("Enter your interest : ");
                     interests[counter]=input.nextLine();
                     counter++;
+                    System.out.println("------------------------");
                     break;
 
                 case "E" :

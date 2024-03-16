@@ -32,6 +32,7 @@ public class ResumeMaker {
             if (Objects.equals(phone, "0")) // 0 : It means that the user has entered a phone number with the wrong format
             {
                 System.out.println("Wrong entry. Try again.");
+                System.out.println("------------------------");
             } else
                 break;
         }
@@ -46,9 +47,12 @@ public class ResumeMaker {
             if (Objects.equals(id, "0")) // 0 : It means that the user has entered  ID with the wrong format
             {
                 System.out.println("Wrong entry. Try again.");
+                System.out.println("------------------------");
             } else
                 break;
         }
+
+        System.out.println("******************************");
 
         person1.getInterests(interests); // get interests
 
@@ -57,9 +61,13 @@ public class ResumeMaker {
         String operation;
         int shift;
 
+        System.out.println("******************************");
+
         System.out.println("How many shift units do you want to be given in Caesar encryption ? ");
         shift = input.nextInt();
         input.nextLine();
+
+        System.out.println("******************************");
 
         while (true) {
             System.out.println("Select your desired operation : ");
@@ -71,11 +79,15 @@ public class ResumeMaker {
             switch (operation) {
                 case "SEI":
                     information = person1.informationEncoder(information, shift);
+                    System.out.println("******************************");
                     System.out.println(information);
+                    System.out.println("******************************");
                     break;
 
                 case "SDI":
+                    System.out.println("******************************");
                     System.out.println(person1.informationDecoder(information, shift));
+                    System.out.println("******************************");
                     break;
 
                 case "E":
