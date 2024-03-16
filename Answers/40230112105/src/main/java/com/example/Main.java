@@ -62,6 +62,16 @@ public class Main {
         return interests;
     }
 
+    static void userFullInformation(String full_name, String number, long ID, String[] interests){
+        System.out.println("Hello! my name is " + full_name + ". My ID is " + ID + ". Here are some of my interests: ");
+        int i = 1;
+        while(interests[i] != null) {
+            System.out.println(i + ". " + interests[i]);
+            i++;
+        }
+        System.out.println("You can reach me via my phone number " + number);
+    }
+
 
     public static void main(String[] args) {
         System.out.println("RUNNIG >>> fullName function");
@@ -94,7 +104,20 @@ public class Main {
         }
         System.out.println("}");
         /////////////////////////////////////////////////
-        
-    }
+        System.out.println("RUNNING >>> userFullInformation function");
+        interests = getInterests(interests);
+        System.out.print("please give me your first name: ");
+        name = strScanner.next();
+        System.out.print("please give me your last name: ");
+        last = strScanner.next();
+        String full_name = fullName(name, last);
+        System.out.print("please give me your phone number(whitout zero at the first): ");
+        number = longScanner.nextLong();
+        String phone_number = phoneNumber(number);
+        System.out.print("please give me a statndard ID: ");
+        ID = longScanner.nextLong();
+        userFullInformation(full_name, phone_number, ID, interests);
+        // System.out.println(userFullInformation(full_name, phone_number, ID, interests));
+        /////////////////////////////////////////////////    }
 
 }
