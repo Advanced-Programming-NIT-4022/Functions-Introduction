@@ -23,7 +23,10 @@ public class Main {
             return null;
         }
     }
-
+    static String[] getInterests(String alg,int r,String[] interests) {
+        interests[r]=alg;
+        return interests;
+    }
     public static void main(String[] args) {
 
     }
