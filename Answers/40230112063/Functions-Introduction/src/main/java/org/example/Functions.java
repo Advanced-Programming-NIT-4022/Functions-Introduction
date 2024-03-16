@@ -145,21 +145,21 @@ public class Functions
         String encoded_info;
         char tmp;
 
-        for(String i : information_array)
+        for(int i=0 ; i<information_array.length ; i++)
         {
-            tmp = i.charAt(0); // casting String i to char i
+            tmp = information_array[i].charAt(0); // casting String i to char i
 
             if('a'<=tmp && tmp<='z')
             {
-                i = (tmp+shift>(int)'z') ? String.valueOf((char)(tmp+shift-26)) : String.valueOf((char)(tmp+shift));
+                information_array[i] = (tmp+shift>(int)'z') ? String.valueOf((char)(tmp+shift-26)) : String.valueOf((char)(tmp+shift));
             }
             else if('A'<=tmp && tmp<='Z')
             {
-                i = (tmp+shift>(int)'Z') ? String.valueOf((char)(tmp+shift-26)) : String.valueOf((char)(tmp+shift));
+                information_array[i] = (tmp+shift>(int)'Z') ? String.valueOf((char)(tmp+shift-26)) : String.valueOf((char)(tmp+shift));
             }
             else if('0'<=tmp && tmp<='9')
             {
-                i = (tmp+shift>(int)'9') ? String.valueOf((char)(tmp+shift-10)) : String.valueOf((char)(tmp+shift));
+                information_array[i] = (tmp+shift>(int)'9') ? String.valueOf((char)(tmp+shift-10)) : String.valueOf((char)(tmp+shift));
             }
         }
 
@@ -177,21 +177,21 @@ public class Functions
         String decoded_info;
         char tmp;
 
-        for(String i : information_array)
+        for(int i=0 ; i<information_array.length ; i++)
         {
-            tmp = i.charAt(0); // casting String i to char i
+            tmp = information_array[i].charAt(0); // casting String i to char i
 
             if('a'<=tmp && tmp<='z')
             {
-                i = (tmp-shift<(int)'a') ? String.valueOf((char)(tmp-shift+26)) : String.valueOf((char)(tmp-shift));
+                information_array[i] = (tmp-shift<(int)'a') ? String.valueOf((char)(tmp-shift+26)) : String.valueOf((char)(tmp-shift));
             }
             else if('A'<=tmp && tmp<='Z')
             {
-                i = (tmp-shift<(int)'A') ? String.valueOf((char)(tmp-shift+26)) : String.valueOf((char)(tmp-shift));
+                information_array[i] = (tmp-shift<(int)'A') ? String.valueOf((char)(tmp-shift+26)) : String.valueOf((char)(tmp-shift));
             }
             else if('0'<=tmp && tmp<='9')
             {
-                i = (tmp-shift<(int)'0') ? String.valueOf((char)(tmp-shift+10)) : String.valueOf((char)(tmp-shift));
+                information_array[i] = (tmp-shift<(int)'0') ? String.valueOf((char)(tmp-shift+10)) : String.valueOf((char)(tmp-shift));
             }
         }
 
