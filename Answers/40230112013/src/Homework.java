@@ -7,12 +7,13 @@ public class Homework {
         System.out.print("Please enter your name and surname: ");
         String firstName = scanner.next();
         String LastName = scanner.next();
-        fullName(firstName, LastName);
+        firstName=fullName(firstName, LastName);
         // The first function finished and the second function(Phone number) started
         boolean again = true;
-        while (again) {
+        String phonenum;
+        do {
             System.out.print("Please enter your phone number : ");
-            String phonenum = scanner.next();
+            phonenum = scanner.next();
             System.out.print("\n");
             phonenum = phoneNumber(phonenum);
             if (phonenum == "F")
@@ -20,15 +21,15 @@ public class Homework {
             else {
                 System.out.println("your phone number :" + phonenum +"\n");
                 again = false;
-                break;
             }
-        }
+        }while (again);
 
-        // The second function also done
+        // The second function(phoneNumber) also done
         again = true;
-        while (again) {
+        String UserIdentifier;
+        do{
             System.out.print("Please enter your user ID : ");
-            String UserIdentifier = scanner.next();
+            UserIdentifier = scanner.next();
             UserIdentifier = userid(UserIdentifier);
             if (UserIdentifier.startsWith("I"))
                 continue;
@@ -36,8 +37,8 @@ public class Homework {
                 System.out.println("\nYour user ID:" + UserIdentifier + "\n");
                 break;
             }
-        }
-        // the third function is done
+        }while (again);
+        // the third function(userId) is done
         String[] interests = getInterests();
         int i=0;
         System.out.println("your interest is : ");
@@ -47,12 +48,17 @@ public class Homework {
             System.out.println(p + "_" + interests[i]);
             i++; 
         }
+        // the fourth function(getInterests) is done
+
+        userFullInformation(firstName , phonenum ,UserIdentifier, interests);
+        
+        // the fifth function(getInterests) is done
         scanner.close();
     }
 
     /// fullname function :
 
-    public static void fullName(String firstName, String lastName) {
+    public static String fullName(String firstName, String lastName) {
         if (firstName != null && firstName.isEmpty() == false) {
             firstName = Character.toUpperCase(firstName.charAt(0)) + firstName.substring(1).toLowerCase();
         }
@@ -60,6 +66,7 @@ public class Homework {
             lastName = Character.toUpperCase(lastName.charAt(0)) + lastName.substring(1).toLowerCase();
         }
         System.out.println("\nThe correct format of your name and surname: " + (firstName) + " " + (lastName)+ "\n");
+        return (firstName) + " " + (lastName);
     }
 
     /// phone number function:
@@ -114,5 +121,21 @@ public class Homework {
         scanner.close();
         return array;
     }
+
+    /// userFullInformation function :
+
+    public static void userFullInformation(String fullName,String phone1,String user1,String[] interests){
+        System.out.print("\nHello! My name is "+fullName+".");
+        System.out.print("My ID is "+user1+"."+"Here are some of my interests:\n");
+        int i=0;
+        while (interests[i]!=null) {
+            int y=i+1;
+            String p = String.valueOf(y);
+            System.out.println(p + ". " + interests[i]);
+            i++; 
+        }
+        System.out.println("You can reach me via my phone number "+phone1+".");
+    }   
+
 
 }
