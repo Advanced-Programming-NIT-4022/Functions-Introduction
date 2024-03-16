@@ -36,11 +36,17 @@ public class Main {
         for (int i=0 ; i<10 ; i++) {
             String str = sc.nextLine();
             A[i] = str;
+            if (A[i].isEmpty()) {
+                break;
+            }
         }
     }
     public static void showArray(String[] A) {
         System.out.print("{");
         for (int i=0 ; i<10 ; i++) {
+            if (A[i].isEmpty()) {
+                break;
+            }
             System.out.print("\""+A[i]+"\",");
         }
         System.out.print("}\n");
@@ -48,8 +54,12 @@ public class Main {
     public static void userFullInformation(String fullName, String phoneNumber, String userId, String[] interests) {
         System.out.println("Hello, My name is "+fullName+". My ID is "+userId+". Here are some of my interests:");
         for (int i=0 ; i<10 ; i++) {
+            if (interests[i].isEmpty()) {
+                break;
+            }
             System.out.println((i+1)+". "+interests[i]);
         }
+        System.out.println("You can reach me via my phone number "+phoneNumber);
     }
     public static String informationEncoder(String information, int shift) {
         for (int i=0 ; i<information.length() ; i++) {
