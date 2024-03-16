@@ -34,7 +34,31 @@ public class Main {
         }
         System.out.print("You can reach me via my phone number "+t);
     }
+    static String encode(String s,int skh) {
+        String result="";
+        char[] h=s.toCharArray();
+        for (int i=0;i<h.length;i++) {
+            if (h[i] >= 'a' && h[i] <= 'z') {
+                int posorg = h[i] - 'a';
+                int posnew = (posorg + skh) % 26;
+                char newch = (char) ('a' + posnew);
+                result = result + newch;
+            } else if (h[i] >= 'A' && h[i] <= 'Z') {
+                int posorg = h[i] - 'A';
+                int posnew = (posorg + skh) % 26;
+                char newch = (char) ('A' + posnew);
+                result = result + newch;
+            } else {
+                result = result + h[i];
+            }
+        }
+        return result;
+    }
+    static String decode(String s,int mkh) {
+        return encode(s,mkh);
+    }
     public static void main(String[] args) {
-        
+
+        }
     }
 }
