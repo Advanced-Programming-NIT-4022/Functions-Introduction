@@ -62,4 +62,19 @@ public class ResumeMaker {
         }
         return Integer.parseInt(id);
     }
+    public String[] getInterests(){
+        Scanner input = new Scanner(System.in);
+        String[] interests = new String[10];
+        byte index = 0;
+        while (index < 10){
+            String get = input.nextLine();
+            if (get.equals("End")){
+                break;
+            }
+            interests[index] = get;
+            index++;
+        }
+        return interests;
+    }
+
 }
