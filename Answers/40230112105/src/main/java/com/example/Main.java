@@ -28,5 +28,19 @@ public class Main {
         return "0" + strNumber;
     }
 
-
+    static long userId(long id) {
+        Scanner longScanner = new Scanner(System.in);
+        String strId;
+        boolean flag = false;
+        while(!flag) {
+            strId = String.valueOf(id);
+            if(strId.lenght() <= 13 && strId.length() >= 4){
+                flag = true;
+            } else {
+                System.out.println("Wrong entry. Try again");
+                id = longScanner.nextLong();
+            }
+        }
+        return id;
+    }
 }
