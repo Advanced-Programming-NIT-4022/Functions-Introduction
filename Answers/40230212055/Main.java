@@ -125,7 +125,17 @@ public class Main {
     }
 
 
-    public static void information1(String fullname, String phonenumber, String ID, String[] interests) {
+    public static String information1(String fullname, String phonenumber, String ID, String[] interests) {
+
+
+        String str = "Hello! My name is ";
+
+        str += fullname;
+        str += ".";
+        str += "My ID is ";
+        str += ID;
+        str += ".";
+        str += "#";
 
         for (int i = 0; i < 3; i++) {
             System.out.println("\n");
@@ -133,31 +143,88 @@ public class Main {
 
         System.out.println("Hello! My name is " + fullname + "." + "My ID is " + ID + "." + "Here are some of myinterest:" + "\n");
 
-        for (int i = 0; i < interests.length; i++) {
+        for (int i = 0; i < interests.length; i++)
+        {
             System.out.println((i + 1) + " : " + interests[i]);
+
+                str += interests[i];
+                str += "#";
+
         }
 
         System.out.println("\n" + "You can reach me via my phone number " + phonenumber + " .");
+
+        str += "You can reach me via my phone number " ;
+        str += phonenumber;
+        str += "#";
+
+        //"@" neshane payan reshte
+
+        str += "@";
+        str += "#";
+
+        return str;
 
         //Hello! My name is Aryan Nourbakhsh. My ID is 40030111111. Here are some of my interests:
 
     }
 
 
-    public static int option() {
+    public static String EnCodeInformation(String stringinput)
+    {
+
+        System.out.print("shift : ");
+        Scanner inputshift = new Scanner(System.in);
+        int shift = inputshift.nextInt();
 
 
-        System.out.println("enter first name & last name : (1) ");
-        System.out.println("enter phone number           : (2) ");
-        System.out.println("enter user ID                : (3) ");
-        System.out.println("enter interests              : (4) ");
-        System.out.println("show information             : (5) ");
+        char[] sentence = stringinput.toCharArray();
+        int asci;
 
-        System.out.print("choose a option : ");
-        Scanner input = new Scanner(System.in);
-        int switchkey = input.nextInt();
+        for (int i=0 ; i<sentence.length ; i++)
+        {
 
-        return switchkey;
+            asci = sentence[i];
+
+
+            if ((asci+shift)>=65 && (asci+shift)<=90)
+            {
+                sentence[i] = (char)(asci+shift);
+            }
+
+            else if ((asci+shift)>90 && (asci+shift)<=122)
+            {
+                if (asci<=90)
+                {
+                    sentence[i]=(char) (64+((asci+shift)-90));
+                }
+                else if (asci>90)
+                {
+                    sentence[i]=(char)(asci+shift);
+                }
+
+            }
+
+            else if ((asci+shift)>=97 && (asci+shift)<=122)
+            {
+                sentence[i]=(char) asci;
+            }
+
+            else if ((asci+shift)>122 )
+            {
+                sentence[i]=(char) (96+((asci+shift)-122));
+            }
+
+
+        }
+
+        for (int i=1 ; i< sentence.length ; i++)
+        {
+            sentence[0]+=sentence[i];
+        }
+
+        System.out.println(sentence[0]);
+
 
     }
 
@@ -169,6 +236,7 @@ public class Main {
         String usernumber = "0";
         String userID = "0";
         String[] userinterests = {"0"};
+        String stringinformation ;
 
 
         userfullname = fullname();
@@ -186,7 +254,48 @@ public class Main {
         System.out.println("\n");
 
 
-        information1(userfullname, usernumber, userID, userinterests);
+        stringinformation = information1(userfullname, usernumber, userID, userinterests);
+
+
+
+        while (true)
+        {
+            System.out.println("Encode information    (1) ");
+            System.out.println("Decode information    (2) ");
+            System.out.println("show   information    (3) ");
+            System.out.println("EXIT                  (4) ");
+            System.out.print  ("choose a option : "        );
+
+            Scanner input = new Scanner (System.in);
+            int switchkey = input.nextInt();
+
+
+
+
+
+            switch (switchkey)
+            {
+
+                case 1:
+
+                    stringinformation = EnCodeInformation(stringinformation);
+                    continue;
+
+                case 2:
+
+
+
+                case 3:
+
+
+
+                case 4:
+                    break;
+
+            }
+        }
+
+
 
 
     }
