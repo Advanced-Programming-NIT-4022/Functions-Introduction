@@ -1,8 +1,8 @@
-package tamrin1_AP;
+package tamrin2_AP;
 
 import java.util.Scanner;
 
-public class ResumeMaker {
+public class Main {
 
 
     public static String fullname() {

@@ -1,4 +1,4 @@
-package tamrin1_AP;
+package tamrin2_AP;
 
 import java.util.Scanner;
 
