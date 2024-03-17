@@ -1,5 +1,6 @@
 package tamrin2_AP;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -74,11 +75,10 @@ public class Main {
 
         } else {
             System.out.println("Wrong entry. Try again (enter (0)) : ");
-            phonenumber();
+            return phonenumber();
         }
 
 
-        return " not found ";
 
     }
 
@@ -135,6 +135,7 @@ public class Main {
         str += "My ID is ";
         str += ID;
         str += ".";
+        str += "Here are some of my interest:";
         str += "#";
 
         for (int i = 0; i < 3; i++) {
@@ -152,16 +153,16 @@ public class Main {
 
         }
 
-        System.out.println("\n" + "You can reach me via my phone number " + phonenumber + " .");
+        // baraye mark kardan
+
+        System.out.println("\n" + "You can reach me via my phone number " + phonenumber + " ." + "\n");
 
         str += "You can reach me via my phone number " ;
-        str += phonenumber;
+        str += phonenumber+".";
         str += "#";
 
-        //"@" neshane payan reshte
 
-        str += "@";
-        str += "#";
+
 
         return str;
 
@@ -218,14 +219,16 @@ public class Main {
 
         }
 
-        for (int i=1 ; i< sentence.length ; i++)
+        //for (int i=1 ; i< sentence.length ; i++)
         {
-            sentence[0]+=sentence[i];
+            //sentence[0]+=sentence[i];
         }
 
-        System.out.println(sentence[0]);
+        //System.out.println(sentence[0]);
 
+        String str = String.valueOf(sentence);
 
+        return str;
     }
 
 
@@ -287,7 +290,23 @@ public class Main {
 
                 case 3:
 
+                    String [] show = stringinformation.split("#");
 
+                    System.out.println("\n" + show[0]);
+
+                    for (int i=1 ; i<=show.length-2 ; i++)
+                    {
+                        System.out.println((i) + " : " + show[i]);
+                    }
+
+                    System.out.println(show[show.length-1] + "\n");
+
+                    System.out.print("enter (exit) for back : ");
+                    Scanner stop = new Scanner(System.in);
+                    String stop2 = stop.nextLine();
+                    System.out.println("\n");
+
+                    continue;
 
                 case 4:
                     break;
