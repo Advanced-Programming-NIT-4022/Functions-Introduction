@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -25,9 +24,16 @@ public class Main {
         }
         System.out.println("Write your interests & enter \"End\" at the end: ");
         String[] saveInterestsArray = user.getInterests();
-        System.out.println( "Full name: " + user.fullName(user.getFirstName(), user.getLastName()));
-        System.out.println("Phone number: " + user.phoneNumber(user.getPhone()));
-        System.out.println("User ID: " + user.userId(user.getId()));
-        System.out.println("User's interests: " + Arrays.toString(saveInterestsArray));
+        String userFullInformations = user.userFullInformations(saveInterestsArray);
+        System.out.println("User's encoded informations: ");
+        System.out.println(user.informationEncoder(userFullInformations, 3));
+        System.out.print("If you wanna decode them, enter 3 & if you don't, enter \"End\": ");
+        String choose = input.nextLine();
+        if (choose.equals("End")){
+            System.out.println("Have a nice day^^");
+            System.exit(0);
+        }
+        System.out.println("User's decoded informations: ");
+        System.out.println(user.informationDecoder(user.informationEncoder(userFullInformations, 3), 3));
     }
 }

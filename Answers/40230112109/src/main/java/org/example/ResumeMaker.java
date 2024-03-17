@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ResumeMaker {
@@ -76,5 +77,26 @@ public class ResumeMaker {
         }
         return interests;
     }
+    public String userFullInformations(String[] saveInterestsArray){
+        String fullName = "Full name: " + fullName(getFirstName(), getLastName()) + "\n";
+        String phoneNumber = "Phone number: " + phoneNumber(getPhone()) + "\n";
+        String id = "User ID: " + userId(getId()) + "\n";
+        String interestsArray = "User's interests are: " + Arrays.toString(saveInterestsArray) + "\n";
 
+        return fullName + phoneNumber + id + interestsArray;
+    }
+    public StringBuilder informationEncoder(String userFullInformations, int shift){
+        StringBuilder encodedInformations = new StringBuilder();
+        for (int i = 0; i < userFullInformations.length(); i++){
+            encodedInformations.append((char)(((int)userFullInformations.charAt(i)) + shift));
+        }
+        return encodedInformations;
+    }
+    public StringBuilder informationDecoder(StringBuilder encodedInformations, int shift){
+        StringBuilder decodedInformations = new StringBuilder();
+        for (int i = 0; i < encodedInformations.length(); i++){
+            decodedInformations.append((char)(((int)encodedInformations.charAt(i)) - shift));
+        }
+        return decodedInformations;
+    }
 }
