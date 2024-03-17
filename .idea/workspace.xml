@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246c8d61-616d-4939-88a8-9521a3857d4f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Functions-Introduction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Functions-Introduction.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Functions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java" afterDir="false" />
@@ -55,7 +56,11 @@
     "Application.Functions.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.NameFormatter.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
     "JUnit.Unnamed.executor": "Coverage",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -164,7 +169,7 @@
       <workItem from="1710627550991" duration="375000" />
       <workItem from="1710627954027" duration="114000" />
       <workItem from="1710628111530" duration="450000" />
-      <workItem from="1710628584892" duration="6019000" />
+      <workItem from="1710628584892" duration="12594000" />
     </task>
     <servers />
   </component>
@@ -193,6 +198,11 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

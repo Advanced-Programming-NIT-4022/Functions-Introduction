@@ -17,13 +17,13 @@ public class Main {
 
         System.out.println("Normalized name: " + normalizedName);
 //////////////////////////////////////////////////////////////////////
-      
+
         System.out.print("Enter phone number: ");
         String phone = scanner.nextLine();
 
         while (!functions.checking(phone)) {
             //اگر شماره وارد شده توسط کاربر صحیح نبود
-            System.out.println("Wrong entry. Try again.");
+            System.out.println("Error . Try again.");
             System.out.print("Enter phone number: ");
             phone = scanner.nextLine();
             //دریافت مجدد شماره توسط کاربر
@@ -31,9 +31,14 @@ public class Main {
 
         String formattedPhone = functions.formatPhoneNumber(phone);
         //در اینجا شماره قطغا درسته و به کاربر نمایش داده میشود
-        System.out.println("Output: " + formattedPhone);
+        System.out.println("Your phone number: " + formattedPhone);
 
+        /////////////////////////////////////////////////////////////////////////
+        System.out.print("Enter user ID: ");
+        String userId = scanner.nextLine();
+        String validatedUserId = functions.validateUserId(userId);
 
+        System.out.println("Output: " + validatedUserId);
     }
-}
+    }
 
