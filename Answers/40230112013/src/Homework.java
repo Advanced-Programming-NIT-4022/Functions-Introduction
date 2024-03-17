@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Homework {
     public static void main(String[] args) {
+        System.out.println("**************************");
         Scanner scanner = new Scanner(System.in);
         //// Get name and surname from the user and modify its format
         System.out.print("Please enter your name and surname: ");
@@ -11,6 +12,7 @@ public class Homework {
         // The first function finished and the second function(Phone number) started
         boolean again = true;
         String phonenum;
+        System.out.println("\n**************************");
         do {
             System.out.print("Please enter your phone number : ");
             phonenum = scanner.next();
@@ -23,7 +25,7 @@ public class Homework {
                 again = false;
             }
         } while (again);
-
+        System.out.println("**************************");
         // The second function(phoneNumber) also done
         again = true;
         String UserIdentifier;
@@ -39,6 +41,7 @@ public class Homework {
                 break;
             }
         } while (again);
+        System.out.println("**************************");
         // the third function(userId) is done
         String[] interests = getInterests();
         int i = 0;
@@ -49,6 +52,7 @@ public class Homework {
             System.out.println(p + "_" + interests[i]);
             i++;
         }
+        System.out.print("\n**************************");
         // the fourth function(getInterests) is done
 
         String UFI = userFullInformation(firstName, phonenum, UserIdentifier, interests);
@@ -57,11 +61,11 @@ public class Homework {
         again = true;
         String ask2;
         do {
-            System.out.print("How to display the final information?\n1.Encrypted 2.simple 3.exit (end program)\n");
+            System.out.println("\nHow to display the final information?\n1.Encrypted 2.simple 3.exit (end program)\n");
             ask2 = scanner.next();
             switch (ask2) {
                 case "1":
-                    System.out.print("Please enter the number of shifts: ");
+                    System.out.print("\nPlease enter the number of shifts: ");
                     int b = scanner.nextInt();
                     informationEncoder(b, UFI);
                     break;
@@ -90,7 +94,7 @@ public class Homework {
         if (lastName != null && lastName.isEmpty() == false) {
             lastName = Character.toUpperCase(lastName.charAt(0)) + lastName.substring(1).toLowerCase();
         }
-        System.out.println("\nThe correct format of your name and surname: " + (firstName) + " " + (lastName) + "\n");
+        System.out.print("\nThe correct format of your name and surname: " + (firstName) + " " + (lastName) + "\n");
         return (firstName) + " " + (lastName);
     }
 
@@ -100,7 +104,7 @@ public class Homework {
         if (phone.startsWith("9") && phone.length() == 10) {
             return "0" + phone;
         } else {
-            System.out.println("Invalid phone number. Please try again.");
+            System.out.println("Invalid phone number. Please try again.\n");
             return "F";
         }
     }
@@ -111,7 +115,7 @@ public class Homework {
             return Uid;
         else {
 
-            System.out.println("\nInvalid value , Please enter the correct ID ");
+            System.out.println("\nInvalid value , Please enter the correct ID\n ");
             return "I";
         }
 
@@ -119,7 +123,7 @@ public class Homework {
 
     /// getInterests function:
     public static String[] getInterests() {
-        try (Scanner input = new Scanner(System.in)) {
+        Scanner input = new Scanner(System.in);
             boolean again = true;
             String[] array = new String[9];
             int i = 0;
@@ -129,7 +133,7 @@ public class Homework {
                 array[i] = input.next();
                 System.out.print("\n");
                 i++;
-                System.out.println("Do you want to continue? \nyes or no ");
+                System.out.println("Do you want to continue? \nyes or no \n");
                 ask = input.next();
                 System.out.print("\n");
                 switch (ask) {
@@ -147,7 +151,7 @@ public class Homework {
 
             return array;
         }
-    }
+    
 
     /// userFullInformation function :
 
