@@ -153,14 +153,17 @@ public class Functions
 
             if('a'<=tmp && tmp<='z')
             {
+                shift %= 26 ;
                 information_array[i] = (tmp+shift>(int)'z') ? String.valueOf((char)(tmp+shift-26)) : String.valueOf((char)(tmp+shift));
             }
             else if('A'<=tmp && tmp<='Z')
             {
+                shift %= 26 ;
                 information_array[i] = (tmp+shift>(int)'Z') ? String.valueOf((char)(tmp+shift-26)) : String.valueOf((char)(tmp+shift));
             }
             else if('0'<=tmp && tmp<='9')
             {
+                shift %= 10 ;
                 information_array[i] = (tmp+shift>(int)'9') ? String.valueOf((char)(tmp+shift-10)) : String.valueOf((char)(tmp+shift));
             }
         }
@@ -185,14 +188,17 @@ public class Functions
 
             if('a'<=tmp && tmp<='z')
             {
+                shift %= 26 ;
                 information_array[i] = (tmp-shift<(int)'a') ? String.valueOf((char)(tmp-shift+26)) : String.valueOf((char)(tmp-shift));
             }
             else if('A'<=tmp && tmp<='Z')
             {
+                shift %= 26 ;
                 information_array[i] = (tmp-shift<(int)'A') ? String.valueOf((char)(tmp-shift+26)) : String.valueOf((char)(tmp-shift));
             }
             else if('0'<=tmp && tmp<='9')
             {
+                shift %= 10 ;
                 information_array[i] = (tmp-shift<(int)'0') ? String.valueOf((char)(tmp-shift+10)) : String.valueOf((char)(tmp-shift));
             }
         }
