@@ -34,11 +34,59 @@ public class Main {
         System.out.println("Your phone number: " + formattedPhone);
 
         /////////////////////////////////////////////////////////////////////////
-        System.out.print("Enter user ID: ");
-        String userId = scanner.nextLine();
-        String validatedUserId = functions.validateUserId(userId);
+        String userId ="";
+        while (true) {
+            System.out.print("Enter user ID: ");
+            userId = scanner.nextLine();
+            String validatedUserId = functions.validateUserId(userId);
+            if (!validatedUserId.startsWith("Invalid")) {
+                System.out.println("Validated user ID: " + validatedUserId);
+                break;
+            } else {
+                System.out.println(validatedUserId);
+            }
+        }
+        ////////////////////////////////////////////////////////////////////////////
 
-        System.out.println("Output: " + validatedUserId);
-    }
-    }
 
+        scanner = new Scanner(System.in);
+
+        System.out.println("Please enter your interests (maximum 10 interests, enter 'done' to finish):");
+
+        String[] userInterests = new String[10];
+
+        int i = 0;
+
+        String input;
+        // تعریف متغیر برای ذخیره ورودی کاربر
+
+        while (i < userInterests.length) { // حلقه برای دریافت حداکثر 10 علاقه‌مندی از کاربر
+
+            System.out.print("Input: ");
+
+            input = scanner.nextLine().trim();
+            //  حذف فاصله‌های اضافی از ابتدا و انتهای رشته
+
+            if (input.equals("done")) { // اگر ورودی "done" باشد حلقه متوقف می‌شود
+                break;
+            }
+
+            userInterests[i++] = input;
+            // ذخیره ورودی کاربر در آرایه علاقه‌مندی‌ها و افزایش شمارنده
+        }
+
+        functions = new Functions();
+
+        String[] interests = functions.getInterests(userInterests);
+// فراخوانی متد getInterests با استفاده از آرایه علاقه‌مندی‌های کاربر و ذخیره نتیجه در آرایه جدید
+        System.out.print("Output: ");
+
+        for (String interest : interests) {
+            // حلقه برای نمایش علاقه‌مندی‌های دریافت شده به کاربر
+
+            if (interest != null) {    //اگر مقدار غیر null باشد نمایش آن
+                System.out.print(interest + "-");
+            }
+        }
+    }
+}
