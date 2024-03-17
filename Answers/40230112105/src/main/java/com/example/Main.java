@@ -10,22 +10,20 @@ public class Main {
 
     }
 
-    static String phoneNumber(long number) {
-        Scanner longScanner = new Scanner(System.in);
-        String strNumber = "999";
+    static String phoneNumber(String number) {
+        Scanner strScanner = new Scanner(System.in);
         int size;
         boolean flag = false;
         while(!flag){
-            strNumber = String.valueOf(number);
-            size = strNumber.length();
-            if (strNumber.substring(0, 1).equals("9") && size == 10) {
+            size = number.length();
+            if (number.substring(0, 1).equals("9") && size == 10) {
                 flag = true;
             } else {
                 System.out.println("Wrong entry. Try again");
-                number = longScanner.nextLong();
+                number = strScanner.next();
             }
         }
-        return "0" + strNumber;
+        return "0" + number;
     }
 
     static long userId(long id) {
@@ -62,16 +60,42 @@ public class Main {
         return interests;
     }
 
-    static void userFullInformation(String full_name, String number, long ID, String[] interests){
-        System.out.println("Hello! my name is " + full_name + ". My ID is " + ID + ". Here are some of my interests: ");
-        int i = 1;
-        while(interests[i] != null) {
-            System.out.println(i + ". " + interests[i]);
+    static String userFullInformation(String full_name, String number, long ID, String[] interests){
+        String info = "Hello! my name is " + full_name + ". My ID is " + ID + ". Here are some of my interests: " + "\n";
+        String interest = "";
+        int i = 0;
+        while (interests[i] != null) {
+            interest += i + 1 + ". " + interests[i] + "\n";
             i++;
         }
-        System.out.println("You can reach me via my phone number " + number);
+        String info2 = "You can reach me via my phone number " + number;
+        String full_info = info + interest + info2;
+        return full_info;
     }
 
+    static String informationEncoder(String information,int shift) {
+        int shift_temp = shift;
+        String new_sentence = "";
+        for(int i = 0; i< information.length(); i++){
+            char character = information.charAt(i);
+            if((character <= 90 && character >= 65) || (character <= 122 && character >= 97) || (character <= 57 && character >= 48)) {
+                if(character + shift <= 90){
+                    character += shift;
+                } else if (character + shift <= 122 && character >= 97) {
+                    character += shift;
+                } else if (character + shift >= 122 && character >= 97) {
+                    shift -= 122 - character;
+                    character = (char)(96 + shift);
+                } else if (character + shift >= 90) {
+                    shift -= 90 - character;
+                    character = (char)(64 + shift);
+                }
+            }
+            new_sentence = new_sentence + character;
+            shift = shift_temp;
+        }
+        return new_sentence;
+    }
 
     public static void main(String[] args) {
         System.out.println("RUNNIG >>> fullName function");
@@ -83,12 +107,12 @@ public class Main {
         System.out.println(fullName(name, last));
         ////////////////////////////////////////////////
         System.out.println("RUNNING >>> phoneNumber function");
-        Scanner longScanner = new Scanner(System.in);
         System.out.print("please enter your number witout zero ate the first: ");
-        long number = longScanner.nextLong();
+        String number = strScanner.next();
         System.out.println(phoneNumber(number));
         ////////////////////////////////////////////////
         System.out.println("RUNNING >>> userId function");
+        Scanner longScanner = new Scanner(System.in);
         System.out.print("please give me a standard ID: ");
         long ID = longScanner.nextLong();
         System.out.println(userId(ID));
@@ -105,19 +129,14 @@ public class Main {
         System.out.println("}");
         /////////////////////////////////////////////////
         System.out.println("RUNNING >>> userFullInformation function");
-        interests = getInterests(interests);
-        System.out.print("please give me your first name: ");
-        name = strScanner.next();
-        System.out.print("please give me your last name: ");
-        last = strScanner.next();
         String full_name = fullName(name, last);
-        System.out.print("please give me your phone number(whitout zero at the first): ");
-        number = longScanner.nextLong();
-        String phone_number = phoneNumber(number);
-        System.out.print("please give me a statndard ID: ");
-        ID = longScanner.nextLong();
-        userFullInformation(full_name, phone_number, ID, interests);
-        // System.out.println(userFullInformation(full_name, phone_number, ID, interests));
-        /////////////////////////////////////////////////    }
-
+        System.out.println(userFullInformation(full_name, number, ID, interests));
+        /////////////////////////////////////////////////
+        System.out.println("RUNNING >>> informationEncoder function");
+        Scanner intScanner = new Scanner(System.in);
+        System.out.print("How much do you want to shift your information: ");
+        int shift = intScanner.nextInt();
+        System.out.println(informationEncoder(userFullInformation(full_name, number, ID, interests), shift));
+        //////////////////////////////////////////////////
+    }
 }
