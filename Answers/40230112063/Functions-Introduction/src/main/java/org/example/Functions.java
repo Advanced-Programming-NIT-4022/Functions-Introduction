@@ -129,7 +129,8 @@ public class Functions
             str_interests = str_interests.concat(interests[i]).concat("-");
         }
 
-        str_interests = str_interests.concat(interests[interests_size-1]);
+        if(interests_size!=0)
+            str_interests = str_interests.concat(interests[interests_size-1]);
 
         full_information = "Hello Dear , My name is ".concat(full_name).concat(".\n")
                 .concat("My ID is ").concat(user_id).concat(".\n")
