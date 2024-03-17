@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="246c8d61-616d-4939-88a8-9521a3857d4f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Functions-Introduction.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Functions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Answers/40230212031/src/org/example/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +164,7 @@
       <workItem from="1710627550991" duration="375000" />
       <workItem from="1710627954027" duration="114000" />
       <workItem from="1710628111530" duration="450000" />
-      <workItem from="1710628584892" duration="3178000" />
+      <workItem from="1710628584892" duration="6019000" />
     </task>
     <servers />
   </component>

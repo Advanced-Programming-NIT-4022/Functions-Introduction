@@ -10,7 +10,17 @@ package org.example;
 //مانند بالایی
             return normalizedFirstName +" "+normalizedLastName;
         }
+        public String formatPhoneNumber(String phoneNumber) {
+            if (checking(phoneNumber)) {
+                return "0" + phoneNumber;
+            } else {
+                return "Wrong entry. Try again.";
+            }
+        }
+        public boolean checking(String phone) {
+            return phone.startsWith("9") && phone.length() == 10;
+        }
+    }
 
-}
 
 

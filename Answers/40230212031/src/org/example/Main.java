@@ -16,6 +16,23 @@ public class Main {
         String normalizedName = functions.normalizingName(firstName, lastName);
 
         System.out.println("Normalized name: " + normalizedName);
+//////////////////////////////////////////////////////////////////////
+      
+        System.out.print("Enter phone number: ");
+        String phone = scanner.nextLine();
+
+        while (!functions.checking(phone)) {
+            //اگر شماره وارد شده توسط کاربر صحیح نبود
+            System.out.println("Wrong entry. Try again.");
+            System.out.print("Enter phone number: ");
+            phone = scanner.nextLine();
+            //دریافت مجدد شماره توسط کاربر
+        }
+
+        String formattedPhone = functions.formatPhoneNumber(phone);
+        //در اینجا شماره قطغا درسته و به کاربر نمایش داده میشود
+        System.out.println("Output: " + formattedPhone);
+
 
     }
 }
