@@ -74,12 +74,15 @@ public class Main {
     }
 
     static String informationEncoder(String information,int shift) {
+        shift %= 26;
         int shift_temp = shift;
         String new_sentence = "";
         for(int i = 0; i< information.length(); i++){
             char character = information.charAt(i);
-            if((character <= 90 && character >= 65) || (character <= 122 && character >= 97) || (character <= 57 && character >= 48)) {
-                if(character + shift <= 90){
+            if((character <= 90 && character >= 65) || (character <= 122 && character >= 97) || (character >= 48)) {
+                if(character < 65 || character > 122){
+                    character += shift;
+                }else if(character + shift <= 90){
                     character += shift;
                 } else if (character + shift <= 122 && character >= 97) {
                     character += shift;
@@ -97,6 +100,31 @@ public class Main {
         return new_sentence;
     }
 
+    static String informationDecoder(String encoded_information, int shift_de) {
+        shift_de %= 26;
+        int shift_temp = shift_de;
+        String new_sentence = "";
+        for(int i = 0; i< encoded_information.length(); i++){
+            char character = encoded_information.charAt(i);
+            if((character <= 90 && character >= 65) || (character <= 122 && character >= 97) || (character >= 48)) {
+                if(character < 65 || character > 122) {
+                    character -= shift_de;
+                }else if(character - shift_de >= 65 && character <= 90){
+                    character -= shift_de;
+                } else if (character - shift_de >= 97) {
+                    character -= shift_de;
+                } else if (character - shift_de < 97 && character >= 97) {
+                    character += 26 - shift_de;
+                } else if (character - shift_de < 65) {
+                    character += 26 - shift_de;
+                }
+            }
+            new_sentence = new_sentence + character;
+            shift_de = shift_temp;
+        }
+        return new_sentence;
+    }
+
     public static void main(String[] args) {
         System.out.println("RUNNIG >>> fullName function");
         Scanner strScanner = new Scanner(System.in);
@@ -109,13 +137,15 @@ public class Main {
         System.out.println("RUNNING >>> phoneNumber function");
         System.out.print("please enter your number witout zero ate the first: ");
         String number = strScanner.next();
-        System.out.println(phoneNumber(number));
+        number = phoneNumber(number);
+        System.out.println(number);
         ////////////////////////////////////////////////
         System.out.println("RUNNING >>> userId function");
         Scanner longScanner = new Scanner(System.in);
         System.out.print("please give me a standard ID: ");
         long ID = longScanner.nextLong();
-        System.out.println(userId(ID));
+        ID = userId(ID);
+        System.out.println(ID);
         ////////////////////////////////////////////////
         System.out.println("RUNNING >>> getInterests function");
         String[] interests = new String[10];
@@ -138,5 +168,10 @@ public class Main {
         int shift = intScanner.nextInt();
         System.out.println(informationEncoder(userFullInformation(full_name, number, ID, interests), shift));
         //////////////////////////////////////////////////
+        System.out.println("RUNNING >>> informationDecoder function");
+        System.out.print("How much do you wnat to shift your information: ");
+        int shift_de = intScanner.nextInt();
+        String encoded_information = informationEncoder(userFullInformation(full_name, number, ID, interests), shift);
+        System.out.println(informationDecoder(encoded_information, shift_de));
     }
 }
