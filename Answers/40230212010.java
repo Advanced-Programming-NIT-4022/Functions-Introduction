@@ -81,6 +81,18 @@ public class 40230212010 {
         return interests;
 
     }
+    
+    public static String userFullInformation(String fullName, String phoneNumber, String userID, String[] interests) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests: "+"\n");
+        for (int i = 0; i < interests.length; i++) {
+            if (interests[i] != null) {
+                sb.append((i+1) + "." + interests[i]+"\n");
+            }
+        }
+        sb.append("You can reach me via my phone number "+phoneNumber+".");
+        return sb.toString();
+    }
 
 
 
