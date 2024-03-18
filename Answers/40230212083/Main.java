@@ -17,7 +17,7 @@ public class Main {
         //for calling userId method
         System.out.println(userId());
         */
-
+        /*
         //for calling getInterests method
         String[] array = getInterests();
         //for showing
@@ -27,6 +27,19 @@ public class Main {
             System.out.print(" \""+ array[i] + "\",");
         }
         System.out.print("\b}");
+        */
+
+        //for calling userFullInformation
+        System.out.print("Full name: ");
+        String fname = scan.nextLine();
+        System.out.print("Phone number: ");
+        String phone = phoneNumber();
+        System.out.print("User ID: ");
+        String id = userId();
+        System.out.println("Interests:\n");
+        String[] interest = getInterests();
+        String information = userFullInformation(fname, phone, id, interest);
+        System.out.println(information);
     }
     public static String fullName(String firstName , String lastName){
         firstName = firstName.toLowerCase();
@@ -74,5 +87,18 @@ public class Main {
             A[i] = tmp;
         }
         return A;
+    }
+    public static String userFullInformation(String fullName, String phoneNumber, String userID, String[] interest){
+        String info = "Hello! My name is " + fullName + ". My ID is " + userID;
+        info += ". Here are some of my interests:\n";
+        for(int i=0;i<interest.length;i++){
+            if(interest[i].equals("***")) break;
+            else {
+                info += (i + 1);
+                info += (". " + interest[i] + '\n');
+            }
+        }
+        info += "\nYou can reach me via my phone number " + phoneNumber + '.';
+        return info;
     }
 }
