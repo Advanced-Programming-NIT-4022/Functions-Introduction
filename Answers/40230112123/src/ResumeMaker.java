@@ -59,10 +59,57 @@ public class ResumeMaker
         String[] interests = getInterests(interest);
 
         // show menu
-        menu();
+        menu(name, phone, id, interests);
     }
 
+    public static void menu(String fullName, String phoneNumber, String userId,
+                            String[] interests)
+    {
+        Scanner input = new Scanner(System.in);
+        while (true)
+        {
+            int choice;
+            System.out.printf("%n1. full information%n2. encode information%n");
+            System.out.printf("3. decode information%n4. exit%n");
+            System.out.print("%nPlease eneter your choice(1-4): ");
+            choice = input.nextInt();
 
+            // select the choice
+            switch (choice)
+            {
+                case 1:
+                    userFullInformation(fullName, phoneNumber, userId, interests);
+                    break;
+                case 2:
+                    System.out.println("Enter a string to encode: ");
+                    String code = input.nextLine();
+                    System.out.print("Enter the number to shift encode information(0 : random number): ");
+                    int shift = input.nextInt();
+                    if (shift == 0)
+                    {
+                        SecureRandom randomNumber = new SecureRandom();
+                        shift = 1 + randomNumber.nextInt(25);
+                    }
+                    informationEncoder(code, shift);
+                    break;
+                case 3:
+                    System.out.println("Enter a string to decode: ");
+                    String decode = input.nextLine();
+                    System.out.print("Enter the shift number: ");
+                    int shift = input.nextInt();
+                    informationDecoder(decode, shift);
+                    break;
+                case 4:
+                    System.out.print("press enter to exit...");
+                    input.nextLine();
+                    return;
+                default:
+                    System.out.println("invalid number!");
+            }
+            System.out.print("press enter to continue...");
+            input.nextLine();
+        }
+    }
 
     public static String fullName(String firstName, String lastName)
     {
@@ -114,7 +161,7 @@ public class ResumeMaker
         System.out.printf("%nYou can reach me via my phone number %s.", phoneNumber);
     }
 
-    public static String informationEncoder(String information, int shift)
+    public static void informationEncoder(String information, int shift)
     {
         String encodeInformation = new String[information.length()];
 
@@ -135,7 +182,7 @@ public class ResumeMaker
             encodeInformation[i] = character;
         }
 
-        return encodeInformation;
+        System.out.printf("%nCode information : %s%n", encodeInformation);
     }
 
     public static String informationDecoder(String information, int shift)
