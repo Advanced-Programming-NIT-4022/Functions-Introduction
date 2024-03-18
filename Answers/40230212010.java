@@ -67,6 +67,20 @@ public class 40230212010 {
 
         }
     }
+    
+    public static String[] getInterests(Scanner scanner) {
+        String[] interests = new String[10];
+        System.out.println("enter your interest: (type exit to finish)");
+        for (int i = 0; i < 10; i++) {
+            String s = scanner.nextLine();
+            if (s.equals("exit")) {
+                break;
+            }
+            interests[i] = s;
+        }
+        return interests;
+
+    }
 
 
 
