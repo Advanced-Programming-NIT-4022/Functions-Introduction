@@ -10,7 +10,6 @@ public class Main {
         System.out.println("Enter your last name :");
         String last_name = sc.next();
         String full_name = fullName(first_name, last_name);
-        System.out.println(full_name);
 
         // phone number
         System.out.println("Enter phone number : ");
@@ -21,7 +20,6 @@ public class Main {
             phone = sc.next();
             newPhone = phoneNumber(phone);
         }
-        System.out.println(newPhone);
 
         // user ID
         System.out.println("Enter User ID : ");
@@ -32,18 +30,12 @@ public class Main {
             id = sc.next();
             newId = userId(id);
         }
-        System.out.println(newId);
 
         // user interest
         String[] interests = getInterests();
-        System.out.print("your interests : {");
-        for(int i = 0; i < interests.length; i++){
-            System.out.print("\"" + interests[i] + "\"");
-            if(i < interests.length - 1){
-                System.out.print(", ");
-            }
-        }
-        System.out.print("}");
+
+        // user full information
+        userFullInformation(full_name, newPhone, newId, interests);
     }
 
     public static String fullName(String firstName, String lastName) {
@@ -85,5 +77,16 @@ public class Main {
             result[i] = intersets[i];
         }
         return result;
+    }
+
+    public static void userFullInformation(String fullName, String phoneNumber, String userID, String[] interests){
+        System.out.println("Hello! My nam is " + fullName + ". My ID is " + userID + ". Here are some of my interests : ");
+        int i = 1;
+        for (String interest : interests){
+            System.out.print(i + ". ");
+            System.out.println(interest);
+            i++;
+        }
+        System.out.println("You can reach me via my phone number " + phoneNumber);
     }
 }
