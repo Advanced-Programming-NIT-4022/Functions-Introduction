@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 // Actually putting an interface in this project was great put it doesn't deserved my time :)
 public class Main {
 	public static void main(String[] ags)
@@ -66,5 +69,45 @@ public class Main {
 			return null;
 
 		return id;
+	 }
+
+	/* **********************************************************************
+	 * getting interests of user one by one ==> a list of user intersts		*
+	 ***********************************************************************/
+	 static ArrayList<String> getInterests()
+	 {
+	 	System.out.println("--~~Enter your intersts. type '!' if it's done. (max: 10)~~-");
+
+		Scanner s = new Scanner(System.in);
+		ArrayList<String> result = new ArrayList<>();
+		String input = null;
+		int count = 1;
+		while (count < 11)
+		{
+			System.out.print(count + ". ");
+			input = s.nextLine().replaceAll("^\\s+|\\s+$", "");
+
+			if (input.isEmpty())
+			{
+				System.out.println("Please enter something!");
+				continue;
+			}
+			
+			if (result.contains(input))
+			{
+				System.out.println("You entered this once before!");
+				continue;
+			}
+
+			if (input.equals("!"))
+			{
+				return result; 
+			}
+
+			result.add(input);
+			count++;
+		}
+		s.close();
+		return result;
 	 }
 }
