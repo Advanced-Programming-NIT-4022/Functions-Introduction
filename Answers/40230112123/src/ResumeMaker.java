@@ -1,3 +1,5 @@
+// Resume Maker : A simple program for make a resume
+
 public class ResumeMaker
 {
     public static void main(String[] args)
@@ -35,5 +37,13 @@ public class ResumeMaker
             return true;
         else
             return false;
+    }
+
+    public static String[] getInterests(String... interests)
+    {
+        String[] interestArray = new String[interests.length];
+        for (int i = 0; i < interests.length; i++)
+            interestArray[i] = interests[i];
+        return interestArray;
     }
 }
