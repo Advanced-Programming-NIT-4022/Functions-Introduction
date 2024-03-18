@@ -68,8 +68,6 @@ public class Main {
             System.out.println((i+1)+". "+interests[i]);
         }
         System.out.println("\nYou can reach me via my phone number"+ phoneNumber+".");
-
-
     }
 
     public static void main(String[] args) {
