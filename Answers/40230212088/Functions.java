@@ -53,7 +53,12 @@ public class Functions {
                 System.out.println("Output: " + userFullInformation(fullN, PhoneNumber, uId, inte , nn));
                 break;
             case 6:
-
+                System.out.print("Information: ");
+                String information = enter.nextLine();
+                System.out.print("Shift: ");
+                int shift = enter.nextInt();
+                System.out.println("Output: " + informationEncoder(information, shift));
+                break;
             case 7:
 
             default:
@@ -116,5 +121,25 @@ public class Functions {
         }
         result+= "You can reach me via my phone number "+phoneNumber + ".";
         return result;
+    }
+    public static String informationEncoder(String information, int shift) {
+        String[] words = information.split(" ");
+        StringBuilder shiftedInformation = new StringBuilder();
+        for (String word : words) {
+            for (int i = 0; i < word.length(); i++) {
+                char orgChar = word.charAt(i);
+                char shiftedChar = orgChar;
+                if (Character.isLetter(orgChar)) {
+                    if (Character.isUpperCase(orgChar)) {
+                        shiftedChar = (char) ('A' + (orgChar - 'A' + shift) % 26);
+                    } else {
+                        shiftedChar = (char) ('a' + (orgChar - 'a' + shift) % 26);
+                    }
+                }
+                shiftedInformation.append(shiftedChar);
+            }
+            shiftedInformation.append(" ");
+        }
+        return shiftedInformation.toString();
     }
 }
