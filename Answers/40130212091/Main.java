@@ -22,7 +22,7 @@ public class Main {
             newPhone = phoneNumber(phone);
         }
         System.out.println(newPhone);
-        
+
         // user ID
         System.out.println("Enter User ID : ");
         String id = sc.next();
@@ -34,7 +34,16 @@ public class Main {
         }
         System.out.println(newId);
 
-
+        // user interest
+        String[] interests = getInterests();
+        System.out.print("your interests : {");
+        for(int i = 0; i < interests.length; i++){
+            System.out.print("\"" + interests[i] + "\"");
+            if(i < interests.length - 1){
+                System.out.print(", ");
+            }
+        }
+        System.out.print("}");
     }
 
     public static String fullName(String firstName, String lastName) {
@@ -55,5 +64,26 @@ public class Main {
             return id;
         }
         return "Wrong";
+    }
+
+    public static String[] getInterests(){
+        Scanner sc = new Scanner(System.in);
+        String[] intersets = new String[10];
+        int count = 0;
+        System.out.println("Enter interest : ");
+        intersets[count] = sc.nextLine();
+        while (count < 10){
+            if(intersets[count].isEmpty()){
+                break;
+            }
+            count++;
+            System.out.println("Enter interest : ");
+            intersets[count] = sc.nextLine();
+        }
+        String[] result = new String[count];
+        for(int i = 0; i < count; i++){
+            result[i] = intersets[i];
+        }
+        return result;
     }
 }
