@@ -1,4 +1,5 @@
 // Resume Maker : A simple program for make a resume
+import java.security.SecureRandom;
 
 public class ResumeMaker
 {
@@ -45,5 +46,15 @@ public class ResumeMaker
         for (int i = 0; i < interests.length; i++)
             interestArray[i] = interests[i];
         return interestArray;
+    }
+
+    public static void userFullInformation(String fullName, String phoneNumber, String userId,
+                                           String[] interests)
+    {
+        System.out.printf("Hello! My name is %s . My ID is %s. ", fullName, userId);
+        System.out.printf("Here are some of my interests:%n");
+        for (int i = 0; i < interests.length; i++)
+            System.out.printf("%d. %s%n", i, interests[i]);
+        System.out.printf("%nYou can reach me via my phone number %s.", phoneNumber);
     }
 }
