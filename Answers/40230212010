@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class 40230212010 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String first, last;
+
+        System.out.println("Please Enter your firstname : ");
+        first = scanner.nextLine();
+
+        System.out.println("Please Enter your lastname : ");
+        last = scanner.nextLine();
+
+        String full = fullName(first, last);
+
+        String phone = phoneNumber(scanner);
+
+        String id = userId(scanner);
+
+        String[] inteterests = getInterests(scanner);
+
+        String information = userFullInformation(full, phone, id, inteterests);
+        System.out.println(information);
+
+        String encoded = informationEncoder(scanner , information);
+
+        informationDecoder(scanner, encoded);
+
+        scanner.close();
+    }
+    
+
+    public static String fullName(String firstName, String lastName) {
+
+        firstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
+        lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
+        return firstName + " " + lastName;
+    }
+
+}
