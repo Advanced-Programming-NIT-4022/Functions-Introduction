@@ -1,7 +1,6 @@
 // Resume Maker : A simple program for make a resume
 import java.security.SecureRandom;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class ResumeMaker
 {
@@ -28,7 +27,7 @@ public class ResumeMaker
         {
             phone = input.nextLine();
             phone = phoneNumber(phone);
-            if (Arrays.equals(phone, "false"))
+            if (phone.equals("false"))
                 System.out.println("Wrong entry. Try again.");
             else
             {
@@ -38,7 +37,7 @@ public class ResumeMaker
         }
 
         // input user id
-        System.out.println("your user ID: ");
+        System.out.print("your user ID: ");
         String id;
         while (true)
         {
@@ -54,7 +53,7 @@ public class ResumeMaker
 
         // input interests
         String interest;
-        System.out.println("your interests(comma seperated list): ");
+        System.out.print("your interests(comma separated list): ");
         interest = input.nextLine();
         String[] interests = getInterests(interest);
 
@@ -66,48 +65,45 @@ public class ResumeMaker
                             String[] interests)
     {
         Scanner input = new Scanner(System.in);
+        String code = "Hello! My name is " + fullName +
+                ".I like " + interests[0] + ".";
+        String decode = "";
+        int shift = 0; // shift value
+
         while (true)
         {
             int choice;
             System.out.printf("%n1. full information%n2. encode information%n");
             System.out.printf("3. decode information%n4. exit%n");
-            System.out.print("%nPlease eneter your choice(1-4): ");
+            System.out.printf("%nPlease enter your choice(1-4): ");
             choice = input.nextInt();
 
             // select the choice
-            switch (choice)
-            {
+            switch (choice) {
                 case 1:
                     userFullInformation(fullName, phoneNumber, userId, interests);
                     break;
                 case 2:
-                    System.out.println("Enter a string to encode: ");
-                    String code = input.nextLine();
                     System.out.print("Enter the number to shift encode information(0 : random number): ");
-                    int shift = input.nextInt();
-                    if (shift == 0)
-                    {
+                    shift = input.nextInt();
+                    if (shift == 0) {
                         SecureRandom randomNumber = new SecureRandom();
                         shift = 1 + randomNumber.nextInt(25);
+                        System.out.printf("Shift number is %d%n", shift);
                     }
-                    informationEncoder(code, shift);
+                    decode = informationEncoder(code, shift);
                     break;
                 case 3:
-                    System.out.println("Enter a string to decode: ");
-                    String decode = input.nextLine();
-                    System.out.print("Enter the shift number: ");
-                    int shift = input.nextInt();
-                    informationDecoder(decode, shift);
+                    if (decode.equals(""))
+                        System.out.println("You should first code your information.");
+                    else
+                        informationDecoder(decode, shift);
                     break;
                 case 4:
-                    System.out.print("press enter to exit...");
-                    input.nextLine();
                     return;
                 default:
                     System.out.println("invalid number!");
             }
-            System.out.print("press enter to continue...");
-            input.nextLine();
         }
     }
 
@@ -145,29 +141,27 @@ public class ResumeMaker
 
     public static String[] getInterests(String interests)
     {
-        String[] interestArray = new String[interests.length];
-        for (int i = 0; i < interests.length; i++)
-            interestArray[i] = interests[i];
+        String[] interestArray = interests.split(",");
         return interestArray;
     }
 
     public static void userFullInformation(String fullName, String phoneNumber, String userId,
                                            String[] interests)
     {
-        System.out.printf("Hello! My name is %s . My ID is %s. ", fullName, userId);
+        System.out.printf("Hello! My name is %s. My ID is %s. ", fullName, userId);
         System.out.printf("Here are some of my interests:%n");
         for (int i = 0; i < interests.length; i++)
-            System.out.printf("%d. %s%n", i, interests[i]);
-        System.out.printf("%nYou can reach me via my phone number %s.", phoneNumber);
+            System.out.printf("%d. %s%n", i + 1, interests[i]);
+        System.out.printf("%nYou can reach me via my phone number %s.%n", phoneNumber);
     }
 
-    public static void informationEncoder(String information, int shift)
+    public static String informationEncoder(String information, int shift)
     {
-        String encodeInformation = new String[information.length()];
+        String encodeInformation = "";
 
         for (int i = 0; i < information.length(); i++)
         {
-            char character = information[i];
+            char character = information.charAt(i);
             if ('A' <= character && character <= 'Z')
             {
                 character += shift;
@@ -179,18 +173,19 @@ public class ResumeMaker
                 if(character > 'z')
                     character -= 26; // 26 letters in En alphabetic
             }
-            encodeInformation[i] = character;
+            encodeInformation = encodeInformation + character;
         }
-
         System.out.printf("%nCode information : %s%n", encodeInformation);
+        return encodeInformation;
     }
 
-    public static String informationDecoder(String information, int shift)
+    public static void informationDecoder(String information, int shift)
     {
-        String decodeInformation = new String[information.length()];
+        char[] decodeInformation = new char[information.length()];
 
         for (int i = 0; i < information.length(); i++)
         {
+            char character = information.charAt(i);
             if ('A' <= character && character <= 'Z')
             {
                 character -= shift;
@@ -205,6 +200,9 @@ public class ResumeMaker
             decodeInformation[i] = character;
         }
 
-        return decodeInformation;
+        System.out.printf("%nDecode information : ");
+        for (char character : decodeInformation)
+            System.out.print(character);
+        System.out.println();
     }
 }
