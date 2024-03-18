@@ -50,24 +50,25 @@ public class Main {
         }
 
     }
-    static void getInterests()
+    static String[] getInterests(String[] userInterests)
     {
-        Scanner scanner = new Scanner(System.in);
-        String[] interests = new String [10];
-        for(int i=0; i<10; i++)
-        {
-            interests [i] = scanner.nextLine();
-            if(interests[i].equalsIgnoreCase("done"))
-            {
-                String[] subArray = Arrays.copyOf(interests, i);
-                System.out.print(Arrays.toString(subArray));
-                break;
-            }
 
+        for(int i=0; i<userInterests.length; i++) {
+            if (userInterests[i].equalsIgnoreCase("done")) {
+                return Arrays.copyOf(userInterests, i);
+            }
         }
-        if (!interests[9].equalsIgnoreCase("done")) {
-            System.out.print(Arrays.toString(interests));
+        return userInterests;
+    }
+    static void userFullInformation(String fullName, String phoneNumber, String userID, String[] interests)
+    {
+        System.out.println("Hello, my name is "+fullName+". "+"My ID is "+userID+". "+"Here are some of my interests:");
+        for(int i =0; i< interests.length; i++)
+        {
+            System.out.println((i+1)+". "+interests[i]);
         }
+        System.out.println("\nYou can reach me via my phone number"+ phoneNumber+".");
+
 
     }
 
@@ -77,14 +78,17 @@ public class Main {
         String firstName= input.nextLine();
         System.out.print("Please enter your last name: ");
         String lastName= input.nextLine();
-        System.out.println(fullName(firstName,lastName));
+        String finalFullName = fullName(firstName,lastName);
+        System.out.println(finalFullName);
 
         String returnedValuePhoneN;
+        String finalNumber;
         do {
             System.out.print("\nPlease enter your phone number: ");
             String phNumber = input.nextLine();
             returnedValuePhoneN = phoneNumber(phNumber);
-            System.out.println(phoneNumber(returnedValuePhoneN));
+            finalNumber=phoneNumber(returnedValuePhoneN);
+            System.out.println(finalNumber);
         }
         while (returnedValuePhoneN.equals("Wrong entry! Try again."));
 
@@ -98,7 +102,21 @@ public class Main {
         while (returnedValueID.equals("Invalid user ID. Try again."));
 
         System.out.print("\nWhat are your interests? If done, type \"Done\" : ");
-        getInterests();
+        String[] interests = new String [10];
+
+        for(int i=0; i<10; i++)
+        {
+            interests [i] = input.nextLine();
+            if (interests[i].equalsIgnoreCase("done"))
+            {
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(getInterests(interests)));
+
+        System.out.println("\nHere is users full information:\n");
+        userFullInformation(finalFullName,finalNumber,returnedValueID, getInterests(interests));
+
 
 
 
