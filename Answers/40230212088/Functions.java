@@ -60,7 +60,12 @@ public class Functions {
                 System.out.println("Output: " + informationEncoder(information, shift));
                 break;
             case 7:
-
+                System.out.print("Information: ");
+                String informations = enter.nextLine();
+                System.out.print("Shift: ");
+                int shifts = enter.nextInt();
+                System.out.println("Output: " + informationDecoder(informations, shifts));
+                break;
             default:
                 System.out.println("Wrong number.");
                 break;
@@ -142,4 +147,23 @@ public class Functions {
         }
         return shiftedInformation.toString();
     }
+
+    public static String informationDecoder(String information, int shift) {
+        StringBuilder shiftedInformation = new StringBuilder();
+        for (int i = 0; i < information.length(); i++) {
+            char originalChar = information.charAt(i);
+            char shiftedChar = originalChar;
+            if (Character.isLetter(originalChar)) {
+                if (Character.isUpperCase(originalChar)) {
+                    shiftedChar = (char) ('A' + (originalChar + 'A' + shift + 12) % 26);
+                } else {
+                    shiftedChar = (char) ('a' + (originalChar + 'a' + shift) % 26);
+                }
+            }
+            shiftedInformation.append(shiftedChar);
+        }
+        return shiftedInformation.toString();
+    }
+}
+
 }
