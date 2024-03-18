@@ -2,6 +2,7 @@
 //یاس حسن پور
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -49,6 +50,26 @@ public class Main {
         }
 
     }
+    static void getInterests()
+    {
+        Scanner scanner = new Scanner(System.in);
+        String[] interests = new String [10];
+        for(int i=0; i<10; i++)
+        {
+            interests [i] = scanner.nextLine();
+            if(interests[i].equalsIgnoreCase("done"))
+            {
+                String[] subArray = Arrays.copyOf(interests, i);
+                System.out.print(Arrays.toString(subArray));
+                break;
+            }
+
+        }
+        if (!interests[9].equalsIgnoreCase("done")) {
+            System.out.print(Arrays.toString(interests));
+        }
+
+    }
 
     public static void main(String[] args) {
         System.out.print("Please enter your name: ");
@@ -57,16 +78,17 @@ public class Main {
         System.out.print("Please enter your last name: ");
         String lastName= input.nextLine();
         System.out.println(fullName(firstName,lastName));
-        String returnedValue;
+
+        String returnedValuePhoneN;
         do {
             System.out.print("\nPlease enter your phone number: ");
             String phNumber = input.nextLine();
-            returnedValue = phoneNumber(phNumber);
-            System.out.println(phoneNumber(returnedValue));
+            returnedValuePhoneN = phoneNumber(phNumber);
+            System.out.println(phoneNumber(returnedValuePhoneN));
         }
-        while (returnedValue.equals("Wrong entry! Try again."));
-        String returnedValueID;
+        while (returnedValuePhoneN.equals("Wrong entry! Try again."));
 
+        String returnedValueID;
         do {
             System.out.print("\nPlease enter your user ID: ");
             String idNum = input.nextLine();
@@ -74,6 +96,10 @@ public class Main {
             System.out.println(returnedValueID);
         }
         while (returnedValueID.equals("Invalid user ID. Try again."));
+
+        System.out.print("\nWhat are your interests? If done, type \"Done\" : ");
+        getInterests();
+
 
 
     }
