@@ -113,6 +113,25 @@ public class 40230212010 {
         System.out.println(sb.toString());
         return sb.toString();
     }
+    public static void informationDecoder(Scanner scanner,String info) {
+        System.out.println("Please enter your shift key to decode:");
+        int n = scanner.nextInt();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < info.length(); i++) {
+            char ch = info.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                sb.append((char) ('a' + ((ch - 'a' - n + 26) % 26)));
+            } else if (ch >= 'A' && ch <= 'Z') {
+                sb.append((char) ('A' + ((ch - 'A' - n + 26) % 26)));
+            } else {
+                sb.append(ch);
+            }
+
+        }
+        System.out.println("your decoded informations is :");
+        System.out.println(sb.toString());
+    }
+}
 
 
 
