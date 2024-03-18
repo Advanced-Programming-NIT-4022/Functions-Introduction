@@ -28,7 +28,7 @@ public class Main {
         }
         System.out.print("\b}");
         */
-
+        /*
         //for calling userFullInformation
         System.out.print("Full name: ");
         String fname = scan.nextLine();
@@ -39,6 +39,15 @@ public class Main {
         System.out.println("Interests:\n");
         String[] interest = getInterests();
         String information = userFullInformation(fname, phone, id, interest);
+        System.out.println(information);
+        */
+
+        //for calling informationEncoder
+        System.out.print("Information: ");
+        String information = scan.nextLine();
+        System.out.print("Shift: ");
+        int shift = scan.nextInt();
+        information = informationEncoder(information, shift);
         System.out.println(information);
     }
     public static String fullName(String firstName , String lastName){
@@ -98,7 +107,21 @@ public class Main {
                 info += (". " + interest[i] + '\n');
             }
         }
-        info += "\nYou can reach me via my phone number " + phoneNumber + '.';
+        info += "You can reach me via my phone number " + phoneNumber + '.';
+        return info;
+    }
+    public static String informationEncoder(String info, int shift){
+        char[] tmp = info.toCharArray();
+        for(int i=0;i<tmp.length;i++){
+            if(tmp[i]>64 && tmp[i]<91)
+                tmp[i] = (char) ( 65 + (tmp[i] + shift - 65) % 26);
+            if(tmp[i]>96 && tmp[i]<123)
+                tmp[i] = (char) ( 97 + (tmp[i] + shift - 97) % 26);
+        }
+        info = "";
+        for(int i=0;i<tmp.length;i++){
+            info += tmp[i];
+        }
         return info;
     }
 }
