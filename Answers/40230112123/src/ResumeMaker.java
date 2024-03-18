@@ -20,4 +20,12 @@ public class ResumeMaker
 
         return (firstName + " " + lastName);
     }
+
+    public static String phoneNumber(String phone)
+    {
+        if (phone.length() == 10 && phone.charAt(0) == '9')
+            return ("0" + phone);
+        else
+            return ("false");
+    }
 }
