@@ -57,4 +57,26 @@ public class ResumeMaker
             System.out.printf("%d. %s%n", i, interests[i]);
         System.out.printf("%nYou can reach me via my phone number %s.", phoneNumber);
     }
+
+    public static void informationEncoder(String information, int shift)
+    {
+        String encodeInformation = new String[information.length()];
+        for (int i = 0; i < information.length(); i++)
+        {
+            char character = information[i];
+            if ('A' <= character && character <= 'Z')
+            {
+                character += shift;
+                if(character > 'Z')
+                    character -= 26; // 26 letters of En alphabetic
+            } else if ('a' <= character && character <= 'z')
+            {
+                character += shift;
+                if(character > 'z')
+                    character -= 26; // 26 letters in En alphabetic
+            }
+            encodeInformation[i] = character;
+        }
+        System.out.println(encodeInformation);
+    }
 }
