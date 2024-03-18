@@ -34,7 +34,24 @@ public class Functions {
                 System.out.println("Output: " + getInterests(n));
                 break;
             case 5:
-
+                System.out.print("Full name: ");
+                String fullN = enter.nextLine();
+                System.out.print("Phone number: ");
+                String PhoneNumber = enter.nextLine();
+                System.out.print("User ID: ");
+                String uId = enter.nextLine();
+                System.out.print("How many interests you have?(max = 10)");
+                int nn = enter.nextInt();
+                String[] inte = new String[nn];
+                System.out.print("Interests: ");
+                inte[0] = enter.nextLine();
+                inte[0] = enter.nextLine();
+                for(int i = 1;i < nn;i++){
+                    System.out.print("Interests: ");
+                    inte[i] = enter.nextLine();
+                }
+                System.out.println("Output: " + userFullInformation(fullN, PhoneNumber, uId, inte , nn));
+                break;
             case 6:
 
             case 7:
