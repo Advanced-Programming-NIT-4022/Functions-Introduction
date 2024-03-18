@@ -110,4 +110,26 @@ public class Main {
 		s.close();
 		return result;
 	 }
+
+	/* **********************************************************************
+	 * geting informations of user ==> printing out the formatted version	*
+	 ***********************************************************************/
+	 static void userFullInformation(String fullname, String phonenumber, String userid, ArrayList<String> interests)
+	 {
+	 	System.out.println("~~Your resume:");
+		System.out.printf("##Hello! My name is %s. My ID is %s.", fullname, userid);
+		if (interests.isEmpty())
+		{
+			System.out.print("\n##Actally I have no interests, cause I think everything is boring :)\n");
+		}
+		else
+		{
+			System.out.print(" Here are some of my interests:\n");
+			for (int i = 0; i < interests.size(); i++)
+			{
+				System.out.println("## " + (i + 1) + ". " + interests.get(i));
+			}
+		}
+		System.out.println("##You can reach me Via my phone number " + phonenumber + ".");
+	 }
 }
