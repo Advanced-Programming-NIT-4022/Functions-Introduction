@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Functions {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        userFullinformation();
 
     }
 
@@ -22,31 +23,23 @@ public class Functions {
         return output;
     }
     //avalin commit
-    public static void phonenumber(){
+    public static String phonenumber(){
         Scanner sc = new Scanner(System.in);
-        long phone;
+        String phone;
         while (true) {
             System.out.println("Please enter your phone number: ");
-            phone = sc.nextLong();
-            if (phone / 1000000000 != 9) {
+            phone = sc.nextLine();
+            if (phone.length() > 10  ||  !phone.startsWith("9")) {
                 System.out.println("Wrong entry. Try again.");
                 continue;
             }
             break;
         }
-            long[] arr = new long[11];
-            arr[0] = 0;
-            for (int i=10; i>0; i--){
-                arr[i] = phone%10;
-                phone /= 10;
-            }
-            for (int i=0; i<11; i++){
-                System.out.print(arr[i]);
-            }
-            System.out.println();
+            String output = "0" + phone;
+        return output;
     }
     //commit 2
-    public static void userid(){
+    public static String userid(){
         Scanner sc = new Scanner(System.in);
         String id ;
         while (true) {
@@ -66,13 +59,13 @@ public class Functions {
             }
             break;
         }
-        System.out.println(id);
+        return id;
     }
-    public static void getinterests(){
+    public static String getinterests(){
         Scanner sc = new Scanner(System.in);
         ArrayList<String> interests = new ArrayList<>();
         String input;
-        System.out.println("Please enter your interrests then enter esc :");
+        System.out.println("Please enter your interests then enter esc :");
 
                 while (interests.size() < 10) {
                     input = sc.nextLine();
@@ -90,16 +83,31 @@ public class Functions {
                 // convert arraylist to array of strings
                 String[] interestsArray = interests.toArray(new String[0]);
 
-                System.out.print("{");
+                String output = "";
+                output += "{";
                 for (int i=0; i<interestsArray.length; i++) {
-                    System.out.print("\"");
-                    System.out.print(interestsArray[i]);
-                    System.out.print("\"");
+                    output += "\"";
+                    output += interestsArray[i];
+                    output += "\"";
                     if (i != interestsArray.length-1)
-                        System.out.print("," + " ");
+                        output += "," + " ";
                 }
-                System.out.print("}");
+                output += "}";
+                return output;
             }
             // commit 4
+
+    public static void userFullinformation(){
+        String x ="Hello! My name is " + fullName() + ".";
+        x +=" My ID is " + userid() + ".";
+        x +=" Here are some of my interests:";
+        String y = getinterests();
+        String z = phonenumber();
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println();
+        System.out.print("You can reach me via my phone number " + z + "." );
+    }
+    // commit 5
 
 }
