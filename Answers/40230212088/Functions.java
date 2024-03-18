@@ -23,7 +23,11 @@ public class Functions {
                 System.out.print("Output: " + formattedNumber);
                 break;
             case 3:
-
+                System.out.print("ID: ");
+                String id = enter.nextLine();
+                String ou = userId(id);
+                System.out.println("Output: " + ou);
+                break;
             case 4:
 
             case 5:
@@ -57,5 +61,12 @@ public class Functions {
 
     private static String capitalize(String s) {
         return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+    }
+    public static String userId(String id){
+        if(id.length() > 4 && id.length() < 13){
+            return id;
+        }else{
+            return "it's invalid ";
+        }
     }
 }
