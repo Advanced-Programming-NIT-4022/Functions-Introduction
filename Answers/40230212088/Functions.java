@@ -17,7 +17,11 @@ public class Functions {
                 System.out.println("Output: " + fullName);
                 break;
             case 2:
-
+                System.out.print("Phone: ");
+                String phoneNumber = enter.nextLine();
+                String formattedNumber = formatPhoneNumber(phoneNumber);
+                System.out.print("Output: " + formattedNumber);
+                break;
             case 3:
 
             case 4:
@@ -43,7 +47,13 @@ public class Functions {
             return normalFirstName + " " + normalLastName;
         }
     }
-
+    public static String formatPhoneNumber(String Phone) {
+        if (Phone.length() == 10) {
+            return "0" + Phone;
+        } else {
+            return "Wrong entry. Try again.";
+        }
+    }
 
     private static String capitalize(String s) {
         return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
