@@ -58,9 +58,10 @@ public class ResumeMaker
         System.out.printf("%nYou can reach me via my phone number %s.", phoneNumber);
     }
 
-    public static String[] informationEncoder(String information, int shift)
+    public static String informationEncoder(String information, int shift)
     {
         String encodeInformation = new String[information.length()];
+
         for (int i = 0; i < information.length(); i++)
         {
             char character = information[i];
@@ -77,6 +78,30 @@ public class ResumeMaker
             }
             encodeInformation[i] = character;
         }
+
         return encodeInformation;
+    }
+
+    public static String informationDecoder(String information, int shift)
+    {
+        String decodeInformation = new String[information.length()];
+
+        for (int i = 0; i < information.length(); i++)
+        {
+            if ('A' <= character && character <= 'Z')
+            {
+                character -= shift;
+                if(character < 'A')
+                    character += 26; // 26 letters of En alphabetic
+            } else if ('a' <= character && character <= 'z')
+            {
+                character -= shift;
+                if(character < 'a')
+                    character += 26; // 26 letters in En alphabetic
+            }
+            decodeInformation[i] = character;
+        }
+
+        return decodeInformation;
     }
 }
