@@ -28,4 +28,12 @@ public class ResumeMaker
         else
             return ("false");
     }
+
+    public static boolean userId(String id)
+    {
+        if(4 <= id.length() && id.length() <= 13)
+            return true;
+        else
+            return false;
+    }
 }
