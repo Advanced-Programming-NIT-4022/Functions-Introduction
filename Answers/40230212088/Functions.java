@@ -29,7 +29,10 @@ public class Functions {
                 System.out.println("Output: " + ou);
                 break;
             case 4:
-
+                System.out.print("How many interests you have?(max = 10)");
+                int n = enter.nextInt();
+                System.out.println("Output: " + getInterests(n));
+                break;
             case 5:
 
             case 6:
@@ -68,5 +71,22 @@ public class Functions {
         }else{
             return "it's invalid ";
         }
+    }
+    public static String getInterests(int n) {
+        Scanner en = new Scanner(System.in);
+        String[] interest = new String[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Input: ");
+            interest[i] = en.nextLine();
+        }
+        StringBuilder output = new StringBuilder("Output: {");
+        for (int i = 0; i < n; i++) {
+            output.append("\"").append(interest[i]).append("\"");
+            if (i < n - 1) {
+                output.append(", ");
+            }
+        }
+        output.append("}");
+        return output.toString();
     }
 }
