@@ -13,9 +13,20 @@ public class Main {
         //for calling phoneNumber method
         System.out.println(phoneNumber());
         */
-
+        /*
         //for calling userId method
         System.out.println(userId());
+        */
+
+        //for calling getInterests method
+        String[] array = getInterests();
+        //for showing
+        System.out.print("{");
+        for(int i=0;i<10;i++){
+            if(array[i].equals("***")) break;
+            System.out.print(" \""+ array[i] + "\",");
+        }
+        System.out.print("\b}");
     }
     public static String fullName(String firstName , String lastName){
         firstName = firstName.toLowerCase();
@@ -48,5 +59,20 @@ public class Main {
             }
             return id;
         }
+    }
+
+    public static String[] getInterests(){
+        Scanner scan = new Scanner(System.in);
+        String[] A = new String[10];
+        for(int i=0;i<10;i++)
+            A[i] = "***";
+        System.out.println("Enter \"End\" for finish!");
+        String tmp = "";
+        for(int i=0;i<10;i++){
+            tmp = scan.nextLine();
+            if(tmp.equals("End") || tmp.equals("end")) break;
+            A[i] = tmp;
+        }
+        return A;
     }
 }
