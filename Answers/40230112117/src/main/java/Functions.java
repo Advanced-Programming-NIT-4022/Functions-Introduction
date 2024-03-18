@@ -62,39 +62,35 @@ public class Functions {
         return id;
     }
     public static String getinterests(){
-        Scanner sc = new Scanner(System.in);
-        ArrayList<String> interests = new ArrayList<>();
-        String input;
-        System.out.println("Please enter your interests then enter esc :");
+            Scanner sc = new Scanner(System.in);
+            ArrayList<String> interests = new ArrayList<>();
+            String input;
+            System.out.println("Please enter your interests then enter 'esc':");
 
-                while (interests.size() < 10) {
-                    input = sc.nextLine();
-                    if ("esc".equals(input)) {
-                        break;
-                    }
-                    interests.add(input);
-                    // when 10 interests added method stops
-                    if (interests.size() == 10) {
-                        System.out.println("maximum of interests added ! ");
-                        break;
-                    }
+            while (interests.size() < 10) {
+                input = sc.nextLine();
+                if ("esc".equals(input)) {
+                    break;
                 }
-
-                // convert arraylist to array of strings
-                String[] interestsArray = interests.toArray(new String[0]);
-
-                String output = "";
-                output += "{";
-                for (int i=0; i<interestsArray.length; i++) {
-                    output += "\"";
-                    output += interestsArray[i];
-                    output += "\"";
-                    if (i != interestsArray.length-1)
-                        output += "," + " ";
+                interests.add(input);
+                // when 10 interests added method stops
+                if (interests.size() == 10) {
+                    System.out.println("Maximum of interests added!");
+                    break;
                 }
-                output += "}";
-                return output;
             }
+            // in commit 6 im showing interests in another way
+            // Create a formatted string of interests
+            StringBuilder output = new StringBuilder();
+            for (int i = 0; i < interests.size(); i++) {
+                output.append(i + 1).append(". ").append(interests.get(i));
+                // Add a new line after each interest except the last one
+                if (i != interests.size() - 1) {
+                    output.append("\n");
+                }
+            }
+            return output.toString();
+        }
             // commit 4
 
     public static void userFullinformation(){
