@@ -1,12 +1,68 @@
 // Resume Maker : A simple program for make a resume
 import java.security.SecureRandom;
+import java.util.Scanner;
+import java.util.Arrays;
 
 public class ResumeMaker
 {
     public static void main(String[] args)
     {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the following information below: ");
 
+        // input name
+        System.out.print("your first name: ");
+        String firstName = input.nextLine();
+
+        System.out.print("your last name: ");
+        String lastName = input.nextLine();
+
+        // store the full name of person
+        String name = fullName(firstName, lastName);
+        System.out.println("your name saved.");
+
+        // input phone number
+        System.out.print("your phone number: ");
+        String phone;
+        while (true)
+        {
+            phone = input.nextLine();
+            phone = phoneNumber(phone);
+            if (Arrays.equals(phone, "false"))
+                System.out.println("Wrong entry. Try again.");
+            else
+            {
+                System.out.println("your phone saved.");
+                break;
+            }
+        }
+
+        // input user id
+        System.out.println("your user ID: ");
+        String id;
+        while (true)
+        {
+            id = input.nextLine();
+            if (userId(id))
+            {
+                System.out.println("your ID saved.");
+                break;
+            }
+            else
+                System.out.println("ID should be between 4 to 13 digits. Try again.");
+        }
+
+        // input interests
+        String interest;
+        System.out.println("your interests(comma seperated list): ");
+        interest = input.nextLine();
+        String[] interests = getInterests(interest);
+
+        // show menu
+        menu();
     }
+
+
 
     public static String fullName(String firstName, String lastName)
     {
@@ -40,7 +96,7 @@ public class ResumeMaker
             return false;
     }
 
-    public static String[] getInterests(String... interests)
+    public static String[] getInterests(String interests)
     {
         String[] interestArray = new String[interests.length];
         for (int i = 0; i < interests.length; i++)
