@@ -36,5 +36,38 @@ public class 40230212010 {
         lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
         return firstName + " " + lastName;
     }
+    
+    public static String phoneNumber(Scanner scanner) {
+
+        String phone;
+        while (true) {
+            System.out.println("Enter your phone : ");
+
+            phone = scanner.nextLine();
+
+            if (phone.length() == 10 && phone.startsWith("9")) {
+
+                return "0" + phone;
+            } else {
+                System.out.println("Wrong entry. Try again.");
+            }
+        }
+
+    }
+    
+    public static String userId(Scanner scanner) {
+        while (true) {
+            System.out.println("Enter your ID :");
+            String id = scanner.nextLine();
+            if (id.length() >= 4 && id.length() <= 13) {
+                return id;
+            } else {
+                System.out.println("Wrong entry. Try again.");
+            }
+
+        }
+    }
+
+
 
 }
