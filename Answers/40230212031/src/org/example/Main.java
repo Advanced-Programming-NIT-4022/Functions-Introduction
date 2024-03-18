@@ -1,6 +1,10 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
+
+import static org.example.Functions.informationDecoder;
+import static org.example.Functions.informationEncoder;
 
 public class Main {
     public static void main(String[] args) {
@@ -88,8 +92,42 @@ public class Main {
                 System.out.print(interest + "-");
             }
         }
-        /////////////////////////////////////////////////////////////////////
-        System.out.println("User Full Information:");
-        System.out.println(functions.userFullInformation(normalizedName, formattedPhone, userId, interests));
+        ///////////////////////////////////////////////////////////////////////////////////////
+        String information = normalizedName + ", " + formattedPhone + ", " + userId + ", " + Arrays.toString(interests);
+        ////////////////////////////////////////////////////////////////////////////////////////////////
+        String encodedInformation = null;
+        while (true) {
+            System.out.print("Do you want to encode, decode your information, or exit? (encode/decode/exit): ");
+            String choice = scanner.nextLine();
+
+            switch (choice.toLowerCase()) {
+                case "encode":
+                    System.out.print("Enter shift value: ");
+                    int shiftEncode = scanner.nextInt();
+                    scanner.nextLine();
+                    // خالی کردن خط بعدی
+                    encodedInformation = informationEncoder(information, shiftEncode);
+                    System.out.println("Encoded information: " + encodedInformation);
+                    break;
+                case "decode":
+                    if (encodedInformation == null) {
+                        // اگر کاربر کد مورد نظرش را وارد نکرده عبارت زیر را چاپ می کند
+                        System.out.println("No encoded information available. Please encode the information first.");
+                        continue; // برگشت به ابتدای حلقه برای ورود مجدد دستور
+                    }
+                    System.out.print("Enter shift value: ");
+                    int shiftDecode = scanner.nextInt();
+                    scanner.nextLine();
+
+                    String decodedInformation = informationDecoder(encodedInformation, shiftDecode);
+                    System.out.println("Decoded information: " + decodedInformation);
+                    break;
+                case "exit":
+                    System.out.println("Exiting program...");
+                    return; // خروج از حلقه و پایان برنامه
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
     }
 }

@@ -49,36 +49,61 @@ public class Functions {
 
         return interests;
     }
+
     //*************************************************************************************************************************************
-        public String userFullInformation(String fullName, String phoneNumber, String userID, String[] interests) {
+    public String userFullInformation(String fullName, String phoneNumber, String userID, String[] interests) {
 
-            StringBuilder userInfo = new StringBuilder();
+        StringBuilder userInfo = new StringBuilder();
 
-            userInfo.append("Full name: ").append(fullName).append("\n");
-
-
-            userInfo.append("Phone number: ").append(phoneNumber).append("\n");
+        userInfo.append("Full name: ").append(fullName).append("\n");
 
 
-            userInfo.append("User ID: ").append(userID).append("\n");
+        userInfo.append("Phone number: ").append(phoneNumber).append("\n");
 
 
-            userInfo.append("Interests: ").append(Arrays.toString(interests)).append("\n");
+        userInfo.append("User ID: ").append(userID).append("\n");
 
 
-            userInfo.append("\nOutput: Hello! My name is ").append(fullName).append(". My ID is ").append(userID)
-                    .append(". Here are some of my interests:\n");
-            for (int i = 0; i < interests.length; i++) {
-                userInfo.append(i + 1).append(". ").append(interests[i]).append("\n");
-            }
-
-            userInfo.append("\nYou can reach me via my phone number ").append(phoneNumber).append(".");
+        userInfo.append("Interests: ").append(Arrays.toString(interests)).append("\n");
 
 
-            return userInfo.toString();
+        userInfo.append("\nOutput: Hello! My name is ").append(fullName).append(". My ID is ").append(userID)
+                .append(". Here are some of my interests:\n");
+        for (int i = 0; i < interests.length; i++) {
+            userInfo.append(i + 1).append(". ").append(interests[i]).append("\n");
         }
+
+        userInfo.append("\nYou can reach me via my phone number ").append(phoneNumber).append(".");
+
+
+        return userInfo.toString();
     }
 
+    //***************************************************************************************************
+    public static String informationEncoder(String information, int shift) {
+        StringBuilder encodedInformation = new StringBuilder();
+        // برای جمع اوری اطلاعات رمز گذاری شده
+        for (int i = 0; i < information.length(); i++) {// حلقه برای گردش از ابتدای رشته تا انتها
+            char ch = information.charAt(i);
 
+            if (Character.isLetter(ch)) {// بررسی اینکه آیا کاراکتر یک حرف است یا نه
+                char base;
+                if (ch>= 'A' && ch <= 'Z') { // تعیین پایه برای حروف بزرگ و کوچک است
+                    base = 'A';
+                } else {
+                    base = 'a';
+                }
 
+                char encodedChar = (char) (((ch - base + shift) % 26) + base);
+               encodedInformation.append(encodedChar);
+            } else {
+                encodedInformation.append(ch); // اگر کاراکتر غیر حروفی بود، بدون تغییر اضافه شود
+            }
+        }
 
+        return encodedInformation.toString();
+    }
+    public static String informationDecoder(String encodedInformation, int shift) {
+        return informationEncoder(encodedInformation, 26 - shift); // برای رمزگشایی از شیفت معکوس استفاده می‌شود
+    }
+}
