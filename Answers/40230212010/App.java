@@ -22,13 +22,12 @@ public class App {
         String information = userFullInformation(full, phone, id, inteterests);
         System.out.println(information);
 
-        String encoded = informationEncoder(scanner , information);
+        String encoded = informationEncoder(scanner, information);
 
         informationDecoder(scanner, encoded);
 
         scanner.close();
     }
-    
 
     public static String fullName(String firstName, String lastName) {
 
@@ -36,7 +35,7 @@ public class App {
         lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1).toLowerCase();
         return firstName + " " + lastName;
     }
-    
+
     public static String phoneNumber(Scanner scanner) {
 
         String phone;
@@ -54,7 +53,7 @@ public class App {
         }
 
     }
-    
+
     public static String userId(Scanner scanner) {
         while (true) {
             System.out.println("Enter your ID :");
@@ -67,7 +66,7 @@ public class App {
 
         }
     }
-    
+
     public static String[] getInterests(Scanner scanner) {
         String[] interests = new String[10];
         System.out.println("enter your interest: (type exit to finish)");
@@ -81,20 +80,21 @@ public class App {
         return interests;
 
     }
-    
+
     public static String userFullInformation(String fullName, String phoneNumber, String userID, String[] interests) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests: "+"\n");
+        sb.append(
+                "Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests: " + "\n");
         for (int i = 0; i < interests.length; i++) {
             if (interests[i] != null) {
-                sb.append((i+1) + "." + interests[i]+"\n");
+                sb.append((i + 1) + "." + interests[i] + "\n");
             }
         }
-        sb.append("You can reach me via my phone number "+phoneNumber+".");
+        sb.append("You can reach me via my phone number " + phoneNumber + ".");
         return sb.toString();
     }
-    
-    public static String informationEncoder(Scanner scanner,String info) {
+
+    public static String informationEncoder(Scanner scanner, String info) {
         System.out.println("Please enter your shift key to encode:");
         int n = scanner.nextInt();
         StringBuilder sb = new StringBuilder();
@@ -113,7 +113,8 @@ public class App {
         System.out.println(sb.toString());
         return sb.toString();
     }
-    public static void informationDecoder(Scanner scanner,String info) {
+
+    public static void informationDecoder(Scanner scanner, String info) {
         System.out.println("Please enter your shift key to decode:");
         int n = scanner.nextInt();
         StringBuilder sb = new StringBuilder();
@@ -132,7 +133,3 @@ public class App {
         System.out.println(sb.toString());
     }
 }
-
-
-
-
