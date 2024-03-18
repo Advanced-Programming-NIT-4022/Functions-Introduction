@@ -2,6 +2,8 @@ package org.example;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class Functions {
     public String normalizingName(String firstName, String lastName) {
         String normalizedFirstName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1).toLowerCase();
@@ -47,6 +49,36 @@ public class Functions {
 
         return interests;
     }
-}
+    //*************************************************************************************************************************************
+        public String userFullInformation(String fullName, String phoneNumber, String userID, String[] interests) {
+
+            StringBuilder userInfo = new StringBuilder();
+
+            userInfo.append("Full name: ").append(fullName).append("\n");
+
+
+            userInfo.append("Phone number: ").append(phoneNumber).append("\n");
+
+
+            userInfo.append("User ID: ").append(userID).append("\n");
+
+
+            userInfo.append("Interests: ").append(Arrays.toString(interests)).append("\n");
+
+
+            userInfo.append("\nOutput: Hello! My name is ").append(fullName).append(". My ID is ").append(userID)
+                    .append(". Here are some of my interests:\n");
+            for (int i = 0; i < interests.length; i++) {
+                userInfo.append(i + 1).append(". ").append(interests[i]).append("\n");
+            }
+
+            userInfo.append("\nYou can reach me via my phone number ").append(phoneNumber).append(".");
+
+
+            return userInfo.toString();
+        }
+    }
+
+
 
 

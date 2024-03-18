@@ -34,7 +34,7 @@ public class Main {
         System.out.println("Your phone number: " + formattedPhone);
 
         /////////////////////////////////////////////////////////////////////////
-        String userId ="";
+        String userId = "";
         while (true) {
             System.out.print("Enter user ID: ");
             userId = scanner.nextLine();
@@ -88,5 +88,8 @@ public class Main {
                 System.out.print(interest + "-");
             }
         }
+        /////////////////////////////////////////////////////////////////////
+        System.out.println("User Full Information:");
+        System.out.println(functions.userFullInformation(normalizedName, formattedPhone, userId, interests));
     }
 }
