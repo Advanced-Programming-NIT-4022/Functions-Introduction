@@ -1,11 +1,10 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Functions {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(fullName());
-        phonenumber();
-        userid();
+
     }
 
     public static String fullName(){
@@ -69,4 +68,38 @@ public class Functions {
         }
         System.out.println(id);
     }
+    public static void getinterests(){
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> interests = new ArrayList<>();
+        String input;
+        System.out.println("Please enter your interrests then enter esc :");
+
+                while (interests.size() < 10) {
+                    input = sc.nextLine();
+                    if ("esc".equals(input)) {
+                        break;
+                    }
+                    interests.add(input);
+                    // when 10 interests added method stops
+                    if (interests.size() == 10) {
+                        System.out.println("maximum of interests added ! ");
+                        break;
+                    }
+                }
+
+                // convert arraylist to array of strings
+                String[] interestsArray = interests.toArray(new String[0]);
+
+                System.out.print("{");
+                for (int i=0; i<interestsArray.length; i++) {
+                    System.out.print("\"");
+                    System.out.print(interestsArray[i]);
+                    System.out.print("\"");
+                    if (i != interestsArray.length-1)
+                        System.out.print("," + " ");
+                }
+                System.out.print("}");
+            }
+            // commit 4
+
 }
