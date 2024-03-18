@@ -58,7 +58,7 @@ public class ResumeMaker
         System.out.printf("%nYou can reach me via my phone number %s.", phoneNumber);
     }
 
-    public static void informationEncoder(String information, int shift)
+    public static String[] informationEncoder(String information, int shift)
     {
         String encodeInformation = new String[information.length()];
         for (int i = 0; i < information.length(); i++)
@@ -77,6 +77,6 @@ public class ResumeMaker
             }
             encodeInformation[i] = character;
         }
-        System.out.println(encodeInformation);
+        return encodeInformation;
     }
 }
