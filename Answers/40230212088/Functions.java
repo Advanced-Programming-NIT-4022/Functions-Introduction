@@ -89,4 +89,15 @@ public class Functions {
         output.append("}");
         return output.toString();
     }
+    public static String userFullInformation(String fullName,String phoneNumber,String userID,String[] interests,int nn){
+        String result =  "Hello! My name is "+fullName+", My ID is "+userID+", Here are some of my interest:\n";
+        int i = 0;
+        while (i < nn){
+            interests[i]= capitalize(interests[i]);
+            result += i+1 + "." + interests[i] + "\n";
+            i++;
+        }
+        result+= "You can reach me via my phone number "+phoneNumber + ".";
+        return result;
+    }
 }
