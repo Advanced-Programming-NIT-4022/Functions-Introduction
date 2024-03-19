@@ -81,7 +81,7 @@ public class UserFullinformation
         Scanner sc = new Scanner(System.in);
         String Id=sc.nextLine();
 
-        if ((Id.length()>=15)||(Id.length()<=2))
+        if ((Id.length()>=14)||(Id.length()<=3))
         {
             System.out.println("wrong student ID. please try again.");
             Id=seeifright();
