@@ -2,10 +2,16 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Functions {
+    public static int shift;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        informationDecoder(userFullinformation());
-
+        String output = informationEncoder(userFullinformation());
+        System.out.println(output);
+        System.out.println("Do you want see original information? (press y) else (press n). ");
+        char a = sc.next().charAt(0);
+        if (a == 'y'){
+        System.out.println(informationDecoder(output));
+        }
     }
 
     public static String fullName(){
@@ -105,10 +111,11 @@ public class Functions {
 
     // commit 5
 
-   public static void informationDecoder(String sentence) {
+    public static String informationEncoder(String sentence) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter amount of shift: ");
-        int shift = sc.nextInt();
+        shift = sc.nextInt();
+        StringBuilder encoded = new StringBuilder();
         char[] letter = sentence.toCharArray();
         for (int i = 0; i < letter.length; i++) {
             if ((int) letter[i] > 64 && (int) letter[i] < 91) {
@@ -116,9 +123,28 @@ public class Functions {
             } else if ((int) letter[i] > 96 && (int) letter[i] < 123) {
                 letter[i] = (char) ((((int) letter[i] - 97 + shift) % 26) + 97);
             }
-            System.out.print(letter[i]);
+            encoded.append(letter[i]);
         }
+        return encoded.toString();
     }
+    // commmit 7
+    public static String informationDecoder(String encodedSentence) {
+        Scanner sc = new Scanner(System.in);
 
-
+        char[] letter = encodedSentence.toCharArray();
+        StringBuilder decoded = new StringBuilder();
+        for (int i = 0; i < letter.length; i++) {
+            if ((int) letter[i] > 64 && (int) letter[i] < 91) {
+                letter[i] = (char) ((((int) letter[i] - 65 - shift + 26) % 26) + 65);
+            } else if ((int) letter[i] > 96 && (int) letter[i] < 123) {
+                letter[i] = (char) ((((int) letter[i] - 97 - shift + 26) % 26) + 97);
+            }
+            decoded.append(letter[i]);
+        }
+        return decoded.toString();
+    }
+    //commit 8
 }
+
+
+
