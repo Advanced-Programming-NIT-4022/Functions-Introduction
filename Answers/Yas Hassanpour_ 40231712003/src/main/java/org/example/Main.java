@@ -70,6 +70,29 @@ public class Main {
         System.out.println("\nYou can reach me via my phone number"+ phoneNumber+".");
     }
 
+    static String informationEncoder(String  information, int shift) {
+        String encoderResult= "";
+        for (int i = 0; i < information.length(); i++) {
+            char currentChar = information.charAt(i);
+            if (Character.isLetter(currentChar)) {
+                if (Character.isUpperCase(currentChar)) {
+                    char encryptedChar = (char) ('A' + (currentChar - 'A' + shift) % 26);
+//                    encoderResult.append(encryptedChar);
+                    encoderResult += encryptedChar;
+                } else if (Character.isLowerCase(currentChar)) {
+                    char encryptedChar = (char) ('a' + (currentChar - 'a' + shift) % 26);
+//                    encoderResult.append(encryptedChar);
+                    encoderResult += encryptedChar;
+                }
+            } else {
+//                encoderResult.append(currentChar);
+                encoderResult += currentChar;
+            }
+
+        }
+        return encoderResult;
+    }
+
     public static void main(String[] args) {
         System.out.print("Please enter your name: ");
         Scanner input= new Scanner(System.in);
@@ -114,10 +137,16 @@ public class Main {
 
         System.out.println("\nHere is users full information:\n");
         userFullInformation(finalFullName,finalNumber,returnedValueID, getInterests(interests));
-
-
-
+        System.out.println("\nYou may enter more explanation about yourself: ");
+        String encoderInput = input.nextLine();
+        System.out.println("shift: ");
+        int shift= input.nextInt();
+        System.out.println("Would you like to see the encoded details? ");
+        String yesOrNo = input.nextLine();
+        if(yesOrNo.equalsIgnoreCase("yes"))
+        {
+            System.out.println("\nencoded details: "+informationEncoder(encoderInput, shift));
+        }
 
     }
-
 }
