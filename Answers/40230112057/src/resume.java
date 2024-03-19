@@ -31,6 +31,19 @@ public class resume {
         }
         return id;
     }
+    public static String[] getInterests(interests obj){
+        Scanner input=new Scanner(System.in);
+        System.out.println("how many interests do you have?");
+        int n=input.nextInt();
+        String temp="";
+        for(int i=0;i<n;i++){
+            temp=input.next();
+            if(temp.equals(""))
+                break;
+            obj.add_intrests(temp);
+        }
+        return obj.array();
+    }
 
 
 }
