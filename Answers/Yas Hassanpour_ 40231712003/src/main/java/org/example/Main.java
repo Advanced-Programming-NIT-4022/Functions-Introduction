@@ -67,7 +67,7 @@ public class Main {
         {
             System.out.println((i+1)+". "+interests[i]);
         }
-        System.out.println("\nYou can reach me via my phone number"+ phoneNumber+".");
+        System.out.println("\nYou can reach me via my phone number "+ phoneNumber+".");
     }
 
     static String informationEncoder(String  information, int shift) {
@@ -77,15 +77,12 @@ public class Main {
             if (Character.isLetter(currentChar)) {
                 if (Character.isUpperCase(currentChar)) {
                     char encryptedChar = (char) ('A' + (currentChar - 'A' + shift) % 26);
-//                    encoderResult.append(encryptedChar);
                     encoderResult += encryptedChar;
                 } else if (Character.isLowerCase(currentChar)) {
                     char encryptedChar = (char) ('a' + (currentChar - 'a' + shift) % 26);
-//                    encoderResult.append(encryptedChar);
                     encoderResult += encryptedChar;
                 }
             } else {
-//                encoderResult.append(currentChar);
                 encoderResult += currentChar;
             }
 
@@ -93,6 +90,31 @@ public class Main {
         return encoderResult;
     }
 
+    static String informationDecoder(String EncodedInformation,int shift)
+    {
+        String decoderResult= "";
+        for(int i=0; i<EncodedInformation.length(); i++)
+        {
+            char currentChar = EncodedInformation.charAt(i);
+            if(Character.isLetter(currentChar))
+            {
+                if(Character.isLowerCase(currentChar))
+                {
+                    char shiftedChar = (char) ((currentChar - 'a' - shift + 26) % 26 + 'a');
+                    decoderResult += shiftedChar;
+                }
+                else if(Character.isUpperCase(currentChar))
+                {
+                    char shiftedChar = (char) ((currentChar - 'A' - shift + 26) % 26 + 'A');
+                    decoderResult += shiftedChar;
+                }
+                else {
+                    decoderResult += currentChar;
+                }
+            }
+        }
+        return decoderResult;
+    }
     public static void main(String[] args) {
         System.out.print("Please enter your name: ");
         Scanner input= new Scanner(System.in);
@@ -140,13 +162,28 @@ public class Main {
         System.out.println("\nYou may enter more explanation about yourself: ");
         String encoderInput = input.nextLine();
         System.out.println("shift: ");
-        int shift= input.nextInt();
+        int shift1= input.nextInt();
+        input.nextLine();
         System.out.println("Would you like to see the encoded details? ");
-        String yesOrNo = input.nextLine();
-        if(yesOrNo.equalsIgnoreCase("yes"))
+        String yesOrNo1 = input.nextLine();
+        String encodedInfo = informationEncoder(encoderInput, shift1);
+        if(yesOrNo1.equalsIgnoreCase("yes"))
         {
-            System.out.println("\nencoded details: "+informationEncoder(encoderInput, shift));
+            System.out.println("\nencoded details: "+ encodedInfo);
         }
+        System.out.println("\nwould you like to decode something? ");
+        String yesOrNo2 = input.nextLine();
 
+        if(yesOrNo2.equalsIgnoreCase("yes")) {
+            System.out.println("Please enter your encoded words to decode them: ");
+            String decoderInput = input.nextLine();
+            System.out.println("shift: ");
+            int shift2 = input.nextInt();
+            input.nextLine();
+            System.out.println(informationDecoder(decoderInput, shift2));
+        }
+        else {
+            System.out.println("Ok. Thanks for your time.");
+        }
     }
 }
