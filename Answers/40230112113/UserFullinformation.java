@@ -40,7 +40,7 @@ public class UserFullinformation
         
         //printing process
         System.out.print("Hello! My name is " + change(Firstname, Lastname) + ".");
-        System.out.print("My ID is " + Id + ". Here are some of my interests:");
+        System.out.print("My ID is " + Id + ". Here are some of my interests: \n");
         printit(list);
         System.out.println("\n You can reach me via my phone number " + num + ".");
     }
@@ -90,21 +90,11 @@ public class UserFullinformation
     }
     public static void printit(String[] list)
     {
-        boolean checking=true;
-        System.out.print("{");
         for (int i=0;i<10;i++)
         {
-            if(checking!=true)
-                System.out.print(",");
             if(list[i]==null)
-            {
-                System.out.print("}");
                 break;
-            }
-            System.out.print("\""+list[i]+"\"");
-            checking=false;
-            if (list[i+1]==null)
-                checking=true;
+            System.out.println(i+1 + ". " + list[i]);
         }
     }
 }
