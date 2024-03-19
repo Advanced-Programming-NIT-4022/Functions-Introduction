@@ -102,6 +102,17 @@ public class Main {
         return finalInterests;
     }
 
+    public static String userFullInformation(){
+        String s1 = "Hello! My name is " + fullNameStatic + ".My ID is " + idStatic + ". Here are some of my interests:";
+        String s2 = "";
+        for (int i = 0 ; i < lenStatic ; i++){
+            s2 = s2 + "\n";
+            s2 = s2 + (i+1) + ". " + finalInterestsStatic[i]  ;
+        }
+        String s3 = "You can reach me via my phone number " + phoneNumberStatic;
+        return s1 + s2 + "\n" + s3;
+    }
+
     public static void main(String[] args) {
 
         //first function
@@ -120,6 +131,10 @@ public class Main {
         System.out.println("the maximum number of interests is 10.");
         System.out.println("if you want to enter less than 10 interests, you have to enter \"end\" when you are finished.");
         System.out.println(Arrays.toString(getInterests()));
+
+        //fifth function
+        //System.out.println(userFullInformation());
+        String userInfo = userFullInformation();
 
 
     }
