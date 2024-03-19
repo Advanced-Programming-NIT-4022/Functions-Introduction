@@ -51,8 +51,8 @@ public class Main {
         String[] number = number1.split("");
 
 
-        if (number.length == 11) {
-
+        if (number.length == 11)
+        {
             for (int i = 1; i <= 10; i++) {
                 number[0] += number[i];
             }
@@ -60,9 +60,12 @@ public class Main {
             System.out.print("phone number : " + number[0]);
 
             return number[0];
+        }
 
-        } else if (number[0] != "0" && number.length == 10) {
 
+
+        else if (number[0] != "0" && number.length == 10)
+        {
             String str = "0";
 
             for (int i = 0; i < number.length; i++) {
@@ -72,12 +75,29 @@ public class Main {
             System.out.print("phone number : " + str);
 
             return str;
+        }
 
-        } else {
+
+        else if (number[0] != "0" && number.length == 10)
+        {
+            String str = "0";
+
+            for (int i = 0; i < number.length; i++) {
+                str += number[i];
+            }
+
+            System.out.print("phone number : " + str);
+
+            return str;
+        }
+
+
+
+        else
+        {
             System.out.println("Wrong entry. Try again (enter (0)) : ");
             return phonenumber();
         }
-
 
 
     }
@@ -190,6 +210,8 @@ public class Main {
 
             if ((asci+shift)>=65 && (asci+shift)<=90)
             {
+                if (asci < 65)
+                    continue;
                 sentence[i] = (char)(asci+shift);
             }
 
@@ -312,7 +334,7 @@ public class Main {
         stringinformation = information1(userfullname, usernumber, userID, userinterests);
 
 
-
+        here :
         while (true)
         {
             System.out.println("Encode information    (1) ");
@@ -362,13 +384,10 @@ public class Main {
                     continue;
 
                 case 4:
-                    break;
+                    break here;
 
             }
         }
-
-
-
 
     }
 }
