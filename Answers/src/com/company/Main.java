@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     static String fullNameStatic = "";
+    static String phoneNumberStatic = "";
 
     public static String fullName(){
         System.out.println("enter your name : ");
@@ -36,10 +37,32 @@ public class Main {
 
     }
 
+    public static String phoneNumber(){
+
+        boolean condition = true;
+
+        while (condition){
+            Scanner input = new Scanner(System.in);
+            String phoneNumber = input.nextLine();
+            char[] phoneNumberChar = phoneNumber.toCharArray();
+            if (phoneNumberChar[0] == '9' && phoneNumberChar.length == 10){
+                phoneNumberStatic = "0" + String.valueOf(phoneNumberChar);
+                return "0" + String.valueOf(phoneNumberChar);
+            } else
+                System.out.println("Wrong entry. Try again.");
+        }
+
+        return null;
+    }
+
     public static void main(String[] args) {
 
         //first function
         System.out.println("Full name : " + fullName());
+
+        //second function
+        System.out.println("enter your phone number : ");
+        System.out.println("phone number : " + phoneNumber());
 
     }
 }
