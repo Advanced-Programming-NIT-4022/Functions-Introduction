@@ -219,17 +219,69 @@ public class Main {
 
         }
 
-        //for (int i=1 ; i< sentence.length ; i++)
-        {
-            //sentence[0]+=sentence[i];
-        }
-
-        //System.out.println(sentence[0]);
-
         String str = String.valueOf(sentence);
 
         return str;
     }
+
+
+
+
+    public static String DeCodeInformation (String stringinput)
+    {
+
+
+        System.out.print("shift : ");
+        Scanner inputshift = new Scanner(System.in);
+        int shift = inputshift.nextInt();
+
+        char[] sentence = stringinput.toCharArray();
+        int asci;
+
+        for (int i = 0; i < sentence.length; i++) {
+
+            asci = sentence[i];
+
+
+            if ((asci - shift) >= 65 && asci <= 90)
+            {
+                sentence[i] = (char) (asci - shift);
+            }
+
+            else if ((asci - shift) < 65 && asci <= 90)
+            {
+                if (asci<65)
+                    continue;
+
+                sentence[i] = (char) (91 - (65 - (asci - shift)));
+            }
+
+            else if ((asci - shift) >= 97 && (asci - shift) <= 122)
+            {
+                sentence[i] = (char) (asci - shift);
+            }
+
+            else if ((asci - shift) < 97 && asci >= 97)
+            {
+                sentence[i] = (char) ((123-(97 - (asci - shift))));
+            }
+
+        }
+
+
+        String str = String.valueOf(sentence);
+
+        return str;
+
+
+
+    }
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -285,7 +337,8 @@ public class Main {
                     continue;
 
                 case 2:
-
+                    stringinformation = DeCodeInformation(stringinformation);
+                    continue;
 
 
                 case 3:
