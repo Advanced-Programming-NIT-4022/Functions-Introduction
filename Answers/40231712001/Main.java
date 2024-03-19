@@ -1,11 +1,121 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 // Actually putting an interface in this project was great put it doesn't deserved my time :)
 public class Main {
 	public static void main(String[] ags)
 	{
-		// to be done
+		System.out.println("--~~Welcome to this Cli based Resume Maker~~--");
+		System.out.println("## Type out (q) at any stage to quit.");
+
+		Scanner s = new Scanner(System.in);
+
+		// This is just for fun! No Security System generates a key like that ;(
+		Random rand = new Random();
+		int caesar_key = rand.nextInt(26);
+
+		// we need this outter do-while just because it's scope
+		// (I could use exit() directlly but I think it's more structured to do it this way)
+		// all the initial values will be encrypted
+		outter:  do
+		{
+			// Getting First Name
+			String firstname = "";
+			while (firstname.replaceAll("^\\s+|\\s+$", "").isEmpty())
+			{
+				System.out.print("Tell me your first name: ");
+				firstname = s.nextLine();
+				if (firstname.equals("q")) break outter;
+			}
+			// ******************
+
+			// Getting Last Name
+			String lastname = "";
+			while (lastname.replaceAll("^\\s+|\\s+$", "").isEmpty())
+			{
+				System.out.print("Tell me your last name: ");
+				lastname = s.nextLine();
+				if (lastname.equals("q")) break outter;
+			}
+			// ******************
+
+			// Generating FullName
+			String fullname = caesarCipher(fullName(firstname, lastname), caesar_key, 'e');
+			// *******************
+			
+			// Getting userID
+			String user_id;
+			while (true)
+			{
+				System.out.print("Enter you userID: ");
+				user_id = s.nextLine();
+				if (user_id.equals("q")) break outter;
+				user_id = userId(user_id);
+				if (user_id == null) continue;
+				break;
+			}
+			// **************
+
+			// Getting intrests
+			var interests = getInterests();
+			for (int i = 0; i < interests.size(); i++)
+			{
+				interests.set(i, caesarCipher(interests.get(i), caesar_key, 'e'));
+			}
+			// ****************
+
+			// Getting Phone Number
+			String phone_number;
+			while (true)
+			{
+				System.out.print("Enter you Phone Number: ");
+				phone_number = s.nextLine();
+				if (phone_number.equals("q")) break outter;
+				phone_number = phoneNumber(phone_number);
+				if (phone_number == null) continue;
+				break;
+			}
+			// ********************
+
+			// Printing out the result!
+			String choice;
+			System.out.println("Your resume is Complete!");
+			while (true)
+			{
+				System.out.print("whould you want to see the encrypted version(y/n)>> ");
+				choice = s.nextLine();
+				if (choice.equals("q")) break outter;
+				if (choice.toLowerCase().equals("y") || choice.toLowerCase().equals("yes"))
+				{
+					choice = "y";
+					break;
+				}
+				if (choice.toLowerCase().equals("n") || choice.toLowerCase().equals("no"))
+				{
+					choice = "n";
+					break;
+				}
+			}
+
+			if (choice.equals("y"))
+			{
+				userFullInformation(fullname, "***********", "**************", interests);
+			}
+			else
+			{
+				// decoding all the information first
+				fullname = caesarCipher(fullname, caesar_key, 'd');
+				for (int i = 0; i < interests.size(); i++)
+				{
+					interests.set(i, caesarCipher(interests.get(i), caesar_key, 'd'));
+				}
+				userFullInformation(fullname, phone_number, user_id, interests);
+			}
+			// ************************
+		} while (false);
+
+		System.out.println("##Program Quited##");
 	}
 	
    /* **********************************************************************
@@ -22,11 +132,13 @@ public class Main {
         if (!first_name.isEmpty()) {
             first_name = first_name.substring(0, 1).toUpperCase() + first_name.substring(1).toLowerCase();
         }
+		else return null;
 
         // Capitalizing first letter of last name
         if (!last_name.isEmpty()) {
             last_name = last_name.substring(0, 1).toUpperCase() + last_name.substring(1).toLowerCase();
         }
+		else return null;
 
         return first_name + " " + last_name;
 	}
@@ -76,7 +188,7 @@ public class Main {
 	 ***********************************************************************/
 	 static ArrayList<String> getInterests()
 	 {
-	 	System.out.println("--~~Enter your intersts. type '!' if it's done. (max: 10)~~-");
+	 	System.out.println("--~~Enter your interests. type '!' if it's done. (max: 10)~~-");
 
 		Scanner s = new Scanner(System.in);
 		ArrayList<String> result = new ArrayList<>();
@@ -102,6 +214,12 @@ public class Main {
 			if (input.equals("!"))
 			{
 				return result; 
+			}
+
+			if (input.equals("q"))
+			{
+				System.out.println("##Program Quited##");
+				System.exit(0);
 			}
 
 			result.add(input);
