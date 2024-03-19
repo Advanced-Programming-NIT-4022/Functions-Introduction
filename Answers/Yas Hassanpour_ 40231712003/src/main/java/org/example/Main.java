@@ -90,27 +90,20 @@ public class Main {
         return encoderResult;
     }
 
-    static String informationDecoder(String EncodedInformation,int shift)
-    {
-        String decoderResult= "";
-        for(int i=0; i<EncodedInformation.length(); i++)
-        {
+    static String informationDecoder(String EncodedInformation, int shift) {
+        String decoderResult = "";
+        for (int i = 0; i < EncodedInformation.length(); i++) {
             char currentChar = EncodedInformation.charAt(i);
-            if(Character.isLetter(currentChar))
-            {
-                if(Character.isLowerCase(currentChar))
-                {
+            if (Character.isLetter(currentChar)) {
+                if (Character.isLowerCase(currentChar)) {
                     char shiftedChar = (char) ((currentChar - 'a' - shift + 26) % 26 + 'a');
                     decoderResult += shiftedChar;
-                }
-                else if(Character.isUpperCase(currentChar))
-                {
+                } else if (Character.isUpperCase(currentChar)) {
                     char shiftedChar = (char) ((currentChar - 'A' - shift + 26) % 26 + 'A');
                     decoderResult += shiftedChar;
                 }
-                else {
-                    decoderResult += currentChar;
-                }
+            } else {
+                decoderResult += currentChar;
             }
         }
         return decoderResult;
