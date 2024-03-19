@@ -31,6 +31,25 @@ public class functionsIntroduction {
       return userId(new Scanner(System.in).nextLine());
     }
   }
+  /********************************************************************************************************************************************************************************** */
+  public static String[] getInterests(int maxInterests) 
+  {
+        Scanner scanner = new Scanner(System.in);
+        String[] interests = new String[maxInterests];
+        int count = 0;
+        System.out.println("Enter your interests (max 10):");
+        while (count < maxInterests)
+         {
+            String interest = scanner.nextLine();
+            if (interest.isEmpty()) 
+            {
+                break; // User finished entering interests
+            }
+            interests[count] = interest;
+            count++;
+        }
+        return interests;
+    }
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your First Name: ");
@@ -42,6 +61,7 @@ public class functionsIntroduction {
     String phone = phoneNumber(input.nextLine());
     System.out.println("Enter your ID: ");
     String id = userId(scanner.nextLine());
+    String[] interests = getInterests(10);
     
   }
 }
