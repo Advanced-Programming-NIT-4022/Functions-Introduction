@@ -18,7 +18,19 @@ public class functionsIntroduction {
         return phoneNumber(new Scanner(System.in).nextLine());
     }
   }
-
+  /*********************************************************************************************************************************************************************************** */
+  public static String userId(String id)
+  {
+    if (id.length() <= 4 || id.length() >= 13)
+    {
+      return id;
+    }
+    else
+    {
+      System.out.println("userID should be between 4 to 13 digits. try again.");
+      return userId(new Scanner(System.in).nextLine());
+    }
+  }
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your First Name: ");
@@ -28,6 +40,8 @@ public class functionsIntroduction {
     String fullName = fullName(firstName, lastName);
     System.out.println("Enter your Phone Number: ");
     String phone = phoneNumber(input.nextLine());
-
+    System.out.println("Enter your ID: ");
+    String id = userId(scanner.nextLine());
+    
   }
 }
