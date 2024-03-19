@@ -6,6 +6,7 @@ public class Main {
 
     static String fullNameStatic = "";
     static String phoneNumberStatic = "";
+    static String idStatic = "";
 
     public static String fullName(){
         System.out.println("enter your name : ");
@@ -55,6 +56,21 @@ public class Main {
         return null;
     }
 
+    public static String userId(){
+
+        Scanner input = new Scanner(System.in);
+        while (true){
+            String id = input.nextLine();
+            char[] idChar = id.toCharArray();
+            if ( idChar.length <= 13 && idChar.length >= 3){
+                idStatic = String.valueOf(idChar);
+                return String.valueOf(idChar);
+            } else
+                System.out.println("Wrong entry. Try again.");
+        }
+
+    }
+
     public static void main(String[] args) {
 
         //first function
@@ -63,6 +79,14 @@ public class Main {
         //second function
         System.out.println("enter your phone number : ");
         System.out.println("phone number : " + phoneNumber());
+
+        //third function
+        System.out.println("enter your ID : ");
+        System.out.println("ID : " + userId());
+
+        
+
+
 
     }
 }
