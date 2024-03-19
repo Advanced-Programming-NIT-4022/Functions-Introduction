@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +9,8 @@ public class Main {
     static String fullNameStatic = "";
     static String phoneNumberStatic = "";
     static String idStatic = "";
+    static int lenStatic;
+    static String[] finalInterestsStatic = new String[10];
 
     public static String fullName(){
         System.out.println("enter your name : ");
@@ -71,6 +75,33 @@ public class Main {
 
     }
 
+    public static String[] getInterests(){
+
+        String[] interests = new String[10];
+        Scanner input = new Scanner(System.in);
+        int len = 0;
+        for (int i = 0 ; i < 10 ; i++){
+            String interest = input.nextLine();
+            if (Objects.equals(interest, "end")){
+                break;
+            }
+            interests[i]=interest;
+            len++;
+        }
+        lenStatic = len;
+        String[] finalInterests = new String[len];
+        for (int i = 0 ; i < len ; i++){
+            finalInterests[i] = interests[i];
+        }
+
+        for (int i = 0 ; i < len ; i++){
+            finalInterestsStatic[i] = finalInterests[i];
+
+        }
+
+        return finalInterests;
+    }
+
     public static void main(String[] args) {
 
         //first function
@@ -84,8 +115,11 @@ public class Main {
         System.out.println("enter your ID : ");
         System.out.println("ID : " + userId());
 
-        
-
+        //fourth function
+        System.out.println("enter your interests : ");
+        System.out.println("the maximum number of interests is 10.");
+        System.out.println("if you want to enter less than 10 interests, you have to enter \"end\" when you are finished.");
+        System.out.println(Arrays.toString(getInterests()));
 
 
     }
