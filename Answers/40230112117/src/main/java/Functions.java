@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Functions {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        userFullinformation();
+        informationDecoder(userFullinformation());
 
     }
 
@@ -93,17 +93,32 @@ public class Functions {
         }
             // commit 4
 
-    public static void userFullinformation(){
-        String x ="Hello! My name is " + fullName() + ".";
-        x +=" My ID is " + userid() + ".";
-        x +=" Here are some of my interests:";
+    public static String userFullinformation() {
+        String x = "Hello! My name is " + fullName() + ".";
+        x += " My ID is " + userid() + ".";
+        x += " Here are some of my interests:";
         String y = getinterests();
         String z = phonenumber();
-        System.out.println(x);
-        System.out.println(y);
-        System.out.println();
-        System.out.print("You can reach me via my phone number " + z + "." );
+        String fullInfo = x + "\n" + y + "\n\n" + "You can reach me via my phone number " + z + ".";
+        return fullInfo;
     }
+
     // commit 5
+
+   public static void informationDecoder(String sentence) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter amount of shift: ");
+        int shift = sc.nextInt();
+        char[] letter = sentence.toCharArray();
+        for (int i = 0; i < letter.length; i++) {
+            if ((int) letter[i] > 64 && (int) letter[i] < 91) {
+                letter[i] = (char) ((((int) letter[i] - 65 + shift) % 26) + 65);
+            } else if ((int) letter[i] > 96 && (int) letter[i] < 123) {
+                letter[i] = (char) ((((int) letter[i] - 97 + shift) % 26) + 97);
+            }
+            System.out.print(letter[i]);
+        }
+    }
+
 
 }
