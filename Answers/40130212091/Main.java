@@ -35,7 +35,13 @@ public class Main {
         String[] interests = getInterests();
 
         // user full information
-        userFullInformation(full_name, newPhone, newId, interests);
+        String information = userFullInformation(full_name, newPhone, newId, interests);
+
+        String encryptedInformation = informationEncoder(information, 3);
+        System.out.println(encryptedInformation + "\n");
+
+        String decodedInformation = informationDecoder(encryptedInformation, 3);
+        System.out.println(decodedInformation);
     }
 
     public static String fullName(String firstName, String lastName) {
@@ -79,14 +85,45 @@ public class Main {
         return result;
     }
 
-    public static void userFullInformation(String fullName, String phoneNumber, String userID, String[] interests){
-        System.out.println("Hello! My nam is " + fullName + ". My ID is " + userID + ". Here are some of my interests : ");
+    public static String userFullInformation(String fullName, String phoneNumber, String userID, String[] interests){
+        String text = "Hello! My name is " + fullName + ". My ID is " + userID + ". Here are some of my interests : " + "\n";
         int i = 1;
         for (String interest : interests){
-            System.out.print(i + ". ");
-            System.out.println(interest);
+            text += i + ". " + interest + "\n";
             i++;
         }
-        System.out.println("You can reach me via my phone number " + phoneNumber);
+        text += "You can reach me via my phone number " + phoneNumber;
+        return text;
+
+    }
+
+    public static String informationEncoder(String information, int shift){
+            StringBuilder encryptedText = new StringBuilder();
+            for (int i = 0; i < information.length(); i++) {
+                char currentChar = information.charAt(i);
+                if (Character.isLetter(currentChar)) {
+                    char start = Character.isUpperCase(currentChar) ? 'A' : 'a';
+                    char encryptedChar = (char) (((currentChar - start + shift) % 26) + start);
+                    encryptedText.append(encryptedChar);
+                } else {
+                    encryptedText.append(currentChar);
+                }
+            }
+            return encryptedText.toString();
+    }
+
+    public static String informationDecoder(String information, int shift){
+        String decodedText = "";
+        for (int i = 0; i < information.length(); i++) {
+            char currentChar = information.charAt(i);
+            if (Character.isLetter(currentChar)) {
+                char base = Character.isUpperCase(currentChar) ? 'A' : 'a';
+                char decodedChar = (char) (((currentChar - base - shift + 26) % 26) + base);
+                decodedText += decodedChar;
+            } else {
+                decodedText += currentChar;
+            }
+        }
+        return decodedText;
     }
 }
