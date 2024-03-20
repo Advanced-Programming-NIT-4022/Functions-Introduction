@@ -109,6 +109,27 @@ public class Main {
         return fullInformation.toString();
     }
 
+    public static String informationEncoder(String information, int shift) {
+        StringBuilder encodedInformation = new StringBuilder();
+
+        for (int i = 0; i < information.length(); i++) {
+            char currentChar = information.charAt(i);
+
+            if (Character.isUpperCase(currentChar)) {
+                char encodedChar = (char) (((currentChar - 'A' + shift) % 26) + 'A');
+                encodedInformation.append(encodedChar);
+            }
+            else if (Character.isLowerCase(currentChar)) {
+                char encodedChar = (char) (((currentChar - 'a' + shift) % 26) + 'a');
+                encodedInformation.append(encodedChar);
+            }
+            else {
+                encodedInformation.append(currentChar);
+            }
+        }
+
+        return encodedInformation.toString();
+    }
 
 
 }
