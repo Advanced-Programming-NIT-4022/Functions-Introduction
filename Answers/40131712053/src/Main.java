@@ -27,6 +27,24 @@ public class Main {
         return "0"+phone;
     }
 
+    public static String userId(String id){
+        boolean isAllDigits = true;
+        for (int i = 0; i < id.length(); i++) {
+            if (!Character.isDigit(id.charAt(i))) {
+                isAllDigits = false;
+                break;
+            }
+        }
+        if (!isAllDigits) {
+            return "wrong";
+        }
+        if(id.length()<4 || id.length()>13){
+            return "wrong";
+        }
+        return id;
+    }
+
+
 
 
 
