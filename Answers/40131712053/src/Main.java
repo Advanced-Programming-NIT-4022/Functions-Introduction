@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
+    static Scanner scanner=new Scanner(System.in);
     public static void main(String[] args) {
 
     }
@@ -42,6 +46,31 @@ public class Main {
             return "wrong";
         }
         return id;
+    }
+
+    public static ArrayList<String> getInterests(){
+        System.out.println("enter exit while you are done");
+        ArrayList<String> interests = new ArrayList<>();
+        while (interests.size()<10){
+            int interest_number=interests.size()+1;
+            System.out.println("interest "+interest_number + ":");
+            String interest=scanner.nextLine();
+            if(interest.equals("")){
+                continue;
+            }else if(interest.equals("exit")){
+                if(interests.size()==0){
+                    System.out.println("you have to enter at least one interest");
+                    continue;
+                }else {
+                    break;
+                }
+
+            }else {
+                interests.add(interest);
+            }
+
+        }
+        return interests;
     }
 
 
