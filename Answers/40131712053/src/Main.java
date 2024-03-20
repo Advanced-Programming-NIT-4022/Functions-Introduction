@@ -131,5 +131,27 @@ public class Main {
         return encodedInformation.toString();
     }
 
+    public static String informationDecoder(String encodedInformation, int shift) {
+        StringBuilder decodedInformation = new StringBuilder();
+
+        for (int i = 0; i < encodedInformation.length(); i++) {
+            char currentChar = encodedInformation.charAt(i);
+
+            if (Character.isUpperCase(currentChar)) {
+                char decodedChar = (char) (((currentChar - 'A' - shift + 26) % 26) + 'A');
+                decodedInformation.append(decodedChar);
+            }
+            else if (Character.isLowerCase(currentChar)) {
+                char decodedChar = (char) (((currentChar - 'a' - shift + 26) % 26) + 'a');
+                decodedInformation.append(decodedChar);
+            }
+            else {
+                decodedInformation.append(currentChar);
+            }
+        }
+
+        return decodedInformation.toString();
+    }
+
 
 }
