@@ -67,6 +67,7 @@ public class Functions {
             if(Objects.equals(flag, "N") || Objects.equals(flag, "n"))
                 break;
         }
+        scn.close();
         return interests.get_arr();
     }
 
@@ -95,7 +96,6 @@ public class Functions {
     public String cipher(char chr, int shift){
         int place;
         int fi;
-        int s;
         String out;
         if(isCapital(chr))
         {
