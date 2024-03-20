@@ -1,8 +1,7 @@
 import java.util.Scanner;
-
 public class resume {
     public static void  main(String[] args){
-
+        System.out.println(informationEncoder("sAlam",2));
     }
     public String fullName(String firstName,String lastName){
         String First=firstName.toLowerCase();
@@ -44,6 +43,24 @@ public class resume {
         }
         return obj.array();
     }
-
+    public void userFullInformation(String fullName, String phoneNumber, String userId, interests obj){
+        System.out.print(" Hello! My name is "+ fullName+". My ID is "+userId+".  Here are some of my interests:\n");
+        for(int i=0;i<obj.size;i++){
+            System.out.println((i+1)+". "+obj.index_return(i));
+        }
+        System.out.println("You can reach me via my phone number "+phoneNumber+".");
+    }
+    public static String informationEncoder(String information,int shift){
+        char[] temp=information.toCharArray();
+        for(int i=0;i<temp.length;i++){
+            if(Character.isLowerCase(temp[i]))
+                temp[i]+=temp[i]+shift>122 ? shift-26 :shift;
+            else{
+                temp[i]+=temp[i]+shift>90 ? shift-26 : shift;
+            }
+        }
+        String finall=new String(temp);
+        return finall;
+    }
 
 }

@@ -13,6 +13,9 @@ public class interests {
             intrests[index]=neww;
             this.index++;
         }
+        public String index_return(int n){
+            return intrests[n];
+        }
     }
 
 
