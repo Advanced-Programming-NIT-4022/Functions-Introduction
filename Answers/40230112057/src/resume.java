@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class resume {
     public static void  main(String[] args){
-        System.out.println(informationEncoder("sAlam",2));
+        System.out.println(informationEncoder("pashmam , ,,, salam",3));
     }
     public String fullName(String firstName,String lastName){
         String First=firstName.toLowerCase();
@@ -53,9 +53,9 @@ public class resume {
     public static String informationEncoder(String information,int shift){
         char[] temp=information.toCharArray();
         for(int i=0;i<temp.length;i++){
-            if(Character.isLowerCase(temp[i]))
+            if(temp[i]>96 && temp[i]<123)
                 temp[i]+=temp[i]+shift>122 ? shift-26 :shift;
-            else{
+            else if (temp[i]>64 && temp[i]<91){
                 temp[i]+=temp[i]+shift>90 ? shift-26 : shift;
             }
         }
