@@ -97,7 +97,17 @@ public class Main {
         return interests;
     }
 
-
+    public static String userFullInformation(String fullName,String phoneNumber,String userID,ArrayList<String> interests) {
+        StringBuilder fullInformation = new StringBuilder();
+        fullInformation.append("Hello! My name is ").append(fullName).append(". My ID is ").append(userID).append(". Here are some of my interests:\n");
+        for(int i = 1; i <= interests.size(); i++){
+            fullInformation.append(i).append(". ");
+            fullInformation.append(interests.get(i-1)).append("\n");
+        }
+        fullInformation.append("\n");
+        fullInformation.append("You can reach me via my phone number ").append(phoneNumber).append(".\n");
+        return fullInformation.toString();
+    }
 
 
 
