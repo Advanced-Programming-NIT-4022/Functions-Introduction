@@ -44,12 +44,13 @@ public class resume {
         }
         return obj.array();
     }
-    public void userFullInformation(String fullName, String phoneNumber, String userId, interests obj){
-        System.out.print(" Hello! My name is "+ fullName+". My ID is "+userId+".  Here are some of my interests:\n");
+    public static String userFullInformation(String fullName, String phoneNumber, String userId, interests obj){
+        String text1=" Hello! My name is "+ fullName+". My ID is "+userId+".  Here are some of my interests:\n";
         for(int i=0;i<obj.size;i++){
-            System.out.println((i+1)+". "+obj.index_return(i));
+            String text2=(i+1)+". "+obj.index_return(i)+"\n";
+            text1+=text2;
         }
-        System.out.println("You can reach me via my phone number "+phoneNumber+".");
+       return text1+"\nYou can reach me via my phone number "+phoneNumber+".\n";
     }
     public static String informationEncoder(String information,int shift){
         char[] temp=information.toCharArray();
