@@ -38,7 +38,7 @@ public class Main {
                     break;
                 case 2:
                     for(int i=0;i<index;i++)
-                        System.out.println((i+1)+".\n"+"name:"+obj[i].name+"\n");
+                        System.out.println((i+1)+"."+"name:"+obj[i].name+"\n");
 
                     System.out.println("enter the number behind the name you want to see the encrypted resume:");
                     int m=input.nextInt();
