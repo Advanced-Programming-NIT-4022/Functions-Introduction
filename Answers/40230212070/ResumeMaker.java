@@ -77,3 +77,14 @@ public class ResumeMaker {
 
         return "0" + phone;
     }
+    static String getUserId(Scanner scanner) {
+        String userId;
+        do {
+            System.out.print("Enter your user ID (4 to 13 digits): ");
+            userId = scanner.nextLine();
+            if (!userId.matches("\\d+") || userId.length() < 4 || userId.length() > 13) {
+                System.out.println("Invalid user ID. Please enter 4 to 13 digits.");
+            }
+        } while (!userId.matches("\\d+") || userId.length() < 4 || userId.length() > 13);
+        return userId;
+    }
