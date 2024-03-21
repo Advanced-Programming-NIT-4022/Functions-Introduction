@@ -39,8 +39,22 @@ public class Main {
                     break;
                 case 2:
                     for(int i=0;i<index;i++){
-                        System.out.println((i+1)+".\n"+"name:"+obj[i].name+"\n\n");
+                        System.out.println((i+1)+".\n"+"name:"+obj[i].name+"\n");
                     }
+                    System.out.println("enter the number behind the name you want to see the encrypted resume:");
+                    int m=input.nextInt();
+                    System.out.println("enter the shift for encryption:");
+                    int shift=input.nextInt();
+                    String text1=resume.userFullInformation(obj[m-1].name,obj[m-1].phone,obj[m-1].id,ooj[m-1]);
+                    String text2=resume.informationEncoder(text1,shift);
+                    System.out.println(text2);
+                    System.out.println("do you want it decrypted?[y/n]");
+                    String bul=input.next();
+                    if(bul.equals("y") || bul.equals("Y")){
+                        String text3=resume.informationDecoder(text2,shift);
+                        System.out.println(text3);
+                    }
+                    break;
                 case 3:
                     done=false;
             }
