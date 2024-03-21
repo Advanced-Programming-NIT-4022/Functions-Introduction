@@ -88,3 +88,13 @@ public class ResumeMaker {
         } while (!userId.matches("\\d+") || userId.length() < 4 || userId.length() > 13);
         return userId;
     }
+    static ArrayList<String> getInterests(Scanner scanner) {
+        ArrayList<String> interests = new ArrayList<>();
+        String interest;
+
+        System.out.println("Enter your interests (up to 10, press enter to finish):");
+        while (interests.size() < 10 && (interest = scanner.nextLine().trim()).length() > 0) {
+            interests.add(interest);
+        }
+        return interests;
+    }
