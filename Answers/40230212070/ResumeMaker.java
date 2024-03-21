@@ -65,4 +65,15 @@ public class ResumeMaker {
         String newLastName=LastNAme.substring(0,1).toUpperCase()+LastNAme.substring(1);
         return newFirstName+" "+newLastName;
     }
-    
+    static String getPhoneNumber(Scanner scanner) {
+        String phone;
+        do {
+            System.out.print("Enter your phone number (10 digits starting with 9): ");
+            phone = scanner.nextLine();
+            if (phone.length() != 10 || phone.charAt(0) != '9') {
+                System.out.println("Invalid phone number. Please try again.");
+            }
+        } while (phone.length() != 10 || phone.charAt(0) != '9');
+
+        return "0" + phone;
+    }
