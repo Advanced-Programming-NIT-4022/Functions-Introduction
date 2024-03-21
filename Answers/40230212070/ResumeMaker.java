@@ -58,3 +58,11 @@ public class ResumeMaker {
         }
         return str.matches("\\d+");
     }
+    static String fullName(String FirstName , String LastNAme){
+        FirstName=FirstName.toLowerCase();
+        LastNAme=LastNAme.toLowerCase();
+        String newFirstName=FirstName.substring(0,1).toUpperCase()+FirstName.substring(1);
+        String newLastName=LastNAme.substring(0,1).toUpperCase()+LastNAme.substring(1);
+        return newFirstName+" "+newLastName;
+    }
+    
