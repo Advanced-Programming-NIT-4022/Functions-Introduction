@@ -62,6 +62,31 @@ public class functionsIntroduction {
       full.append("You can reach me via my phone number ").append(phone).append("\n");
       return full.toString();
     }
+    /********************************************************************************************************************************************************************************** */
+    public static String informationEncoder(String information, int shift)
+    {
+      StringBuilder encode = new StringBuilder();
+      for(int i = 0 ; i < information.length() ; i++)
+      {
+        char c = information.charAt(i);
+        if(Character.isAlphabetic(c))
+        {
+          int newChar = c+shift;
+          if(Character.isUpperCase(c))
+          {
+            encode.append((char)(newChar < 'A' ? newChar + 26 : newChar))
+          }
+          else
+          {
+            encode.append((char)(newChar < 'a' ? newChar + 26 : newChar));
+          }
+        }
+        else {
+          encode.append(c);
+        }
+      }
+      return encode.toString();
+    }
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your First Name: ");
@@ -75,5 +100,14 @@ public class functionsIntroduction {
     String id = userId(scanner.nextLine());
     String[] interests = getInterests(10);
     String fullInformation = userFullInformation(fullName, phone, id, interests);
+    System.out.println("Would you Like to see the encoded information? (y for yes/n for no)");
+    String choice = input.nextLine().toLowerCase;
+    if(choice.equals("y"))
+    {
+      System.out.print("How many units should the letters be shifted? (Enter a positive number): ");
+      int Shift = Integer.parseInt(input.nextLine());
+      String encodedIformation = informationEnceoder(fullIformation, shift);
+      System.out.println(encodedInformation);
+    }
   }
 }
