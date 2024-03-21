@@ -126,4 +126,20 @@ public class ResumeMaker {
         }
         return encryptedInfo.toString();
     }
-    
+    static String informationDecoder(String information, int shift) {
+        StringBuilder decryptedInfo = new StringBuilder();
+        for (char c : information.toCharArray()) {
+            if (Character.isAlphabetic(c)) {
+                int newChar = c - shift;
+                if (Character.isUpperCase(c) && newChar < 'A') {
+                    newChar = newChar + 'Z' - 'A' + 1;
+                } else if (Character.isLowerCase(c) && newChar < 'a') {
+                    newChar = newChar + 'z' - 'a' + 1;
+                }
+                decryptedInfo.append((char) newChar);
+            } else {
+                decryptedInfo.append(c);
+            }
+        }
+        return decryptedInfo.toString();
+    }}
