@@ -98,3 +98,14 @@ public class ResumeMaker {
         }
         return interests;
     }
+    static String userFullInformation(String fullName, String phone, String userId, ArrayList<String> interests) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello! My name is ").append(fullName).append(".\n");
+        sb.append("My ID is ").append(userId).append(".\n");
+        sb.append("Here are some of my interests:\n");
+        for (int i = 0; i < interests.size(); i++) {
+            sb.append((i + 1) + ". " + interests.get(i) + "\n");
+        }
+        sb.append("You can reach me via my phone number ").append(phone).append(".\n");
+        return sb.toString();
+    }
