@@ -130,6 +130,8 @@ public class Functions {
     // commmit 7
     public static String informationDecoder(String encodedSentence) {
         Scanner sc = new Scanner(System.in);
+        //bray inke agar shift>26 ono biarim zir 26
+        shift = shift%26;
 
         char[] letter = encodedSentence.toCharArray();
         StringBuilder decoded = new StringBuilder();
