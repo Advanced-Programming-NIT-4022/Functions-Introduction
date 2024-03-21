@@ -109,3 +109,21 @@ public class ResumeMaker {
         sb.append("You can reach me via my phone number ").append(phone).append(".\n");
         return sb.toString();
     }
+    static String informationEncoder(String information, int shift) {
+        StringBuilder encryptedInfo = new StringBuilder();
+        for (char c : information.toCharArray()) {
+            if (Character.isAlphabetic(c)) {
+                int newChar = c + shift;
+                if (Character.isUpperCase(c) && newChar > 'Z') {
+                    newChar = newChar - 'Z' + 'A' - 1;
+                } else if (Character.isLowerCase(c) && newChar > 'z') {
+                    newChar = newChar - 'z' + 'a' - 1;
+                }
+                encryptedInfo.append((char) newChar);
+            } else {
+                encryptedInfo.append(c);
+            }
+        }
+        return encryptedInfo.toString();
+    }
+    
