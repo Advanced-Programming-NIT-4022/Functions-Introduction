@@ -18,9 +18,18 @@ public class resume {
     }
     public void phoneNumber(String phone){
         Scanner input=new Scanner(System.in);
+        if(phone.length()==11 && phone.charAt(0)=='0' && phone.charAt(1)=='9'){
+            this.phone=phone;
+            return;
+        }
+
         while(phone.length()!=10 || phone.charAt(0)!='9'){
             System.out.println("Wrong entry. Try again.");
             phone=input.next();
+            if(phone.length()==11 && phone.charAt(0)=='0' && phone.charAt(1)=='9'){
+                this.phone=phone;
+                return;
+            }
         }
         this.phone="0"+phone;
     }
@@ -35,7 +44,7 @@ public class resume {
     }
     public static String[] getInterests(interests obj,int n){
         Scanner input=new Scanner(System.in);
-        String temp="";
+        String temp;
         for(int i=0;i<n;i++){
             System.out.println("interest number"+(i+1)+": ");
             temp=input.next();
@@ -75,7 +84,6 @@ public class resume {
                 temp[i]-=temp[i]-shift<65 ? shift-26 : shift;
             else if(temp[i]>=48 && temp[i]<=57)
                 temp[i]-=temp[i]-shift<48 ? shift-10 : shift;
-
         }
         return new String(temp);
     }
