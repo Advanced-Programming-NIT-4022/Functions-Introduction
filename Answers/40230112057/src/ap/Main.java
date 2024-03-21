@@ -30,7 +30,6 @@ public class Main {
                     System.out.println("enter user id:");
                     String id=input.next();
                     obj[index].userId(id);
-                    obj[index].isactive=1;
                     System.out.println("how many interests do you have?");
                     int n=input.nextInt();
                     ooj[index]=new interests(n);
@@ -38,9 +37,9 @@ public class Main {
                     index++;
                     break;
                 case 2:
-                    for(int i=0;i<index;i++){
+                    for(int i=0;i<index;i++)
                         System.out.println((i+1)+".\n"+"name:"+obj[i].name+"\n");
-                    }
+
                     System.out.println("enter the number behind the name you want to see the encrypted resume:");
                     int m=input.nextInt();
                     System.out.println("enter the shift for encryption:");
@@ -54,7 +53,9 @@ public class Main {
                         String text3=resume.informationDecoder(text2,shift);
                         System.out.println(text3);
                     }
-                    break;
+                    else if(bul.equals("n") || bul.equals("N"))
+                        break;
+
                 case 3:
                     done=false;
             }
