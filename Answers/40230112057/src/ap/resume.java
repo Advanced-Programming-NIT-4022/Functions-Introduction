@@ -57,9 +57,11 @@ public class resume {
         for(int i=0;i<temp.length;i++){
             if(temp[i]>96 && temp[i]<123)
                 temp[i]+=temp[i]+shift>122 ? shift-26 :shift;
-            else if (temp[i]>64 && temp[i]<91){
+            else if (temp[i]>64 && temp[i]<91)
                 temp[i]+=temp[i]+shift>90 ? shift-26 : shift;
-            }
+            else if(temp[i]>=48 && temp[i]<=57)
+                temp[i]+=temp[i]+shift>57 ? shift-10 : shift;
+
         }
         String finall=new String(temp);
         return finall;
@@ -69,9 +71,11 @@ public class resume {
         for(int i=0;i<temp.length;i++){
             if(temp[i]>96 && temp[i]<123)
                 temp[i]-=temp[i]-shift<97 ? shift-26 :shift;
-            else if (temp[i]>64 && temp[i]<91){
+            else if (temp[i]>64 && temp[i]<91)
                 temp[i]-=temp[i]-shift<65 ? shift-26 : shift;
-            }
+            else if(temp[i]>=48 && temp[i]<=57)
+                temp[i]-=temp[i]-shift<48 ? shift-10 : shift;
+
         }
         String finall=new String(temp);
         return finall;
