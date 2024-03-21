@@ -113,6 +113,48 @@ public class Main {
         return s1 + s2 + "\n" + s3;
     }
 
+    public static String informationEncoder (String userInfo, int shift) {
+        char[] informationChar = userInfo.toCharArray();
+
+        for (int i = 0; i < informationChar.length; i++){
+            char currentChar = informationChar[i];
+
+            if (Character.isLetter(currentChar)) {
+                char shifting;
+                if (Character.isLowerCase(currentChar)) {
+                    shifting = 'a';
+                } else { shifting = 'A';}
+
+                informationChar[i] = (char) ((currentChar - shifting + shift)%26 + shifting);
+
+            }
+        }
+
+        return String.valueOf(informationChar);
+    }
+
+    public static void informationDecoder(String userInfo, int shift) {
+        char[] informationChar = userInfo.toCharArray();
+
+        for (int i = 0; i < informationChar.length; i++) {
+            char currentChar = informationChar[i];
+
+            if (Character.isLetter(currentChar)) {
+                char shifting;
+                if (Character.isLowerCase(currentChar)) {
+                    shifting = 'a';
+                } else { shifting = 'A';}
+                int decoded = currentChar - shift - shifting;
+                if (decoded < 0) {
+                    decoded+= 26;
+                }
+                informationChar[i] = (char) (decoded + shifting);
+            }
+        }
+
+        System.out.println(String.valueOf(informationChar));
+    }
+
     public static void main(String[] args) {
 
         //first function
@@ -136,6 +178,26 @@ public class Main {
         //System.out.println(userFullInformation());
         String userInfo = userFullInformation();
 
+        //sixth and seventh function
+        System.out.println("if you want to see the encoded version of your info please enter \"encode\" , if you don't want to enter \"info\".");
+        Scanner input = new Scanner(System.in);
+        String entry = input.nextLine();
+
+        if (Objects.equals(entry, "encode")){
+            System.out.println("enter the amount of shift : ");
+            int shift = input.nextInt();
+            System.out.println(informationEncoder(userInfo , shift));
+            System.out.println("if you want to see the decoded version enter \"decode\" and if you don't want to, enter anything :)." );
+            Scanner input2 = new Scanner(System.in);
+            String entry2 = input2.nextLine();
+            if (Objects.equals(entry2, "decode")){
+                String userInfo2 = informationEncoder(userInfo , shift);
+                informationDecoder(userInfo2, shift);
+            }
+        }
+        if (Objects.equals(entry, "info")){
+            System.out.println(userFullInformation());
+        }
 
     }
 }
