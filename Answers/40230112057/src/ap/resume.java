@@ -1,8 +1,11 @@
+package ap;
 import java.util.Scanner;
 public class resume {
-    public static void  main(String[] args){
-    }
-    public String fullName(String firstName,String lastName){
+   public String name;
+   public String id;
+   public String phone;
+   public int isactive=0;
+    public void fullName(String firstName,String lastName){
         String First=firstName.toLowerCase();
         String Second=lastName.toLowerCase();
         char[] neww1=First.toCharArray();
@@ -11,28 +14,27 @@ public class resume {
         neww2[0]-=32;
         String akhari=new String(neww1);
         String akharii=new String(neww2);
-        return akhari+" "+akharii;
+        this.name=akhari+" "+akharii;
     }
-    public static String phoneNumber(String phone){
+    public void phoneNumber(String phone){
         Scanner input=new Scanner(System.in);
         while(phone.length()!=10 || phone.charAt(0)!='9'){
             System.out.println("Wrong entry. Try again.");
             phone=input.next();
         }
-        return "0"+phone;
+        this.phone="0"+phone;
     }
-    public static String userId(String id){
+    public void userId(String id){
         Scanner input=new Scanner(System.in);
         while(4>=id.length() || 13<=id.length()){
             System.out.println("Wrong entry. Try again.");
             id=input.next();
         }
-        return id;
+
+        this.id=id;
     }
-    public static String[] getInterests(interests obj){
+    public static String[] getInterests(interests obj,int n){
         Scanner input=new Scanner(System.in);
-        System.out.println("how many interests do you have?");
-        int n=input.nextInt();
         String temp="";
         for(int i=0;i<n;i++){
             temp=input.next();

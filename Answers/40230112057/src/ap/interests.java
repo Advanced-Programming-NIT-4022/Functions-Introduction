@@ -1,3 +1,4 @@
+package ap;
 public class interests {
         public int size=0;
         public int index=0;
@@ -10,8 +11,8 @@ public class interests {
             return this.intrests;
         }
         public void add_intrests(String neww){
-            intrests[index]=neww;
-            this.index++;
+            this.intrests[index]=neww;
+            index++;
         }
         public String index_return(int n){
             return intrests[n];
