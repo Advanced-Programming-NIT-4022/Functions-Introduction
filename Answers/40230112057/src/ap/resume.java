@@ -37,6 +37,7 @@ public class resume {
         Scanner input=new Scanner(System.in);
         String temp="";
         for(int i=0;i<n;i++){
+            System.out.println("interest number"+(i+1)+": ");
             temp=input.next();
             if(temp.equals(""))
                 break;
