@@ -4,7 +4,7 @@ public class resume {
    public String name;
    public String id;
    public String phone;
-   public int isactive=0;
+
     public void fullName(String firstName,String lastName){
         String First=firstName.toLowerCase();
         String Second=lastName.toLowerCase();
