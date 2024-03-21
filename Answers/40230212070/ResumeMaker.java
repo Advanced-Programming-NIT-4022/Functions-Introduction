@@ -52,3 +52,9 @@ public class ResumeMaker {
             } while (!choice.equals("3"));
             }
 }
+    static boolean isInteger(String str) {
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        return str.matches("\\d+");
+    }
