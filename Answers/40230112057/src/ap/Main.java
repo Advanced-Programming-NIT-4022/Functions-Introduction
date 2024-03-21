@@ -37,6 +37,10 @@ public class Main {
                     index++;
                 }
                 case 2 -> {
+                    if(index==0){
+                        System.out.println("there is no list");
+                        break;
+                    }
                     System.out.println("##################");
                     for (int i = 0; i < index; i++)
                         System.out.print((i + 1) + "." + "name:" + obj[i].name + "\n");
