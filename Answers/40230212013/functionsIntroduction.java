@@ -50,6 +50,18 @@ public class functionsIntroduction {
         }
         return interests;
     }
+    /********************************************************************************************************************************************************************************** */
+    public static String userFullInformation(String fullName, String phone, String id, String[] interests)
+    {
+      StringBuilder full = new StringBuilder();
+      full.append("Hello! My name is ").append(fullName).append(". My ID is ").append(id).append(". Here are some of my interests:\n");
+      for(int i=0; i < interests.length && interests[i] != null; i++)
+      {
+        full.append(i+1).append(". ").append(interests[i]).append("\n");
+      }
+      full.append("You can reach me via my phone number ").append(phone).append("\n");
+      return full.toString();
+    }
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your First Name: ");
@@ -62,6 +74,6 @@ public class functionsIntroduction {
     System.out.println("Enter your ID: ");
     String id = userId(scanner.nextLine());
     String[] interests = getInterests(10);
-    
+    String fullInformation = userFullInformation(fullName, phone, id, interests);
   }
 }
