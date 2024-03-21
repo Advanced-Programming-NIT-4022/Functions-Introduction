@@ -63,8 +63,7 @@ public class resume {
                 temp[i]+=temp[i]+shift>57 ? shift-10 : shift;
 
         }
-        String finall=new String(temp);
-        return finall;
+        return new String(temp);
     }
     public static String informationDecoder(String information,int shift){
         char[] temp=information.toCharArray();
@@ -77,8 +76,7 @@ public class resume {
                 temp[i]-=temp[i]-shift<48 ? shift-10 : shift;
 
         }
-        String finall=new String(temp);
-        return finall;
+        return new String(temp);
     }
 
 }
