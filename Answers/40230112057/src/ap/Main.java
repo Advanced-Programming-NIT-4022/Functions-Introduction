@@ -16,14 +16,14 @@ public class Main {
             switch (menu){
                 case 1:
                     obj[index]=new resume();
-                    String firstname=new String();
-                    String lastname=new String();
+                    String firstname;
+                    String lastname;
                     System.out.println("enter your first name:");
                     firstname=input.next();
                     System.out.println("enter your last name:");
                     lastname=input.next();
                     obj[index].fullName(firstname,lastname);
-                    String phone=new String();
+                    String phone;
                     System.out.println("enter phone number:");
                     phone=input.next();
                     obj[index].phoneNumber(phone);
@@ -53,8 +53,7 @@ public class Main {
                         String text3=resume.informationDecoder(text2,shift);
                         System.out.println(text3);
                     }
-                    else if(bul.equals("n") || bul.equals("N"))
-                        break;
+                    break;
 
                 case 3:
                     done=false;
