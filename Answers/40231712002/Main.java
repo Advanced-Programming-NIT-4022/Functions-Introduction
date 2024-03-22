@@ -52,7 +52,26 @@ public class Main {
         }
         return edcode;
     }
+    public static String informationDecoder(String information , int shift)
+    {
+        String decoder="";
+        int len = information.length();
+        for (int i = 0; i < len; i++)
+        {
+            if (information.charAt(i) == '.' || information.charAt(i) == ',' || information.charAt(i) == ' ')
+                decoder += (char) (information.charAt(i));
+            else
+            {
+                char ch=(char) (information.charAt(i)-shift);
 
+                if(ch>'z')
+                    decoder+=(char)(information.charAt(i)-(26+shift));
+                else
+                    decoder+=(char)(information.charAt(i)-shift);
+            }
+        }
+        return decoder;
+    }
     public static void main(String[] args) {
 
         System.out.println(fullname("kosar ", "mousavi"));
