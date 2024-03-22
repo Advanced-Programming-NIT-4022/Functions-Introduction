@@ -137,7 +137,6 @@ public class Main {
             if (nextLine.isBlank()) break;
             interests[i] = nextLine;
         }
-        scanner.close();
         return Arrays.copyOf(interests, i);
     }
 
