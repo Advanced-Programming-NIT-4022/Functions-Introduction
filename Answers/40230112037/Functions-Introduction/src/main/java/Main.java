@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -66,5 +67,21 @@ public class Main {
             if (i != array.length - 1) arrayString.append("\n");
         }
         return arrayString.toString();
+    }
+
+    public static String[] getInterests(int number) {
+        if (number < 1) {
+            throw new Error("Unexpected error!");
+        }
+        String[] interests = new String[number];
+        Scanner scanner = new Scanner(System.in);
+        int i;
+        for (i = 0; i < 10; i++) {
+            String nextLine = scanner.nextLine();
+            if (nextLine.isBlank()) break;
+            interests[i] = nextLine;
+        }
+        scanner.close();
+        return Arrays.copyOf(interests, i);
     }
 }
