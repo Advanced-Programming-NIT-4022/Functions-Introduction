@@ -27,11 +27,17 @@ public class Main {
     {
         return A+B+C;
     }
+    public static String userFullnformation(String a,String b,String c, String d)
+    {
+        return ( "Hello.My name is "+a+".My ID is "+b+".Here are some of my interests: "+c+"  " +
+                "" + "   You can reach me via my phone number "+d);
+    }
     public static void main(String[] args) {
 
         System.out.println(fullname("kosar ", "mousavi"));
         System.out.println(phonenumber("9114867186"));
         System.out.println("id:"+id("40231712002"));
         System.out.println(getlntereses("1.swimming,"," 2.cooking,"," 3.listening music"));
+        System.out.println(userFullnformation("Kosar Mousavi","40231712002","{1.swimming 2.cooking 3.listening music}","09114867186"));
     }
 }
