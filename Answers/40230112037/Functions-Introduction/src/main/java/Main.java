@@ -84,4 +84,21 @@ public class Main {
         scanner.close();
         return Arrays.copyOf(interests, i);
     }
+
+    public static String informationEncoder(String information, int shift) {
+        char[] encodedInformation = new char[information.length()];
+        char[] informationChars = information.toCharArray();
+        for (int i = 0; i < informationChars.length; i++) {
+            if (informationChars[i] >= 'a' && informationChars[i] <= 'z') {
+                encodedInformation[i] = (char) (((informationChars[i] + shift - 'a') + 26) % 26 + 'a');
+            } else if (informationChars[i] >= 'A' && informationChars[i] <= 'Z') {
+                encodedInformation[i] = (char) (((informationChars[i] + shift - 'A') + 26) % 26 + 'A');
+            } else if (informationChars[i] >= '0' && informationChars[i] <= '9') {
+                encodedInformation[i] = (char) (((informationChars[i] + shift - '0') + 10) % 10 + '0');
+            } else {
+                encodedInformation[i] = informationChars[i];
+            }
+        }
+        return new String(encodedInformation);
+    }
 }
