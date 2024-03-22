@@ -3,7 +3,63 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        Scanner scanner = new Scanner(System.in);
+        boolean done = false;
+        String[] interests = new String[0];
+        String firstname, lastname, fullname = "", id = "", phone = "";
+        boolean fullNameDone, idDone, phoneDone, interestsDone;
+        fullNameDone = idDone = phoneDone = interestsDone = false;
+        while (!done) {
+            try {
+                if (!fullNameDone) {
+                    System.out.print("First Name: ");
+                    firstname = scanner.nextLine();
+                    System.out.print("Last Name: ");
+                    lastname = scanner.nextLine();
+                    fullname = fullName(firstname, lastname);
+                    fullNameDone = true;
+                }
+                if (!phoneDone) {
+                    System.out.print("Phone number: ");
+                    phone = phoneNumber(scanner.nextLine());
+                    phoneDone = true;
+                }
+                if (!idDone) {
+                    System.out.print("User ID: ");
+                    id = userId(scanner.nextLine());
+                    idDone = true;
+                }
+                if (!interestsDone) {
+                    System.out.println("Interests: (Enter an empty line to stop)");
+                    interests = getInterests(10);
+                    interestsDone = true;
+                }
+                done = true;
+            } catch (Error error) {
+                System.out.println(error.getMessage());
+            } catch (Exception exception) {
+                System.out.println("Wrong Input!");
+            }
+        }
+        done = false;
+        while (!done) {
+            try {
+                System.out.print("Do you want to get the output encoded? [Y/n] ");
+                String input = scanner.nextLine();
+                if (input.isBlank() || input.startsWith("y") || input.startsWith("Y")) {
+                    System.out.print("Enter shift value: ");
+                    int shift = scanner.nextInt();
+                    System.out.println(informationEncoder(userFullInformation(fullname, phone, id, interests), shift));
+                    done = true;
+                } else if (input.startsWith("n") || input.startsWith("N")) {
+                    System.out.println(userFullInformation(fullname, phone, id, interests));
+                    done = true;
+                }
+            } catch (Exception exception) {
+                System.out.println("Unexpected error happened!");
+            }
+        }
+        scanner.close();
     }
 
     public static String normalizeName(String name) {
