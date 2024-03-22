@@ -32,6 +32,10 @@ public class Main {
                     obj[index].userId(id);
                     System.out.println("how many interests do you have?");
                     int n = input.nextInt();
+                    while(n>10){
+                        System.out.println("the maximum number of interests is 10! enter another number: ");
+                        n = input.nextInt();
+                    }
                     ooj[index] = new interests(n);
                     resume.getInterests(ooj[index], n);
                     index++;
