@@ -44,4 +44,16 @@ public class Main {
         }
         return phone;
     }
+
+    public static String userId(String id) {
+        if (id.length() < 4 || id.length() > 13) {
+            throw new Error("id is not valid! (id length should be between 4 and 13)");
+        }
+        for (char i : id.toCharArray()) {
+            if (i < '0' || i > '9') {
+                throw new Error("id is not valid! (id should only contains numbers)");
+            }
+        }
+        return id;
+    }
 }
