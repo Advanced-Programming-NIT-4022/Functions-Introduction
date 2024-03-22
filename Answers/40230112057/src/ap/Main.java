@@ -45,7 +45,7 @@ public class Main {
                     for (int i = 0; i < index; i++)
                         System.out.print((i + 1) + "." + "name:" + obj[i].name + "\n");
                     System.out.println("##################");
-                    System.out.println("enter the number behind the name you want to see the encrypted resume:");
+                    System.out.println("enter the number behind the name that you want to see the encrypted resume:");
                     int m = input.nextInt();
                     System.out.println("enter the shift for encryption:");
                     int shift = input.nextInt();
