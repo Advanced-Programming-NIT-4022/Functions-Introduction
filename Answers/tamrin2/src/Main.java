@@ -53,22 +53,44 @@ class Main {
 	}
 
 	static String informationEncoder(String information, int shift) {
+		int alph_diff = 26;
 		char[] information_new = information.toCharArray();
 		for (int i = 0; i < information_new.length; i++) {
-			if (('a' <= information_new[i]) & (information_new[i] <= 'z')) {
+			if (('a' <= information_new[i]) && (information_new[i] <= 'z')) {
 				information_new[i] += shift;
 				if (information_new[i] > 'z') {
-					information_new[i] -= 'z' - 'a';
+					information_new[i] -= alph_diff;
 				}
 			}
-			if (('A' <= information_new[i]) & (information_new[i] <= 'Z')) {
+			if (('A' <= information_new[i]) && (information_new[i] <= 'Z')) {
 				information_new[i] += shift;
 				if (information_new[i] > 'Z') {
-					information_new[i] -= 'Z' - 'A';
+					information_new[i] -= alph_diff;
 				}
 			}
 		}
 		information = String.valueOf(information_new);
+		return information;
+	}
+
+	static String informationDecoder(String information, int shift) {
+		int alph_diff = 26;
+		char[] char_arr = information.toCharArray();
+		for (int i = 0; i < char_arr.length; i++) {
+			if (('a' <= char_arr[i]) && (char_arr[i] <= 'z')) {
+				char_arr[i] -= shift;
+				if (char_arr[i] < 'a') {
+					char_arr[i] += alph_diff;
+				}
+			}
+			if (('A' <= char_arr[i]) && (char_arr[i] <= 'Z')) {
+				char_arr[i] -= shift;
+				if (char_arr[i] < 'A') {
+					char_arr[i] += alph_diff;
+				}
+			}
+		}
+		information = String.valueOf(char_arr);
 		return information;
 	}
 
@@ -111,5 +133,7 @@ class Main {
 //		userFullInformation("Aryan Nourbakhsh", "09123456789", "40030111111", sample_interest_array);
 
 //		System.out.println(informationEncoder("Hello, my name is Aryanoor. I am learning Java.", 3));
+
+		System.out.println(informationDecoder("Fvb mvbuk tl jvyyljasf.", 7));
 	}
 }
