@@ -52,6 +52,25 @@ class Main {
 		System.out.println("GoodBye xD");
 	}
 
+	static String informationEncoder(String information, int shift) {
+		char[] information_new = information.toCharArray();
+		for (int i = 0; i < information_new.length; i++) {
+			if (('a' <= information_new[i]) & (information_new[i] <= 'z')) {
+				information_new[i] += shift;
+				if (information_new[i] > 'z') {
+					information_new[i] -= 'z' - 'a';
+				}
+			}
+			if (('A' <= information_new[i]) & (information_new[i] <= 'Z')) {
+				information_new[i] += shift;
+				if (information_new[i] > 'Z') {
+					information_new[i] -= 'Z' - 'A';
+				}
+			}
+		}
+		information = String.valueOf(information_new);
+		return information;
+	}
 
 	public static void main(String[] args) {
 //        System.out.println("Full Name: " + fullName("ArYAn", "nourBAKhsh") + "\n");
@@ -88,8 +107,9 @@ class Main {
 //			System.out.println("arr[" + i + "] = " + amir_interests_array[i]);
 //		}
 
-		String[] sample_interest_array = {"swimming", "gym", "video games"};
-		userFullInformation("Aryan Nourbakhsh", "09123456789", "40030111111", sample_interest_array);
+//		String[] sample_interest_array = {"swimming", "gym", "video games"};
+//		userFullInformation("Aryan Nourbakhsh", "09123456789", "40030111111", sample_interest_array);
 
+//		System.out.println(informationEncoder("Hello, my name is Aryanoor. I am learning Java.", 3));
 	}
 }
