@@ -60,7 +60,7 @@ public class Main {
                     String bul = input.next();
                     if (bul.equals("y") || bul.equals("Y")) {
                         String text3 = resume.informationDecoder(text2, shift);
-                        System.out.println(text3);
+                        System.out.println("\n"+text3);
                     }
                 }
                 case 3 -> done = false;
