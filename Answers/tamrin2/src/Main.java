@@ -12,20 +12,43 @@ class Main {
 			return "error";
 		}
 	}
+	static String userId(String id) {
+		if ((4 <= id.length()) && (id.length() <= 13)) {
+			return id;
+		} else {
+			return "error";
+		}
+	}
 
 	public static void main(String[] args) {
 //        System.out.println("Full Name: " + fullName("ArYAn", "nourBAKhsh") + "\n");
 
-        Scanner input = new Scanner(System.in);
-        while (true) {
-            String phone_test = input.nextLine();
-			if (phoneNumber(phone_test).equals("error")) {
-				;
+//        Scanner input = new Scanner(System.in);
+//        while (true) {
+//			System.out.print("Type: ");
+//            String phone_test = input.nextLine();
+//			if (phoneNumber(phone_test).equals("error")) {
+//				System.out.println("ERROR");
+//			} else {
+//				System.out.println("Output: " + phoneNumber(phone_test));
+//				break;
+//			}
+//        }
+//		input.close();
+
+		Scanner input = new Scanner(System.in);
+		while (true) {
+			System.out.print("Type: ");
+			String id_test = input.nextLine();
+			if (userId(id_test).equals("error")) {
+				System.out.println("ERROR");
 			} else {
-				System.out.println(phoneNumber(phone_test));
+				System.out.println("Output: " + userId(id_test));
 				break;
 			}
-        }
+		}
 		input.close();
+
+
     }
 }
