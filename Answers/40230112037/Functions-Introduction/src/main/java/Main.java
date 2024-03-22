@@ -101,4 +101,8 @@ public class Main {
         }
         return new String(encodedInformation);
     }
+
+    public static String informationDecoder(String information, int shift) {
+        return informationEncoder(information, -shift);
+    }
 }
