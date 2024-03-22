@@ -8,9 +8,20 @@ public class Main {
         return ("Name:" + firstCharFirstname + otherfirstname + firstCharLastname + otherlastname);
 
     }
-
+    public static String phonenumber(String number)
+    {
+        if(number.length()==10)
+        {
+            return ("0"+number);
+        }
+        else
+        {
+            return ("Wrong entry.Try again.");
+        }
+    }
     public static void main(String[] args) {
 
         System.out.println(fullname("kosar ", "mousavi"));
+        System.out.println(phonenumber("9114867186"));
     }
 }
