@@ -19,6 +19,22 @@ class Main {
 			return "error";
 		}
 	}
+	static String[] getInterests() {
+		System.out.println("0 = quit");
+		String[] array = new String[10];
+		Scanner scanner_input = new Scanner(System.in);
+		for (int i = 0; i < 10;) {
+			System.out.print("Type: ");
+			String input_test =  scanner_input.nextLine();
+			if (input_test.equals("0")) {
+				break;
+			} else {
+				array[i] = input_test;
+				i += 1;
+			}
+		}
+		return array;
+	}
 
 	public static void main(String[] args) {
 //        System.out.println("Full Name: " + fullName("ArYAn", "nourBAKhsh") + "\n");
@@ -36,19 +52,24 @@ class Main {
 //        }
 //		input.close();
 
-		Scanner input = new Scanner(System.in);
-		while (true) {
-			System.out.print("Type: ");
-			String id_test = input.nextLine();
-			if (userId(id_test).equals("error")) {
-				System.out.println("ERROR");
-			} else {
-				System.out.println("Output: " + userId(id_test));
-				break;
-			}
-		}
-		input.close();
+//		Scanner input = new Scanner(System.in);
+//		while (true) {
+//			System.out.print("Type: ");
+//			String id_test = input.nextLine();
+//			if (userId(id_test).equals("error")) {
+//				System.out.println("ERROR");
+//			} else {
+//				System.out.println("Output: " + userId(id_test));
+//				break;
+//			}
+//		}
+//		input.close();
 
+		String[] amir_interests_array = new String[10];
+		amir_interests_array = getInterests();
+		for (int i = 0; i < 10; i++) {
+			System.out.println("arr[" + i + "] = " + amir_interests_array[i]);
+		}
 
     }
 }
