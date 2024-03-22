@@ -105,4 +105,9 @@ public class Main {
     public static String informationDecoder(String information, int shift) {
         return informationEncoder(information, -shift);
     }
+
+    public static String userFullInformation(String fullname, String phonenumber, String userid, String[] interests) {
+        String intererestsString = (interests.length != 0) ? " Here are some of my interests:\n" + arrayToString(interests) : "";
+        return "Hello! My name is " + fullname + ". My ID is " + userid + "." + intererestsString + "\n\nYou can reach me via my phone number " + phonenumber + ".";
+    }
 }
