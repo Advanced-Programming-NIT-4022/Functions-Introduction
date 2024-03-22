@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class functionsIntroduction {
   public static String fullName(String firstName , String lastName)
   {
@@ -21,7 +22,7 @@ public class functionsIntroduction {
   /*********************************************************************************************************************************************************************************** */
   public static String userId(String id)
   {
-    if (id.length() <= 4 || id.length() >= 13)
+    if (id.length() >= 4 || id.length() <= 13)
     {
       return id;
     }
@@ -74,7 +75,7 @@ public class functionsIntroduction {
           int newChar = c+shift;
           if(Character.isUpperCase(c))
           {
-            encode.append((char)(newChar < 'A' ? newChar + 26 : newChar))
+            encode.append((char)(newChar < 'A' ? newChar + 26 : newChar));
           }
           else
           {
@@ -87,6 +88,11 @@ public class functionsIntroduction {
       }
       return encode.toString();
     }
+    /********************************************************************************************************************************************************************************** */
+    public static String informationDecoder(String information, int shift)
+    {
+      return informationEncoder(information, -shift);
+    }
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your First Name: ");
@@ -97,17 +103,36 @@ public class functionsIntroduction {
     System.out.println("Enter your Phone Number: ");
     String phone = phoneNumber(input.nextLine());
     System.out.println("Enter your ID: ");
-    String id = userId(scanner.nextLine());
+    String id = userId(input.nextLine());
     String[] interests = getInterests(10);
     String fullInformation = userFullInformation(fullName, phone, id, interests);
+     while(true)
+    {
     System.out.println("Would you Like to see the encoded information? (y for yes/n for no)");
-    String choice = input.nextLine().toLowerCase;
+    String choice = input.nextLine().toLowerCase();
     if(choice.equals("y"))
     {
       System.out.print("How many units should the letters be shifted? (Enter a positive number): ");
-      int Shift = Integer.parseInt(input.nextLine());
-      String encodedIformation = informationEnceoder(fullIformation, shift);
+      int shift = Integer.parseInt(input.nextLine());
+      String encodedInformation = informationEncoder(fullInformation, shift);
       System.out.println(encodedInformation);
+      System.out.println("Would you Like to see the decoded information? (y for yes/n for close the program)");
+      String choice2 = input.nextLine().toLowerCase();
+      if(choice2.equals("y"))
+      {
+        System.out.println(informationDecoder(fullInformation, shift));
+        continue;
+      }
+      else
+      {
+      break;
+      }
+    }
+    else
+    {
+      System.out.println(fullInformation);
+
     }
   }
+}
 }
