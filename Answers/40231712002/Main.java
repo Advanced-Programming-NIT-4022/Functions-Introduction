@@ -19,9 +19,14 @@ public class Main {
             return ("Wrong entry.Try again.");
         }
     }
+    public static String id(String a)
+    {
+        return a;
+    }
     public static void main(String[] args) {
 
         System.out.println(fullname("kosar ", "mousavi"));
         System.out.println(phonenumber("9114867186"));
+        System.out.println("id:"+id("40231712002"));
     }
 }
