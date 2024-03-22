@@ -32,6 +32,27 @@ public class Main {
         return ( "Hello.My name is "+a+".My ID is "+b+".Here are some of my interests: "+c+"  " +
                 "" + "   You can reach me via my phone number "+d);
     }
+    public static String informaionEncoder(String information,int shift)
+    {
+        String edcode ="";
+        int len = information.length();
+        for (int i = 0; i < len; i++)
+        {
+            if (information.charAt(i) == '.' || information.charAt(i) == ',' || information.charAt(i) == ' ')
+            {
+                edcode += (char) (information.charAt(i));
+            } else
+            {
+                char ch = (char) (information.charAt(i) + shift);
+                if (ch > 'z')
+                    edcode += (char) (information.charAt(i) - (26 - shift));
+                else
+                    edcode += (char) (information.charAt(i) + shift);
+            }
+        }
+        return edcode;
+    }
+
     public static void main(String[] args) {
 
         System.out.println(fullname("kosar ", "mousavi"));
