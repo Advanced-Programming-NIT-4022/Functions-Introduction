@@ -18,15 +18,15 @@ public class resume {
     }
     public void phoneNumber(String phone){
         Scanner input=new Scanner(System.in);
-        if(phone.length()==11 && phone.charAt(0)=='0' && phone.charAt(1)=='9'){
+        if(phone.length()==11 && phone.charAt(0)=='0' && phone.charAt(1)=='9' && phone.matches("[0-9]+")){
             this.phone=phone;
             return;
         }
 
-        while(phone.length()!=10 || phone.charAt(0)!='9'){
+        while(phone.length()!=10 || phone.charAt(0)!='9' || !phone.matches("[0-9]+")){
             System.out.println("Wrong entry. Try again.");
             phone=input.next();
-            if(phone.length()==11 && phone.charAt(0)=='0' && phone.charAt(1)=='9'){
+            if(phone.length()==11 && phone.charAt(0)=='0' && phone.charAt(1)=='9' && phone.matches("[0-9]+")){
                 this.phone=phone;
                 return;
             }
@@ -35,7 +35,7 @@ public class resume {
     }
     public void userId(String id){
         Scanner input=new Scanner(System.in);
-        while(4>=id.length() || 13<=id.length()){
+        while(4>=id.length() || 13<=id.length() || !id.matches("[0-9]+")){
             System.out.println("Wrong entry. Try again.");
             id=input.next();
         }
