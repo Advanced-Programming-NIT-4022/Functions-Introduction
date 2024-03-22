@@ -56,4 +56,15 @@ public class Main {
         }
         return id;
     }
+
+    public static String arrayToString(String[] array) {
+        StringBuilder arrayString = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            arrayString.append(i + 1);
+            arrayString.append(". ");
+            arrayString.append(array[i]);
+            if (i != array.length - 1) arrayString.append("\n");
+        }
+        return arrayString.toString();
+    }
 }
