@@ -65,46 +65,46 @@ public class Main
 //        return id;
 //    }
 
-    public static String getInterests(String interest)
-    {
-        Scanner input = new Scanner(System.in);
-        int i=0;
-        interest="";
-        String x="{";
-        while(i<10){
-            interest = input.nextLine();
-            if(interest.length()!=0){
-            x= x+ "\"" + interest+ "\",";
-            }else{
-                break;
-            }
-            i++;
-        }
-        if(x.length()!=1) {
-            x = x.substring(0, x.length() - 1) + "}";
-        }else{
-            x="{}";
-        }
-            return x;
-    }
-
-//    public static String userFullInformation(String fullName, String phoneNumber, String userID,String interests)
-//
+//    public static String getInterests(String interest)
 //    {
 //        Scanner input = new Scanner(System.in);
-//        fullName = input.nextLine().trim();
-//        phoneNumber = input.nextLine();
-//        userID = input.nextLine();
-//        interests = input.nextLine();
-//        interests=interests.replace("}","").replace("{","").replace(" ","").replace("\"","");
-//        String[] interestsArray = interests.split(",");
-//        String output="Hello! My name is " + fullName + ". My ID is "+ userID + ". Here are some of my interests:";
-//        for(int i=0;i<interestsArray.length;i++){
-//            output=output + "\n" + (i+1) +"." +interestsArray[i];
+//        int i=0;
+//        interest="";
+//        String x="{";
+//        while(i<10){
+//            interest = input.nextLine();
+//            if(interest.length()!=0){
+//            x= x+ "\"" + interest+ "\",";
+//            }else{
+//                break;
+//            }
+//            i++;
 //        }
-//        output=output+"\n\n"+"You can reach me via my phone number "+phoneNumber+".";
-//        return output;
+//        if(x.length()!=1) {
+//            x = x.substring(0, x.length() - 1) + "}";
+//        }else{
+//            x="{}";
+//        }
+//            return x;
 //    }
+
+    public static String userFullInformation(String fullName, String phoneNumber, String userID,String interests)
+
+    {
+        Scanner input = new Scanner(System.in);
+        fullName = input.nextLine().trim();
+        phoneNumber = input.nextLine();
+        userID = input.nextLine();
+        interests = input.nextLine();
+        interests=interests.replace("}","").replace("{","").replace(" ","").replace("\"","");
+        String[] interestsArray = interests.split(",");
+        String output="Hello! My name is " + fullName + ". My ID is "+ userID + ". Here are some of my interests:";
+        for(int i=0;i<interestsArray.length;i++){
+            output=output + "\n" + (i+1) +"." +interestsArray[i];
+        }
+        output=output+"\n\n"+"You can reach me via my phone number "+phoneNumber+".";
+        return output;
+    }
 
 //    public static String informationEncoder(String information, String shift)
 //    {
