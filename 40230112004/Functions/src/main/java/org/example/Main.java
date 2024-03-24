@@ -67,9 +67,27 @@ public class Main {
 
 
     }
+    public static void userFullInformation (String fullName , String phoneNumber, String userId , String [] interests)
+    {
+        System.out.println("Hello! My name is "+fullName+". My Id is "+userId+"Here are my interests: ");
+        for(int i = 0 ; i< interests.length ; i++)
+        {
+            System.out.println(i + "."+ interests[i]);
+        }
+        System.out.println("You can reach me via my phone number : " + phoneNumber);
+    }
 
     public static void main(String[] args)
     {
+        System.out.print("Please enter your name: ");
+        String fullNameHolder  = fullName(scanner.nextLine(),scanner.nextLine());
+        System.out.print("Please enter your phone number: ");
+        String phoneNumberHolder = phoneNumber(scanner.nextLine());
+        System.out.print("Please enter your user Id: ");
+        String userIdHolder = userId(scanner.nextLine());
+        System.out.println("Please share your interests: ");
+        String [] interestsHolder  = getInterests(scanner.nextLine());
+        userFullInformation(fullNameHolder,phoneNumberHolder,userIdHolder,interestsHolder);
 
 
 
