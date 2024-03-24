@@ -7,49 +7,49 @@ public class Main
     public static void main(String[] args) {
         Scanner stringInput = new Scanner(System.in);
         }
-        public static String fullName(String firstName,String lastName)
-        {
-            Scanner input = new Scanner(System.in);
-            firstName = input.next();
-            lastName = input.next();
-            firstName = firstName.toLowerCase();
-            lastName = lastName.toLowerCase();
-            String fullname = "";
-            char firsta[] = firstName.toCharArray();
-            char lasta[] = lastName.toCharArray();
-            firsta[0] -= 32;
-            lasta[0] -= 32;
-            int n1 = firsta.length;
-            int n2 = lasta.length;
-            char fulla[] = new char[n1 + n2 + 1];
-            for (int i = 0; i < n1; i++) {
-                fulla[i] = firsta[i];
-            }
-            fulla[n1] = ' ';
-            for (int i = 0; i < n2; i++) {
-                fulla[i + n1 + 1] = lasta[i];
-            }
-            fullname=valueOf(fulla);
-            return fullname;}
-
-
-//    public static String phoneNumber(String phone)
-//
-//    {
-//        Scanner input = new Scanner(System.in);
-//        phone = input.next();
-//        char[] phoneArray = phone.toCharArray();
-//        String  newPhone="0";
-//        int n=phone.length();
-//        while (n!=10 || phoneArray[0]!='9') {
-//            System.out.println("Worng entry. Try again");
-//            phone = input.next();
-//            n=phone.length();
-//            phoneArray = phone.toCharArray();
+//        public static String fullName(String firstName,String lastName)
+//        {
+//            Scanner input = new Scanner(System.in);
+//            firstName = input.next();
+//            lastName = input.next();
+//            firstName = firstName.toLowerCase();
+//            lastName = lastName.toLowerCase();
+//            String fullname = "";
+//            char firsta[] = firstName.toCharArray();
+//            char lasta[] = lastName.toCharArray();
+//            firsta[0] -= 32;
+//            lasta[0] -= 32;
+//            int n1 = firsta.length;
+//            int n2 = lasta.length;
+//            char fulla[] = new char[n1 + n2 + 1];
+//            for (int i = 0; i < n1; i++) {
+//                fulla[i] = firsta[i];
+//            }
+//            fulla[n1] = ' ';
+//            for (int i = 0; i < n2; i++) {
+//                fulla[i + n1 + 1] = lasta[i];
+//            }
+//            fullname=valueOf(fulla);
+//            return fullname;
 //        }
-//        newPhone+=phone;
-//        return newPhone;
-//    }
+
+
+    public static String phoneNumber(String phone)
+    {
+        Scanner input = new Scanner(System.in);
+        phone = input.next();
+        char[] phoneArray = phone.toCharArray();
+        String  newPhone="0";
+        int n=phone.length();
+        while (n!=10 || phoneArray[0]!='9') {
+            System.out.println("Worng entry. Try again");
+            phone = input.next();
+            n=phone.length();
+            phoneArray = phone.toCharArray();
+        }
+        newPhone+=phone;
+        return newPhone;
+    }
 
 //    public static String userId(String id)
 //    {
