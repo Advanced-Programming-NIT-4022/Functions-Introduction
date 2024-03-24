@@ -34,36 +34,36 @@ public class Main
 //        }
 
 
-    public static String phoneNumber(String phone)
-    {
-        Scanner input = new Scanner(System.in);
-        phone = input.next();
-        char[] phoneArray = phone.toCharArray();
-        String  newPhone="0";
-        int n=phone.length();
-        while (n!=10 || phoneArray[0]!='9') {
-            System.out.println("Worng entry. Try again");
-            phone = input.next();
-            n=phone.length();
-            phoneArray = phone.toCharArray();
-        }
-        newPhone+=phone;
-        return newPhone;
-    }
-
-//    public static String userId(String id)
+//    public static String phoneNumber(String phone)
 //    {
 //        Scanner input = new Scanner(System.in);
-//        int n=0;
-//        while (n>13 || n<4) {
-//            id = input.next();
-//            n=id.length();
-//            if(id.length()>13 || id.length()<4) {
-//                System.out.println("Worng ID. Try again");
-//            }
+//        phone = input.next();
+//        char[] phoneArray = phone.toCharArray();
+//        String  newPhone="0";
+//        int n=phone.length();
+//        while (n!=10 || phoneArray[0]!='9') {
+//            System.out.println("Worng entry. Try again");
+//            phone = input.next();
+//            n=phone.length();
+//            phoneArray = phone.toCharArray();
 //        }
-//        return id;
+//        newPhone+=phone;
+//        return newPhone;
 //    }
+
+    public static String userId(String id)
+    {
+        Scanner input = new Scanner(System.in);
+        int n=0;
+        while (n>13 || n<4) {
+            id = input.next();
+            n=id.length();
+            if(id.length()>13 || id.length()<4) {
+                System.out.println("Worng ID. Try again");
+            }
+        }
+        return id;
+    }
 
 //    public static String getInterests(String interest)
 //    {
