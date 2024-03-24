@@ -88,43 +88,43 @@ public class Main
 //            return x;
 //    }
 
-    public static String userFullInformation(String fullName, String phoneNumber, String userID,String interests)
-
-    {
-        Scanner input = new Scanner(System.in);
-        fullName = input.nextLine().trim();
-        phoneNumber = input.nextLine();
-        userID = input.nextLine();
-        interests = input.nextLine();
-        interests=interests.replace("}","").replace("{","").replace(" ","").replace("\"","");
-        String[] interestsArray = interests.split(",");
-        String output="Hello! My name is " + fullName + ". My ID is "+ userID + ". Here are some of my interests:";
-        for(int i=0;i<interestsArray.length;i++){
-            output=output + "\n" + (i+1) +"." +interestsArray[i];
-        }
-        output=output+"\n\n"+"You can reach me via my phone number "+phoneNumber+".";
-        return output;
-    }
-
-//    public static String informationEncoder(String information, String shift)
+//    public static String userFullInformation(String fullName, String phoneNumber, String userID,String interests)
+//
 //    {
 //        Scanner input = new Scanner(System.in);
-//        information = input.nextLine();
-//        shift = input.nextLine();
-//        int x=Integer.parseInt(shift);
-//        char[] info= information.toCharArray();
-//        int n=info.length;
-//        for(int i=0 ; i<n ; i++){
-//            if((info[i]<91 && info[i]>64 && (info[i]+x)>90)||(info[i]<123 && info[i]>96 && (info[i]+x)>122)){
-//                info[i]+=x;
-//                info[i]-=26;
-//            }else if((info[i]<91 && info[i]>64)||(info[i]<123 && info[i]>96)){
-//                info[i]+=x;
-//            }
+//        fullName = input.nextLine().trim();
+//        phoneNumber = input.nextLine();
+//        userID = input.nextLine();
+//        interests = input.nextLine();
+//        interests=interests.replace("}","").replace("{","").replace(" ","").replace("\"","");
+//        String[] interestsArray = interests.split(",");
+//        String output="Hello! My name is " + fullName + ". My ID is "+ userID + ". Here are some of my interests:";
+//        for(int i=0;i<interestsArray.length;i++){
+//            output=output + "\n" + (i+1) +"." +interestsArray[i];
 //        }
-//        String y= new String(info);
-//        return y;
+//        output=output+"\n\n"+"You can reach me via my phone number "+phoneNumber+".";
+//        return output;
 //    }
+
+    public static String informationEncoder(String information, String shift)
+    {
+        Scanner input = new Scanner(System.in);
+        information = input.nextLine();
+        shift = input.nextLine();
+        int x=Integer.parseInt(shift);
+        char[] info= information.toCharArray();
+        int n=info.length;
+        for(int i=0 ; i<n ; i++){
+            if((info[i]<91 && info[i]>64 && (info[i]+x)>90)||(info[i]<123 && info[i]>96 && (info[i]+x)>122)){
+                info[i]+=x;
+                info[i]-=26;
+            }else if((info[i]<91 && info[i]>64)||(info[i]<123 && info[i]>96)){
+                info[i]+=x;
+            }
+        }
+        String y= new String(info);
+        return y;
+    }
 
 //    public static String informationDecoder(String information, String shift)
 //    {
