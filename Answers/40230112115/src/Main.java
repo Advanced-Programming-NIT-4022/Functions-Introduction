@@ -106,27 +106,7 @@ public class Main
 //        return output;
 //    }
 
-    public static String informationEncoder(String information, String shift)
-    {
-        Scanner input = new Scanner(System.in);
-        information = input.nextLine();
-        shift = input.nextLine();
-        int x=Integer.parseInt(shift);
-        char[] info= information.toCharArray();
-        int n=info.length;
-        for(int i=0 ; i<n ; i++){
-            if((info[i]<91 && info[i]>64 && (info[i]+x)>90)||(info[i]<123 && info[i]>96 && (info[i]+x)>122)){
-                info[i]+=x;
-                info[i]-=26;
-            }else if((info[i]<91 && info[i]>64)||(info[i]<123 && info[i]>96)){
-                info[i]+=x;
-            }
-        }
-        String y= new String(info);
-        return y;
-    }
-
-//    public static String informationDecoder(String information, String shift)
+//    public static String informationEncoder(String information, String shift)
 //    {
 //        Scanner input = new Scanner(System.in);
 //        information = input.nextLine();
@@ -135,15 +115,35 @@ public class Main
 //        char[] info= information.toCharArray();
 //        int n=info.length;
 //        for(int i=0 ; i<n ; i++){
-//            if((info[i]<91 && info[i]>64 && (info[i]-x)<65)||(info[i]<123 && info[i]>96 && (info[i]-x)<97)){
-//                info[i]-=x;
-//                info[i]+=26;
+//            if((info[i]<91 && info[i]>64 && (info[i]+x)>90)||(info[i]<123 && info[i]>96 && (info[i]+x)>122)){
+//                info[i]+=x;
+//                info[i]-=26;
 //            }else if((info[i]<91 && info[i]>64)||(info[i]<123 && info[i]>96)){
-//                info[i]-=x;
+//                info[i]+=x;
 //            }
 //        }
 //        String y= new String(info);
 //        return y;
 //    }
+
+    public static String informationDecoder(String information, String shift)
+    {
+        Scanner input = new Scanner(System.in);
+        information = input.nextLine();
+        shift = input.nextLine();
+        int x=Integer.parseInt(shift);
+        char[] info= information.toCharArray();
+        int n=info.length;
+        for(int i=0 ; i<n ; i++){
+            if((info[i]<91 && info[i]>64 && (info[i]-x)<65)||(info[i]<123 && info[i]>96 && (info[i]-x)<97)){
+                info[i]-=x;
+                info[i]+=26;
+            }else if((info[i]<91 && info[i]>64)||(info[i]<123 && info[i]>96)){
+                info[i]-=x;
+            }
+        }
+        String y= new String(info);
+        return y;
+    }
 
 }
