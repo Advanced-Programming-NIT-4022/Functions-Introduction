@@ -11,13 +11,15 @@ public class Main {
     }
     public static String fullName(String firstName, String lastName)
     {
-        String resultFirstName = normalizer(firstName);
+        String resultFirstName =normalizer(firstName);
         String resultLastName = normalizer(lastName);
+
         return (resultFirstName + " " + resultLastName);
 
     }
     public static String phoneNumber(String number)
     {
+
         if(number.length() == 10 && number.charAt(0)=='9')
         {
             return ("0"+number);
@@ -25,8 +27,40 @@ public class Main {
         else
         {
             System.out.println("wrong entry. try again");
-            phoneNumber(scanner.next());
+            phoneNumber(scanner.nextLine());
         }
+        return null;
+
+    }
+    public static String userId(String Id)
+    {
+        if (Id.length()>4 && Id.length()<13)
+        {
+            return Id;
+        }
+        else
+        {
+             System.out.println("wrong entry. try again");
+             userId(scanner.nextLine());
+        }
+        return null;
+
+    }
+
+    public static String[] getInterests(String interests)
+    {
+
+        String[] interestsList = new String[10];
+        String temp = new String();
+
+        if(interests.equals("done"))
+        {
+            return interestsList;
+        }
+
+
+
+
 
     }
     public static void main(String[] args)
