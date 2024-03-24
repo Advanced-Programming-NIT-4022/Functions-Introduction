@@ -51,42 +51,42 @@ public class Main
 //        return newPhone;
 //    }
 
-    public static String userId(String id)
-    {
-        Scanner input = new Scanner(System.in);
-        int n=0;
-        while (n>13 || n<4) {
-            id = input.next();
-            n=id.length();
-            if(id.length()>13 || id.length()<4) {
-                System.out.println("Worng ID. Try again");
-            }
-        }
-        return id;
-    }
-
-//    public static String getInterests(String interest)
+//    public static String userId(String id)
 //    {
 //        Scanner input = new Scanner(System.in);
-//        int i=0;
-//        interest="";
-//        String x="{";
-//        while(i<10){
-//            interest = input.nextLine();
-//            if(interest.length()!=0){
-//            x= x+ "\"" + interest+ "\",";
-//            }else{
-//                break;
+//        int n=0;
+//        while (n>13 || n<4) {
+//            id = input.next();
+//            n=id.length();
+//            if(id.length()>13 || id.length()<4) {
+//                System.out.println("Worng ID. Try again");
 //            }
-//            i++;
 //        }
-//        if(x.length()!=1) {
-//            x = x.substring(0, x.length() - 1) + "}";
-//        }else{
-//            x="{}";
-//        }
-//            return x;
+//        return id;
 //    }
+
+    public static String getInterests(String interest)
+    {
+        Scanner input = new Scanner(System.in);
+        int i=0;
+        interest="";
+        String x="{";
+        while(i<10){
+            interest = input.nextLine();
+            if(interest.length()!=0){
+            x= x+ "\"" + interest+ "\",";
+            }else{
+                break;
+            }
+            i++;
+        }
+        if(x.length()!=1) {
+            x = x.substring(0, x.length() - 1) + "}";
+        }else{
+            x="{}";
+        }
+            return x;
+    }
 
 //    public static String userFullInformation(String fullName, String phoneNumber, String userID,String interests)
 //
