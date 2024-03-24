@@ -47,22 +47,27 @@ public class Main {
 
     }
 
-    public static String[] getInterests(String interests)
-    {
+    public static String[] getInterests (String interests) {
 
         String[] interestsList = new String[10];
-        String temp = new String();
-
-        if(interests.equals("done"))
+       for( int interestsListIndex = 0; interestsListIndex < 10; interestsListIndex++)
         {
-            return interestsList;
+            if (interests.equals("done"))
+            {
+                break;
+            }
+            interestsList[interestsListIndex] = interests;
+            interests = scanner.nextLine();
         }
+        return interestsList;
+
 
 
 
 
 
     }
+
     public static void main(String[] args)
     {
 
